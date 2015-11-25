@@ -15,6 +15,7 @@
 		04576B071C0659F5007E552A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04576B061C0659F5007E552A /* Images.xcassets */; };
 		04576B0A1C0659F5007E552A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04576B081C0659F5007E552A /* LaunchScreen.xib */; };
 		04576B161C0659F5007E552A /* EventSonicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04576B151C0659F5007E552A /* EventSonicTests.m */; };
+		383CF9CF949106A95EB19540 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 148B1E6DAD030168B708B437 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,9 @@
 		04576B0F1C0659F5007E552A /* EventSonicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventSonicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04576B141C0659F5007E552A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04576B151C0659F5007E552A /* EventSonicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventSonicTests.m; sourceTree = "<group>"; };
+		148B1E6DAD030168B708B437 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5019AABAF3FB649E4711246 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		EA27236A99B79999C4D3D32E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383CF9CF949106A95EB19540 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +73,8 @@
 				04576AF51C0659F5007E552A /* EventSonic */,
 				04576B121C0659F5007E552A /* EventSonicTests */,
 				04576AF41C0659F5007E552A /* Products */,
+				26C20ABA03B3E856AA167632 /* Pods */,
+				D002417953B07BF357554886 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +129,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		26C20ABA03B3E856AA167632 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA27236A99B79999C4D3D32E /* Pods.debug.xcconfig */,
+				B5019AABAF3FB649E4711246 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D002417953B07BF357554886 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				148B1E6DAD030168B708B437 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04576B191C0659F5007E552A /* Build configuration list for PBXNativeTarget "EventSonic" */;
 			buildPhases = (
+				1AE37C03E7F42C7B7FE1D9AE /* Check Pods Manifest.lock */,
 				04576AEF1C0659F5007E552A /* Sources */,
 				04576AF01C0659F5007E552A /* Frameworks */,
 				04576AF11C0659F5007E552A /* Resources */,
+				125AB6177F9551457E274A0A /* Embed Pods Frameworks */,
+				A043E57897609D051F855FA7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,6 +243,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		125AB6177F9551457E274A0A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1AE37C03E7F42C7B7FE1D9AE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A043E57897609D051F855FA7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04576AEF1C0659F5007E552A /* Sources */ = {
@@ -349,6 +424,7 @@
 		};
 		04576B1A1C0659F5007E552A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA27236A99B79999C4D3D32E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EventSonic/Info.plist;
@@ -359,6 +435,7 @@
 		};
 		04576B1B1C0659F5007E552A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5019AABAF3FB649E4711246 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EventSonic/Info.plist;
@@ -420,6 +497,7 @@
 				04576B1B1C0659F5007E552A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04576B1C1C0659F5007E552A /* Build configuration list for PBXNativeTarget "EventSonicTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +506,7 @@
 				04576B1E1C0659F5007E552A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
