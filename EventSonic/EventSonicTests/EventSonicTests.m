@@ -2,10 +2,11 @@
 //  EventSonicTests.m
 //  EventSonicTests
 //
-//  Created by Andres VIlla on 11/24/15.
-//  Copyright © 2015 Andres VIlla. All rights reserved.
+//  Created by Andres Villa on 11/25/15.
+//  Copyright (c) 2015 Andres Villa. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
 @interface EventSonicTests : XCTestCase
@@ -26,7 +27,7 @@
 
 - (void)testExample {
     // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    XCTAssert(YES, @"Pass");
 }
 
 - (void)testPerformanceExample {

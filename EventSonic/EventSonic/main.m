@@ -2,8 +2,8 @@
 //  main.m
 //  EventSonic
 //
-//  Created by Andres VIlla on 11/24/15.
-//  Copyright © 2015 Andres VIlla. All rights reserved.
+//  Created by Andres Villa on 11/25/15.
+//  Copyright (c) 2015 Andres Villa. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

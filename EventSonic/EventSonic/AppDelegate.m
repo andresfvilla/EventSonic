@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  EventSonic
 //
-//  Created by Andres VIlla on 11/24/15.
-//  Copyright © 2015 Andres VIlla. All rights reserved.
+//  Created by Andres Villa on 11/25/15.
+//  Copyright (c) 2015 Andres Villa. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -66,7 +66,7 @@
 }
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it.
+    // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it.
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
@@ -104,7 +104,7 @@
     if (!coordinator) {
         return nil;
     }
-    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    _managedObjectContext = [[NSManagedObjectContext alloc] init];
     [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     return _managedObjectContext;
 }
