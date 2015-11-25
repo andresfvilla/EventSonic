@@ -1,0 +1,4 @@
+Always use the EventSonic.xcworkspace file when making changes to the file. This is required for the google sdk
+a lot of the documentation for the sdk is located https://developers.google.com/maps/documentation/ios-sdk/map
+
+if you need help using this repo lmk, i suggest you start learning some objective c asap since we have less than a week to finish this. 
