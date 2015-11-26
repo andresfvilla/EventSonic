@@ -21,6 +21,7 @@
 		04576B071C0659F5007E552A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04576B061C0659F5007E552A /* Images.xcassets */; };
 		04576B0A1C0659F5007E552A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04576B081C0659F5007E552A /* LaunchScreen.xib */; };
 		04576B161C0659F5007E552A /* EventSonicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04576B151C0659F5007E552A /* EventSonicTests.m */; };
+		047AF4741C07650D0015AA02 /* EventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047AF4731C07650D0015AA02 /* EventsController.m */; };
 		383CF9CF949106A95EB19540 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 148B1E6DAD030168B708B437 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,8 @@
 		04576B0F1C0659F5007E552A /* EventSonicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventSonicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04576B141C0659F5007E552A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04576B151C0659F5007E552A /* EventSonicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventSonicTests.m; sourceTree = "<group>"; };
+		047AF4721C07650D0015AA02 /* EventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsController.h; sourceTree = "<group>"; };
+		047AF4731C07650D0015AA02 /* EventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsController.m; sourceTree = "<group>"; };
 		148B1E6DAD030168B708B437 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5019AABAF3FB649E4711246 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EA27236A99B79999C4D3D32E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,12 +116,14 @@
 				04576B001C0659F5007E552A /* ViewController.h */,
 				04576B011C0659F5007E552A /* ViewController.m */,
 				04576B031C0659F5007E552A /* Main.storyboard */,
-				043F78F21C0752C400AAA723 /* AccountController.h */,
-				043F78F31C0752C400AAA723 /* AccountController.m */,
 				043F78F51C0752D700AAA723 /* MapViewController.h */,
 				043F78F61C0752D700AAA723 /* MapViewController.m */,
 				043F78F81C0752E800AAA723 /* ListViewController.h */,
 				043F78F91C0752E800AAA723 /* ListViewController.m */,
+				047AF4721C07650D0015AA02 /* EventsController.h */,
+				047AF4731C07650D0015AA02 /* EventsController.m */,
+				043F78F21C0752C400AAA723 /* AccountController.h */,
+				043F78F31C0752C400AAA723 /* AccountController.m */,
 				043F78FB1C0752FB00AAA723 /* Events.h */,
 				043F78FC1C0752FB00AAA723 /* Events.m */,
 				043F78FE1C07530F00AAA723 /* AccountInfo.h */,
@@ -331,6 +336,7 @@
 				043F78F41C0752C400AAA723 /* AccountController.m in Sources */,
 				043F79031C07532800AAA723 /* GPS.m in Sources */,
 				04576AFC1C0659F5007E552A /* AppDelegate.m in Sources */,
+				047AF4741C07650D0015AA02 /* EventsController.m in Sources */,
 				043F78FA1C0752E800AAA723 /* ListViewController.m in Sources */,
 				04576AF91C0659F5007E552A /* main.m in Sources */,
 				043F78F71C0752D700AAA723 /* MapViewController.m in Sources */,

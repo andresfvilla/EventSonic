@@ -100,7 +100,7 @@
         <!--Map-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -119,15 +119,15 @@
             </objects>
             <point key="canvasLocation" x="1404" y="-543"/>
         </scene>
-        <!--View Controller-->
+        <!--Events Controller-->
         <scene sceneID="Kwb-Gt-1ah">
             <objects>
-                <viewController id="ZDW-11-QKc" sceneMemberID="viewController">
+                <viewController id="ZDW-11-QKc" customClass="EventsController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PkU-b8-1Q1"/>
                         <viewControllerLayoutGuide type="bottom" id="qAt-gd-Wt0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fhL-Zh-QBU">
+                    <view key="view" contentMode="scaleToFill" id="fhL-Zh-QBU" customClass="I">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -146,6 +146,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="back" destination="9s3-3J-Jq1" id="8ga-s6-drw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6E-el-bJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
