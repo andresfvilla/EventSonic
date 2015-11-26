@@ -65,7 +65,7 @@
          NSLog(@"hitting this");
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: manager.location.coordinate.latitude
                                                                 longitude: manager.location.coordinate.longitude
-                                                                     zoom:6];
+                                                                     zoom:10];
         mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
         mapView_.myLocationEnabled = YES;
         self.view = mapView_;
@@ -95,26 +95,6 @@
     NSLog(@"Failed to get location! :(");
 }
 
-//-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
-//    NSLog(@"Location: %@", newLocation);
-//    CLLocation * currentLocation = newLocation;
-//    if(currentLocation !=nil){
-//        //set your variables to keep track of the location
-//        NSLog(@"%@", [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude]);
-//        NSLog(@"%@", [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude]);
-//    }
-//    
-//    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-//        
-//        if(error == nil && [placemarks count] > 0){
-//            placemark = [placemarks lastObject];
-//            NSLog(@"%@",[NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@", placemark.subThoroughfare, placemark.thoroughfare, placemark.postalCode, placemark.locality, placemark.administrativeArea, placemark.country]);
-//        }
-//        else{
-//            NSLog(@"%@", error.debugDescription);
-//        }
-//    }];
-//}
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     //NSLog(@"Location: %@", [locations objectAtIndex:[locations count]-1]);
@@ -138,27 +118,5 @@
     userLocation = currentLocation;
     [self setupGoogleMap];
 }
-
-//
-//#pragma mark - CLLocationManagerDelegate
-//
-//- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-//{
-//    NSLog(@"didFailWithError: %@", error);
-//    UIAlertView *errorAlert = [[UIAlertView alloc]
-//                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//    [errorAlert show];
-//}
-//
-//- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-//{
-//    NSLog(@"didUpdateToLocation: %@", newLocation);
-//    CLLocation *currentLocation = newLocation;
-//    
-//    if (currentLocation != nil) {
-//        //longitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-//        //latitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
-//    }
-//}
 
 @end
