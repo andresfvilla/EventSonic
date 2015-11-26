@@ -56,12 +56,23 @@
 }
 
 -(void)setupGoogleMap{
-   // NSLog(@"mapview.camera%@", mapView_.camera);
+    //uses haversines formula to find the distance around the globe using latitude and longitude of 2 points
+//    ZFHaversine * distanceAndBearing = [[ZFHaversine alloc] init];
+//    [distanceAndBearing setLatitude1:mapView_.camera.target.latitude];
+//    [distanceAndBearing setLongitude1:mapView_.camera.target.longitude];
+//    
+//    [distanceAndBearing setLatitude2:userLocation.coordinate.latitude];
+//    [distanceAndBearing setLongitude2:userLocation.coordinate.longitude];
+    ZFHaversine *distanceAndBearing = [[ZFHaversine alloc] initWithLatitude1:mapView_.myLocation.coordinate.latitude
+                                                                  longitude1:mapView_.myLocation.coordinate.longitude
+                                                                   latitude2:userLocation.coordinate.latitude
+                                                                  longitude2:userLocation.coordinate.longitude];
+   // NSLog(@"mapview.camera: %f, %f", mapView_.camera.target.latitude, mapView_.camera.target.longitude);
+   // NSLog(@"userLocation: %f, %f", userLocation.coordinate.latitude, userLocation.coordinate.longitude);
+//    NSLog(@"%f\n\n", [distanceAndBearing miles]);
     //if the user is still within a certain distance, theres no reason to reset the camera, if its null though, override the value since it hasnt been instantiated
-    if(sqrt((mapView_.camera.target.latitude*mapView_.camera.target.latitude - userLocation.coordinate.latitude*userLocation.coordinate.latitude)
-            + manager.location.coordinate.longitude*manager.location.coordinate.longitude - userLocation.coordinate.longitude*userLocation.coordinate.longitude)>=50
-            || mapView_.camera == NULL){
-        
+    
+    if(mapView_.camera == NULL){
          NSLog(@"hitting this");
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: manager.location.coordinate.latitude
                                                                 longitude: manager.location.coordinate.longitude
@@ -77,6 +88,9 @@
         marker.snippet = @"Florida";
         marker.map = mapView_;
     }
+    if([distanceAndBearing miles]>=10){
+    }
+    [Events getEvents];
 }
 /*
 #pragma mark - Navigation

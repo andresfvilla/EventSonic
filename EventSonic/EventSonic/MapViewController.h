@@ -10,6 +10,7 @@
 #import "Events.h"
 #import "GPS.h"
 #import <CoreLocation/CoreLocation.h>
+#import <ZFHaversine/ZFHaversine.h>
 
 @interface MapViewController : UIViewController <CLLocationManagerDelegate>
 

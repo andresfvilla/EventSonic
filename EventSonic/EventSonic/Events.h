@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface Events : NSObject
+#import <CoreLocation/CoreLocation.h>
+@interface Events : NSObject <CLLocationManagerDelegate>
 
 @property NSMutableArray * events;
 
 -(BOOL)createEvent: (Events *) e;//used when user wishes to create a new event
 -(Events *)getEventsInfo: (Events *) e;//use when user wishes to get more info for a specific event
-//-(Events *)eventsAt:(Location loc);//When the user wishes to see events at a certain location
+-(Events *)eventsAt:(CLLocation * loc);//When the user wishes to see events at a certain location
 
 @end
