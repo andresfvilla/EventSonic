@@ -4,11 +4,10 @@
     <entity name="Events" syncable="YES">
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="parking" optional="YES" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Events" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Accounts" positionX="-54" positionY="-9" width="128" height="45"/>
+        <element name="Events" positionX="-63" positionY="-18" width="128" height="90"/>
     </elements>
 </model>

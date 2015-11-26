@@ -35,7 +35,7 @@
             </objects>
             <point key="canvasLocation" x="1404" y="217"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Account Details-->
         <scene sceneID="bce-Aw-nMZ">
             <objects>
                 <tableViewController id="Ilt-Ch-kn7" sceneMemberID="viewController">
@@ -56,11 +56,29 @@
                             <outlet property="delegate" destination="Ilt-Ch-kn7" id="MX5-Yw-4Ox"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="7Ja-nA-ze1"/>
+                    <navigationItem key="navigationItem" title="Account Details" id="7Ja-nA-ze1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uzq-83-7F5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2207" y="914"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EXo-7H-03A">
+            <objects>
+                <viewController id="mub-oe-y5l" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Kb-9X-FQP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q1j-M1-ncJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bre-2l-zxn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGa-Mj-0PW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1463" y="1703"/>
         </scene>
         <!--Account-->
         <scene sceneID="5Bd-NL-d2p">
@@ -116,7 +134,7 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5F8-Q1-y9D">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Nav Bar" id="eJB-jI-DfL"/>
+                                    <navigationItem title="Event Info" id="eJB-jI-DfL"/>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9s3-3J-Jq1">

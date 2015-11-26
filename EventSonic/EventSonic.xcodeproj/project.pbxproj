@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043F78F41C0752C400AAA723 /* AccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043F78F31C0752C400AAA723 /* AccountController.m */; };
+		043F78F71C0752D700AAA723 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043F78F61C0752D700AAA723 /* MapViewController.m */; };
+		043F78FA1C0752E800AAA723 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043F78F91C0752E800AAA723 /* ListViewController.m */; };
+		043F78FD1C0752FB00AAA723 /* Events.m in Sources */ = {isa = PBXBuildFile; fileRef = 043F78FC1C0752FB00AAA723 /* Events.m */; };
+		043F79001C07530F00AAA723 /* AccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 043F78FF1C07530F00AAA723 /* AccountInfo.m */; };
+		043F79031C07532800AAA723 /* GPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 043F79021C07532800AAA723 /* GPS.m */; };
 		04576AF91C0659F5007E552A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04576AF81C0659F5007E552A /* main.m */; };
 		04576AFC1C0659F5007E552A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04576AFB1C0659F5007E552A /* AppDelegate.m */; };
 		04576AFF1C0659F5007E552A /* EventSonic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04576AFD1C0659F5007E552A /* EventSonic.xcdatamodeld */; };
@@ -29,6 +35,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043F78F21C0752C400AAA723 /* AccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountController.h; sourceTree = "<group>"; };
+		043F78F31C0752C400AAA723 /* AccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountController.m; sourceTree = "<group>"; };
+		043F78F51C0752D700AAA723 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		043F78F61C0752D700AAA723 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		043F78F81C0752E800AAA723 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		043F78F91C0752E800AAA723 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		043F78FB1C0752FB00AAA723 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
+		043F78FC1C0752FB00AAA723 /* Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Events.m; sourceTree = "<group>"; };
+		043F78FE1C07530F00AAA723 /* AccountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfo.h; sourceTree = "<group>"; };
+		043F78FF1C07530F00AAA723 /* AccountInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountInfo.m; sourceTree = "<group>"; };
+		043F79011C07532800AAA723 /* GPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPS.h; sourceTree = "<group>"; };
+		043F79021C07532800AAA723 /* GPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPS.m; sourceTree = "<group>"; };
 		04576AF31C0659F5007E552A /* EventSonic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventSonic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04576AF71C0659F5007E552A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04576AF81C0659F5007E552A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +113,18 @@
 				04576B001C0659F5007E552A /* ViewController.h */,
 				04576B011C0659F5007E552A /* ViewController.m */,
 				04576B031C0659F5007E552A /* Main.storyboard */,
+				043F78F21C0752C400AAA723 /* AccountController.h */,
+				043F78F31C0752C400AAA723 /* AccountController.m */,
+				043F78F51C0752D700AAA723 /* MapViewController.h */,
+				043F78F61C0752D700AAA723 /* MapViewController.m */,
+				043F78F81C0752E800AAA723 /* ListViewController.h */,
+				043F78F91C0752E800AAA723 /* ListViewController.m */,
+				043F78FB1C0752FB00AAA723 /* Events.h */,
+				043F78FC1C0752FB00AAA723 /* Events.m */,
+				043F78FE1C07530F00AAA723 /* AccountInfo.h */,
+				043F78FF1C07530F00AAA723 /* AccountInfo.m */,
+				043F79011C07532800AAA723 /* GPS.h */,
+				043F79021C07532800AAA723 /* GPS.m */,
 				04576B061C0659F5007E552A /* Images.xcassets */,
 				04576B081C0659F5007E552A /* LaunchScreen.xib */,
 				04576AFD1C0659F5007E552A /* EventSonic.xcdatamodeld */,
@@ -297,10 +327,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043F78FD1C0752FB00AAA723 /* Events.m in Sources */,
+				043F78F41C0752C400AAA723 /* AccountController.m in Sources */,
+				043F79031C07532800AAA723 /* GPS.m in Sources */,
 				04576AFC1C0659F5007E552A /* AppDelegate.m in Sources */,
+				043F78FA1C0752E800AAA723 /* ListViewController.m in Sources */,
 				04576AF91C0659F5007E552A /* main.m in Sources */,
+				043F78F71C0752D700AAA723 /* MapViewController.m in Sources */,
 				04576B021C0659F5007E552A /* ViewController.m in Sources */,
 				04576AFF1C0659F5007E552A /* EventSonic.xcdatamodeld in Sources */,
+				043F79001C07530F00AAA723 /* AccountInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
