@@ -15,4 +15,13 @@
     return self;
 }
 
+-(BOOL)createEvent: (Events *) e{
+    return YES;
+}
+
+
+-(Events *)getEventsInfo: (Events *) e{
+    return [[Events alloc] init];
+}
+
 @end

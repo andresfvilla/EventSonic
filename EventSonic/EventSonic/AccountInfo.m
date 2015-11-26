@@ -10,6 +10,16 @@
 
 @implementation AccountInfo
 
+-(BOOL)login:(NSString *) username password: (NSString *) password{
+    return YES;
+}
 
+-(NSMutableArray *)favorites:(NSString *)username{
+    return [[NSMutableArray alloc] init];
+}
+
+-(BOOL)addFavorite: (Events *) e{
+    return YES;
+}
 
 @end

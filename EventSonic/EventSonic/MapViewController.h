@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Events.h"
+#import "GPS.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController <CLLocationManagerDelegate>
 
+@property(nonatomic, strong) CLLocationManager * manager;
 //@property View CurrentView;//we also need to access attributes on the currentView
 @property int eventCount;//number of events currently being displayed to the user
 @property NSMutableArray * events;//the list of events being shown to the user

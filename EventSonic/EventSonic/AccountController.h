@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AccountController : UIViewController
+@interface AccountController : UITableViewController
 
 @property NSString * username;
 
