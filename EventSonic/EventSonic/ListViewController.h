@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "Events.h"
-//#import "GPS.h"
-//#import <CoreLocation/CoreLocation.h>
+#import <CoreData/CoreData.h>
+#import <ZFHaversine/ZFHaversine.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ListViewController : UITableViewController
+@interface ListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property IBOutlet UITableView * table;
+
+@property NSMutableArray * name;
+@property NSMutableArray * time;
 
 //@property View CurrentView;//we also need to access attributes on the currentView
 @property int eventCount;//number of events currently being displayed to the user

@@ -14,7 +14,6 @@
 
 @implementation EventsController
 
-@synthesize back;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,4 +35,6 @@
 }
 */
 
+- (IBAction)clickBack:(id)sender {
+}
 @end

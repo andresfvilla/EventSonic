@@ -28,6 +28,21 @@
     
 }
 
+//Table view delegate methods
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.name.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString * cellID = @"cellID";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if(cell ==nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    cell.textLabel.text = [self.name objectAtIndex:indexPath.row];
+    return cell;
+}
 /*
 #pragma mark - Navigation
 

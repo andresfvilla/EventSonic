@@ -7,7 +7,7 @@
 //
 
 #import "MapViewController.h"
-#import <GoogleMaps/GoogleMaps.h>
+#import "AppDelegate.h"
 
 @interface MapViewController ()
 
@@ -21,16 +21,43 @@
 }
 
 @synthesize eventCount, events, eventInfo, manager;
+@synthesize name, time;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
     
-    //gets the users location and instantiates the map at that location
-    
-    //this is to retrieve the users current location
+    //manages core data for device
+//    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+//    NSManagedObjectContext * context = [appDelegate managedObjectContext];
+//    NSEntityDescription * entityDesc = [NSEntityDescription entityForName:@"Events" inManagedObjectContext:context];
+//    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+//    [request setEntity:entityDesc];
+//    NSPredicate * pred = [NSPredicate predicateWithFormat:@"(name = %@)", @"FIU football game"];
+//    [request setPredicate:pred];
+//    NSManagedObject *matches = nil;
+//    
+//    NSError * error;
+//    NSArray * objects = [context executeFetchRequest:request error:&error];
+//    
+//    if([objects count] ==0)
+//    {
+//        NSLog(@"No Matches");
+//    }
+//    else
+//    {
+//        for(int i =0; i<[objects count]; i++)
+//        {
+//            matches = objects[i];
+//            [self.name addObject:[matches valueForKey:@"name"]];
+//            [self.time addObject:[matches valueForKey:@"time"]];
+//
+//        }
+//    }
    
-    //this is
+    
+    
+    //this is used to find the useres current location
         self.manager = [[CLLocationManager alloc] init];
     self.manager.delegate = self;
     self.manager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -53,44 +80,67 @@
 
 -(void)click:(UIButton *)b{
     NSLog(@"This responded to a click");
+//    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+//    NSManagedObjectContext * context = [appDelegate managedObjectContext];
+//    NSManagedObject * newContact;
+//    
+//    newContact = [NSEntityDescription insertNewObjectForEntityForName:@"Events" inManagedObjectContext:context];
+//    [newContact setValue: @"???" forKey:@"???"];
+//    [self.name addObject: @"???"];
+//    [newContact setValue:@"???" forKey:@"???"];
+//    [self.time addObject:@"???"];
+//    [newContact setValue:@"???" forKey:@"???"];
+//    [self.time addObject:@"???"];
+//    NSError * error;
+//    [context save:&error];
+//    NSLog(@"saved some stuff");
 }
 
 -(void)setupGoogleMap{
     //uses haversines formula to find the distance around the globe using latitude and longitude of 2 points
-//    ZFHaversine * distanceAndBearing = [[ZFHaversine alloc] init];
-//    [distanceAndBearing setLatitude1:mapView_.camera.target.latitude];
-//    [distanceAndBearing setLongitude1:mapView_.camera.target.longitude];
-//    
-//    [distanceAndBearing setLatitude2:userLocation.coordinate.latitude];
-//    [distanceAndBearing setLongitude2:userLocation.coordinate.longitude];
     ZFHaversine *distanceAndBearing = [[ZFHaversine alloc] initWithLatitude1:mapView_.myLocation.coordinate.latitude
                                                                   longitude1:mapView_.myLocation.coordinate.longitude
                                                                    latitude2:userLocation.coordinate.latitude
                                                                   longitude2:userLocation.coordinate.longitude];
-   // NSLog(@"mapview.camera: %f, %f", mapView_.camera.target.latitude, mapView_.camera.target.longitude);
-   // NSLog(@"userLocation: %f, %f", userLocation.coordinate.latitude, userLocation.coordinate.longitude);
-//    NSLog(@"%f\n\n", [distanceAndBearing miles]);
+    //NSLog(@"mapview.camera: %f, %f", mapView_.camera.target.latitude, mapView_.camera.target.longitude);
+    //NSLog(@"userLocation: %f, %f", userLocation.coordinate.latitude, userLocation.coordinate.longitude);
+    //NSLog(@"%f\n\n", [distanceAndBearing miles]);
     //if the user is still within a certain distance, theres no reason to reset the camera, if its null though, override the value since it hasnt been instantiated
     
     if(mapView_.camera == NULL){
          NSLog(@"hitting this");
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: manager.location.coordinate.latitude
                                                                 longitude: manager.location.coordinate.longitude
-                                                                     zoom:10];
+                                                                     zoom:14];
         mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
         mapView_.myLocationEnabled = YES;
+        mapView_.delegate = self;
         self.view = mapView_;
-    
+        
         // Creates a marker in the center of the map.
         GMSMarker *marker = [[GMSMarker alloc] init];
-        marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-        marker.title = @"Miami";
-        marker.snippet = @"Florida";
+        marker.position = CLLocationCoordinate2DMake(manager.location.coordinate.latitude, manager.location.coordinate.longitude);
+        marker.title = @"apple";
+        marker.snippet = @"Offices";
         marker.map = mapView_;
     }
     if([distanceAndBearing miles]>=10){
+        
     }
-    [Events getEvents];
+   // [Events getEvents];
+}
+
+-(void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
+    NSLog(@"found a tap and creating new event");
+
+    //take him to a new card for an event
+   // Events * event = [[Events alloc] init];
+}
+
+-(BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker{
+    //this will be used to take you to the detail page of that marker, if you have permissions and owner, you can edit that marker also
+    NSLog(@"Found a tap on a marker");
+    return YES;
 }
 /*
 #pragma mark - Navigation

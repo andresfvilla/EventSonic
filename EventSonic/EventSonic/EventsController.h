@@ -10,6 +10,7 @@
 
 @interface EventsController : UIViewController
 
-@property IBOutlet UIButton * back;//will send the user back to the viewcontroller that called this event
+@property NSString * callingView;//will send the user back to the viewcontroller that called this event
+- (IBAction)clickBack:(id)sender;
 
 @end

@@ -11,9 +11,15 @@
 #import "GPS.h"
 #import <CoreLocation/CoreLocation.h>
 #import <ZFHaversine/ZFHaversine.h>
+#import <CoreData/CoreData.h>
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface MapViewController : UIViewController <CLLocationManagerDelegate>
+@interface MapViewController : UIViewController <CLLocationManagerDelegate, GMSMapViewDelegate>
 
+@property NSMutableArray * name;
+@property NSMutableArray * time;
+
+//this is for the location of the user
 @property(nonatomic, strong) CLLocationManager * manager;
 //@property View CurrentView;//we also need to access attributes on the currentView
 @property int eventCount;//number of events currently being displayed to the user

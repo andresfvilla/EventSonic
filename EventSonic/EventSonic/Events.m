@@ -11,6 +11,7 @@
 
 @implementation Events
 
+@synthesize name, time, rating, location;
 -(id)init{
     return self;
 }
@@ -24,8 +25,8 @@
     return [[Events alloc] init];
 }
 
--(Events *)eventsAt:(CLLocation *) loc{
-    //do some stuff to return the events at that specified location
-}
+//-(Events *)eventsAt:(CLLocation *) loc{
+//    //do some stuff to return the events at that specified location
+//}
 
 @end
