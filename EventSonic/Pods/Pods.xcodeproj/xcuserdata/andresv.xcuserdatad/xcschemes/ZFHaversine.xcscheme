@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '32121EA1E226C69672633948'
+               BlueprintIdentifier = 'ADFB97ECD7A3B19ED17C4779'
                BlueprintName = 'ZFHaversine'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libZFHaversine.a'>

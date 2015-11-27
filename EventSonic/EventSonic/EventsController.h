@@ -28,5 +28,6 @@
 
 - (IBAction)clickBack:(id)sender;
 - (IBAction)clickSave:(id)sender;
+- (IBAction)editEvent:(Event *) event;
 
 @end

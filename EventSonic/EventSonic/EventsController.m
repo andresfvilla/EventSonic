@@ -37,9 +37,9 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) addEvent:(id)sender{
-
-    
+-(void) editEvent:(Event *) event{
+    NSLog(@"this will be called when a row is selected");
+    NSLog(@"%@", event.name);
 }
 
 /*
@@ -74,11 +74,11 @@
     //if system clock changes this will fail
     self.events = [self.events arrayByAddingObject:newEvent];
     
-    for(int i =0; i<events.count; i++){
-        NSLog(@"%@", ((Event *)[events objectAtIndex:i]).name);
-    }
+//    for(int i =0; i<events.count; i++){
+//        NSLog(@"EventController: %@", ((Event *)[events objectAtIndex:i]).name);
+//    }
     
-    // [self.tableView reloadData];
+     //[self.tableView reloadData];
     
 }
 

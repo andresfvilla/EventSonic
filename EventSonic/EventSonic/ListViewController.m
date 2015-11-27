@@ -14,29 +14,31 @@
 
 @implementation ListViewController
 
-@synthesize events, tableView;
+@synthesize events, table;
 - (void)viewDidLoad {
+    NSLog(@"loaded the view");
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
-    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-    
-    self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    
-    [self.tableView reloadData];
-    
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    
+    NSLog(@"did this");
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
 
-    [self.tableView reloadData];
+    
+//    for(int i =0; i<events.count; i++){
+//        NSLog(@"Event:%@", ((Event *)[events objectAtIndex:i]).name);
+//    }
+    NSLog(@"view appeared");
+//    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
+//    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+//    
+//    self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    //self.events = nil;
+    [table reloadData];
 }
 -(NSManagedObjectContext *)managedObjectContext{
     //finds the applications appdelegate, casts it to the type of our appdelegate and then it will find the managedobjectcontext
@@ -64,26 +66,35 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.events.count-1;//this needs to be revisited, should be equal to the number of events in the coredata
+    return self.events.count;//this needs to be revisited, should be equal to the number of events in the coredata
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    for(int i =0; i<events.count; i++){
+        NSLog(@"Event:%@", ((Event *)[events objectAtIndex:i]).name);
+    }
+    //NSLog(@"searching for a cell");
     static NSString * CellIdentifier = @"MainCell";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    Event * eventList = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    if(cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    //Event * eventList = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    Event * eventList = [self.events objectAtIndex:indexPath.row];
+
     cell.textLabel.text = eventList.name;
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSLog(@"selected a specific row");
-//    UIStoryboard * storyboard = self.storyboard;
-//    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
-//    vc.callingView = self;
-//    [self presentViewController:vc animated:YES completion:nil];
+    NSLog(@"selected a specific row");
+    UIStoryboard * storyboard = self.storyboard;
+    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+    vc.callingView = self;
+    [vc editEvent:[events objectAtIndex:indexPath.row]];
+    [self presentViewController:vc animated:YES completion:nil];
+    
 }
 /*
 #pragma mark - Navigation

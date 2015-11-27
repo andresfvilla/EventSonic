@@ -75,7 +75,6 @@
     //NSLog(@"userLocation: %f, %f", userLocation.coordinate.latitude, userLocation.coordinate.longitude);
     //NSLog(@"%f\n\n", [distanceAndBearing miles]);
     //if the user is still within a certain distance, theres no reason to reset the camera, if its null though, override the value since it hasnt been instantiated
-    
     if(mapView_.camera == NULL){
          NSLog(@"hitting this");
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: manager.location.coordinate.latitude
