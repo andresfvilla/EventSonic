@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Events.h"
+#import "Event.h"
 @interface AccountInfo : NSObject
 
 //favorites isnt a use case that is supposed to be implemented
 //@property favorites;//The user's list of favorites
 -(BOOL)login:(NSString *) username password: (NSString *) password;
 -(NSMutableArray *)favorites:(NSString *)username;
--(BOOL)addFavorite: (Events *) e;
+-(BOOL)addFavorite: (Event *) e;
 
 @end

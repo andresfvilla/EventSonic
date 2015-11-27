@@ -18,7 +18,7 @@
     return [[NSMutableArray alloc] init];
 }
 
--(BOOL)addFavorite: (Events *) e{
+-(BOOL)addFavorite: (Event *) e{
     return YES;
 }
 
