@@ -1,13 +1,33 @@
 PODS:
+  - Google (1.2.1):
+    - Google/Core (= 1.2.1)
+  - Google/Core (1.2.1):
+    - GoogleInterchangeUtilities (~> 1.0)
+    - GoogleNetworkingUtilities (~> 1.0)
+    - GoogleSymbolUtilities (~> 1.0)
+    - GoogleUtilities (~> 1.1)
+  - GoogleInterchangeUtilities (1.1.0):
+    - GoogleSymbolUtilities (~> 1.0)
   - GoogleMaps (1.10.5)
+  - GoogleNetworkingUtilities (1.0.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleSymbolUtilities (1.0.3)
+  - GoogleUtilities (1.1.0):
+    - GoogleSymbolUtilities (~> 1.0.0)
   - ZFHaversine (0.3)
 
 DEPENDENCIES:
+  - Google
   - GoogleMaps
   - ZFHaversine (~> 0.3)
 
 SPEC CHECKSUMS:
+  Google: fd33b5fa40fa3aaee5176de49c873a74e3d11dce
+  GoogleInterchangeUtilities: d7f7174176fbcf9710f696f1acebad4dbd98ac03
   GoogleMaps: da51c62c338c2d9c47cdad470a0d1e0e4b8544e4
+  GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
+  GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
+  GoogleUtilities: 8ed9134debe11719097881711464752900668f10
   ZFHaversine: c5b6cd9e387d46a8049911027c5a15f5f4098fb6
 
 COCOAPODS: 0.39.0

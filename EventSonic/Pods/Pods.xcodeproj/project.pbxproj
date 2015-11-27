@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35EDDA19E63BB2F3A41CCBE85160082F /* ZFHaversine-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BC884DDC0B9B350D903D2BCBB0E4E395 /* ZFHaversine-dummy.m */; };
-		5CE604B81EB0494C50BB95CC3CD9456D /* ZFHaversine.m in Sources */ = {isa = PBXBuildFile; fileRef = 132F08CBE088B0148B2A3AD2CBA4E6BB /* ZFHaversine.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		AB7DE8E06AB8015265123BE666DF1380 /* ZFHaversine.h in Headers */ = {isa = PBXBuildFile; fileRef = 685F858EE3DD7FAA02E2782249EF7CE4 /* ZFHaversine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35EDDA19E63BB2F3A41CCBE85160082F /* ZFHaversine-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B2969784AD307DDB42458BFEA1670CAE /* ZFHaversine-dummy.m */; };
+		5CE604B81EB0494C50BB95CC3CD9456D /* ZFHaversine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB2772B39B7BF8E3828DB20BDC579D9 /* ZFHaversine.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AB7DE8E06AB8015265123BE666DF1380 /* ZFHaversine.h in Headers */ = {isa = PBXBuildFile; fileRef = 79CE2153E82698BE7ED074FA7A0F4F99 /* ZFHaversine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAEF38A9514EFE5774E4A724D6E39590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		D27FCCD27492778481EADB2F511654D1 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
 		E26A110E79B4210E648B571B268B56C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
@@ -27,23 +27,56 @@
 
 /* Begin PBXFileReference section */
 		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		132F08CBE088B0148B2A3AD2CBA4E6BB /* ZFHaversine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZFHaversine.m; path = ZFHaversine/ZFHaversine.m; sourceTree = "<group>"; };
-		1B673E673E72D603685EF42A29DC833D /* ZFHaversine.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZFHaversine.xcconfig; sourceTree = "<group>"; };
+		1716DC8E3BEFB103E389210DE4803AD2 /* libGGLCore.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLCore.a; path = Libraries/libGGLCore.a; sourceTree = "<group>"; };
+		1976E4485D1D35110AB8650D015356BB /* GGLErrorCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLErrorCode.h; path = Headers/GGLCore/Public/GGLErrorCode.h; sourceTree = "<group>"; };
+		1CA94E48B8BE19C7040A81C479EC5EA5 /* libGTM_GTMURLBuilder.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_GTMURLBuilder.a; path = Libraries/libGTM_GTMURLBuilder.a; sourceTree = "<group>"; };
 		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		33CD483186C903627B869945EF19F633 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		27D3764E77A282E5A34BD481698BC57E /* libGTM_UIFont+LineHeight.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_UIFont+LineHeight.a"; path = "Libraries/libGTM_UIFont+LineHeight.a"; sourceTree = "<group>"; };
+		27FE5107AFB890C84AFB35C2E4F90E76 /* ZFHaversine.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZFHaversine.xcconfig; sourceTree = "<group>"; };
+		29E1712FD2D53FE99DECCB7BE4F97E58 /* AppInvite-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AppInvite-Module.h"; path = "Headers/ModuleHeaders/AppInvite-Module.h"; sourceTree = "<group>"; };
+		2A59F9213C78568E6B1EEF1B4EFF1405 /* ZFHaversine-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZFHaversine-prefix.pch"; sourceTree = "<group>"; };
+		3040791A37117E99FCE951B37B20CB96 /* libGTM_SystemVersion.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_SystemVersion.a; path = Libraries/libGTM_SystemVersion.a; sourceTree = "<group>"; };
+		31A2DD56BCEDD5E9E8DD299DCD41A019 /* libGTMSessionFetcher_full.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMSessionFetcher_full.a; path = Libraries/libGTMSessionFetcher_full.a; sourceTree = "<group>"; };
 		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3AB2772B39B7BF8E3828DB20BDC579D9 /* ZFHaversine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZFHaversine.m; path = ZFHaversine/ZFHaversine.m; sourceTree = "<group>"; };
+		3C713E63342E76912BCAC2E333CDA1AE /* libGSDK_Overload.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGSDK_Overload.a; path = Libraries/libGSDK_Overload.a; sourceTree = "<group>"; };
+		3DC0028EE532D4D4695F0B1EDD7388AD /* Analytics-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Analytics-Module.h"; path = "Headers/ModuleHeaders/Analytics-Module.h"; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		417E405B85E5119D075C284A39D0EA98 /* CloudMessaging-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CloudMessaging-Module.h"; path = "Headers/ModuleHeaders/CloudMessaging-Module.h"; sourceTree = "<group>"; };
+		43E9168C84FA99D33CED2109B0051483 /* GGLContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLContext.h; path = Headers/GGLCore/Public/GGLContext.h; sourceTree = "<group>"; };
 		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		685F858EE3DD7FAA02E2782249EF7CE4 /* ZFHaversine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZFHaversine.h; path = ZFHaversine/ZFHaversine.h; sourceTree = "<group>"; };
+		51A9543E66DCBF1821A55A121F954510 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		51B38ADD1CD3EBCC340CDF6074A9D5C9 /* GMRConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMRConfiguration.h; path = Headers/GGLCore/Public/GMRConfiguration.h; sourceTree = "<group>"; };
 		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
 		6A61C5B841D5A4D089885D47F6DEAB37 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B07EE56738B3EAF6F7B41395E903024 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		6F48A48960BCD2D64617B5B7F66750C6 /* libGTM_StringEncoding.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_StringEncoding.a; path = Libraries/libGTM_StringEncoding.a; sourceTree = "<group>"; };
+		79CE2153E82698BE7ED074FA7A0F4F99 /* ZFHaversine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZFHaversine.h; path = ZFHaversine/ZFHaversine.h; sourceTree = "<group>"; };
+		7ADDC150CFB069546DDF44FC44161F74 /* libGTM_KVO.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_KVO.a; path = Libraries/libGTM_KVO.a; sourceTree = "<group>"; };
+		94EE5BDE0B4F832047602248D05790AA /* libGTM_RoundedRectPath.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_RoundedRectPath.a; path = Libraries/libGTM_RoundedRectPath.a; sourceTree = "<group>"; };
 		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		9BDF402C557F13446D25770CABFCBEBF /* libGTM_Regex.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_Regex.a; path = Libraries/libGTM_Regex.a; sourceTree = "<group>"; };
+		9F34417F6095ECA47CCD0BBCBDF6CC96 /* SignIn-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SignIn-Module.h"; path = "Headers/ModuleHeaders/SignIn-Module.h"; sourceTree = "<group>"; };
+		9FA7F0EB2D6FC0ED86A00FD82426BA8C /* libGTMSessionFetcher_core.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMSessionFetcher_core.a; path = Libraries/libGTMSessionFetcher_core.a; sourceTree = "<group>"; };
 		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		A4825F27E6D68F05D0FBCCFA1D81AC3E /* libGTM_NSDictionary+URLArguments.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_NSDictionary+URLArguments.a"; path = "Libraries/libGTM_NSDictionary+URLArguments.a"; sourceTree = "<group>"; };
+		A8A75D8B43740186A2CA4C9022FD4F88 /* Core-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Core-Module.h"; path = "Headers/ModuleHeaders/Core-Module.h"; sourceTree = "<group>"; };
+		AAE585644C92FFDB36D1F1FF14F4C5C5 /* libGTM_NSData+zlib.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_NSData+zlib.a"; path = "Libraries/libGTM_NSData+zlib.a"; sourceTree = "<group>"; };
+		AD0AFBF16B935AB877DB4EB6865D2BB9 /* AdMob-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AdMob-Module.h"; path = "Headers/ModuleHeaders/AdMob-Module.h"; sourceTree = "<group>"; };
 		AE23BFA5CA2865E5DC512C811BDC77B0 /* libZFHaversine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZFHaversine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2969784AD307DDB42458BFEA1670CAE /* ZFHaversine-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZFHaversine-dummy.m"; sourceTree = "<group>"; };
+		B66EC05003469E384F99F1AA86B85513 /* libGTM_core.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_core.a; path = Libraries/libGTM_core.a; sourceTree = "<group>"; };
+		B71703B05960A874CC45C20BACE555B6 /* libGTM_iPhone.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_iPhone.a; path = Libraries/libGTM_iPhone.a; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BC884DDC0B9B350D903D2BCBB0E4E395 /* ZFHaversine-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZFHaversine-dummy.m"; sourceTree = "<group>"; };
-		D7330BE8C43423FFF863A76B78F85E68 /* ZFHaversine-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZFHaversine-prefix.pch"; sourceTree = "<group>"; };
+		BA8A9E076543445BD53D6F24FAE4CC79 /* libGTM_NSStringXML.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSStringXML.a; path = Libraries/libGTM_NSStringXML.a; sourceTree = "<group>"; };
+		BB10848E925BB4D9094E2A1252866F71 /* GGLConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLConfiguration.h; path = Headers/GGLCore/Public/GGLConfiguration.h; sourceTree = "<group>"; };
+		BD862B31A11F1FFB2DD321CBC88365AD /* libGTM_NSScannerJSON.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSScannerJSON.a; path = Libraries/libGTM_NSScannerJSON.a; sourceTree = "<group>"; };
+		BDAEE8CBB2C9CF50C89CA48CAD7750CD /* libGTMStackTrace.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMStackTrace.a; path = Libraries/libGTMStackTrace.a; sourceTree = "<group>"; };
+		C6B13EE53948B9F51A4C44E7E31E0632 /* libGTM_NSStringHTML.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSStringHTML.a; path = Libraries/libGTM_NSStringHTML.a; sourceTree = "<group>"; };
+		CBABBC362FDCF9442B736BA0791FA650 /* Core.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Core.h; path = Headers/GGLCore/Public/Core.h; sourceTree = "<group>"; };
+		D3FFCE8315D119BBA39076FEDF557C9A /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		DA166E8330DEDC080F4708F379B39981 /* libGTM_DebugUtils.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_DebugUtils.a; path = Libraries/libGTM_DebugUtils.a; sourceTree = "<group>"; };
+		F716ED29498DEBA3A7A6D35B91D1E6B2 /* libProtocolBuffers.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libProtocolBuffers.a; path = Libraries/libProtocolBuffers.a; sourceTree = "<group>"; };
+		F99BFA0BBD283107A45256AF2B3527A1 /* libGTM_AddressBook.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_AddressBook.a; path = Libraries/libGTM_AddressBook.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,24 +107,119 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		07E07741BCAD43C35888E909576B22DA /* Pods */ = {
+		0501F0F82B1041FE7CF209ABDB2D9E77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F9E0633917BC427BE9A5300FF483B945 /* GoogleMaps */,
-				8E1AB567CD8FE4640B97702013B43350 /* ZFHaversine */,
+				51A9543E66DCBF1821A55A121F954510 /* GoogleMaps.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		06C899C7756A391AF1B12AEEC677A45A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				27FE5107AFB890C84AFB35C2E4F90E76 /* ZFHaversine.xcconfig */,
+				B2969784AD307DDB42458BFEA1670CAE /* ZFHaversine-dummy.m */,
+				2A59F9213C78568E6B1EEF1B4EFF1405 /* ZFHaversine-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ZFHaversine";
+			sourceTree = "<group>";
+		};
+		0A7CE2FB5C78D6DF93C97E579D0F5BD6 /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				B43100E1423F0B1D02F71E4635012B86 /* Core */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		102AE4E9EA2ECEB1BD43B0CC9D991A6A /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				0501F0F82B1041FE7CF209ABDB2D9E77 /* Frameworks */,
+				2744FA1D3F6970C369731B0359DAE0E8 /* Resources */,
+			);
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		2744FA1D3F6970C369731B0359DAE0E8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D3FFCE8315D119BBA39076FEDF557C9A /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		28F986657409992AD7D7AB2F410E4A33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9FA7F0EB2D6FC0ED86A00FD82426BA8C /* libGTMSessionFetcher_core.a */,
+				31A2DD56BCEDD5E9E8DD299DCD41A019 /* libGTMSessionFetcher_full.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		35604C2C54FF9FB0E307AFCFA8FB46AC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0A7CE2FB5C78D6DF93C97E579D0F5BD6 /* Google */,
+				7C7DE8C5984B3F8DA63838BE247055E1 /* GoogleInterchangeUtilities */,
+				102AE4E9EA2ECEB1BD43B0CC9D991A6A /* GoogleMaps */,
+				615A09C890FC264A92C06B387B823370 /* GoogleNetworkingUtilities */,
+				738F37CC59A8ABC589D3305E24FD23CD /* GoogleSymbolUtilities */,
+				F380E1E8EDB6E6EC6DF88B3EEF6838E4 /* GoogleUtilities */,
+				A76C7774260AB280D77DCCFFF77EE5A2 /* ZFHaversine */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		343788A1AF083DDB86EF027717E3CAA2 /* Support Files */ = {
+		47DB4531CFF4839D046B9EB539E0CBEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1B673E673E72D603685EF42A29DC833D /* ZFHaversine.xcconfig */,
-				BC884DDC0B9B350D903D2BCBB0E4E395 /* ZFHaversine-dummy.m */,
-				D7330BE8C43423FFF863A76B78F85E68 /* ZFHaversine-prefix.pch */,
+				3C713E63342E76912BCAC2E333CDA1AE /* libGSDK_Overload.a */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/ZFHaversine";
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C271F3D830E738C6C07C81E338CCE40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1716DC8E3BEFB103E389210DE4803AD2 /* libGGLCore.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		53023491C2E9C524526BBCE3DC1B6F57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F99BFA0BBD283107A45256AF2B3527A1 /* libGTM_AddressBook.a */,
+				B66EC05003469E384F99F1AA86B85513 /* libGTM_core.a */,
+				DA166E8330DEDC080F4708F379B39981 /* libGTM_DebugUtils.a */,
+				1CA94E48B8BE19C7040A81C479EC5EA5 /* libGTM_GTMURLBuilder.a */,
+				B71703B05960A874CC45C20BACE555B6 /* libGTM_iPhone.a */,
+				7ADDC150CFB069546DDF44FC44161F74 /* libGTM_KVO.a */,
+				AAE585644C92FFDB36D1F1FF14F4C5C5 /* libGTM_NSData+zlib.a */,
+				A4825F27E6D68F05D0FBCCFA1D81AC3E /* libGTM_NSDictionary+URLArguments.a */,
+				BD862B31A11F1FFB2DD321CBC88365AD /* libGTM_NSScannerJSON.a */,
+				C6B13EE53948B9F51A4C44E7E31E0632 /* libGTM_NSStringHTML.a */,
+				BA8A9E076543445BD53D6F24FAE4CC79 /* libGTM_NSStringXML.a */,
+				9BDF402C557F13446D25770CABFCBEBF /* libGTM_Regex.a */,
+				94EE5BDE0B4F832047602248D05790AA /* libGTM_RoundedRectPath.a */,
+				6F48A48960BCD2D64617B5B7F66750C6 /* libGTM_StringEncoding.a */,
+				3040791A37117E99FCE951B37B20CB96 /* libGTM_SystemVersion.a */,
+				27D3764E77A282E5A34BD481698BC57E /* libGTM_UIFont+LineHeight.a */,
+				BDAEE8CBB2C9CF50C89CA48CAD7750CD /* libGTMStackTrace.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		615A09C890FC264A92C06B387B823370 /* GoogleNetworkingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				28F986657409992AD7D7AB2F410E4A33 /* Frameworks */,
+			);
+			path = GoogleNetworkingUtilities;
 			sourceTree = "<group>";
 		};
 		6F2A01AC775262DE00757667577B445D /* Products */ = {
@@ -103,12 +231,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		73F21A963BD17F5EF6D5F47E9B8E8E34 /* Resources */ = {
+		738F37CC59A8ABC589D3305E24FD23CD /* GoogleSymbolUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				7B07EE56738B3EAF6F7B41395E903024 /* GoogleMaps.bundle */,
+				47DB4531CFF4839D046B9EB539E0CBEE /* Frameworks */,
 			);
-			name = Resources;
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		7C7DE8C5984B3F8DA63838BE247055E1 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				7FC7106EA883A7DDB894E6CEFCB93952 /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -116,28 +252,28 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				07E07741BCAD43C35888E909576B22DA /* Pods */,
+				35604C2C54FF9FB0E307AFCFA8FB46AC /* Pods */,
 				6F2A01AC775262DE00757667577B445D /* Products */,
 				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8E1AB567CD8FE4640B97702013B43350 /* ZFHaversine */ = {
+		7FC7106EA883A7DDB894E6CEFCB93952 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				685F858EE3DD7FAA02E2782249EF7CE4 /* ZFHaversine.h */,
-				132F08CBE088B0148B2A3AD2CBA4E6BB /* ZFHaversine.m */,
-				343788A1AF083DDB86EF027717E3CAA2 /* Support Files */,
-			);
-			path = ZFHaversine;
-			sourceTree = "<group>";
-		};
-		9BD84FAAB6710F83CCF9FF7D0A24C9F2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				33CD483186C903627B869945EF19F633 /* GoogleMaps.framework */,
+				F716ED29498DEBA3A7A6D35B91D1E6B2 /* libProtocolBuffers.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A76C7774260AB280D77DCCFFF77EE5A2 /* ZFHaversine */ = {
+			isa = PBXGroup;
+			children = (
+				79CE2153E82698BE7ED074FA7A0F4F99 /* ZFHaversine.h */,
+				3AB2772B39B7BF8E3828DB20BDC579D9 /* ZFHaversine.m */,
+				06C899C7756A391AF1B12AEEC677A45A /* Support Files */,
+			);
+			path = ZFHaversine;
 			sourceTree = "<group>";
 		};
 		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
@@ -153,6 +289,25 @@
 			);
 			name = Pods;
 			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		B43100E1423F0B1D02F71E4635012B86 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AD0AFBF16B935AB877DB4EB6865D2BB9 /* AdMob-Module.h */,
+				3DC0028EE532D4D4695F0B1EDD7388AD /* Analytics-Module.h */,
+				29E1712FD2D53FE99DECCB7BE4F97E58 /* AppInvite-Module.h */,
+				417E405B85E5119D075C284A39D0EA98 /* CloudMessaging-Module.h */,
+				CBABBC362FDCF9442B736BA0791FA650 /* Core.h */,
+				A8A75D8B43740186A2CA4C9022FD4F88 /* Core-Module.h */,
+				BB10848E925BB4D9094E2A1252866F71 /* GGLConfiguration.h */,
+				43E9168C84FA99D33CED2109B0051483 /* GGLContext.h */,
+				1976E4485D1D35110AB8650D015356BB /* GGLErrorCode.h */,
+				51B38ADD1CD3EBCC340CDF6074A9D5C9 /* GMRConfiguration.h */,
+				9F34417F6095ECA47CCD0BBCBDF6CC96 /* SignIn-Module.h */,
+				4C271F3D830E738C6C07C81E338CCE40 /* Frameworks */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -171,13 +326,12 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F9E0633917BC427BE9A5300FF483B945 /* GoogleMaps */ = {
+		F380E1E8EDB6E6EC6DF88B3EEF6838E4 /* GoogleUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				9BD84FAAB6710F83CCF9FF7D0A24C9F2 /* Frameworks */,
-				73F21A963BD17F5EF6D5F47E9B8E8E34 /* Resources */,
+				53023491C2E9C524526BBCE3DC1B6F57 /* Frameworks */,
 			);
-			path = GoogleMaps;
+			path = GoogleUtilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,7 +441,7 @@
 /* Begin XCBuildConfiguration section */
 		430FC21706A9E8DF9FAC85E6C92CE158 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B673E673E72D603685EF42A29DC833D /* ZFHaversine.xcconfig */;
+			baseConfigurationReference = 27FE5107AFB890C84AFB35C2E4F90E76 /* ZFHaversine.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/ZFHaversine/ZFHaversine-prefix.pch";
@@ -361,7 +515,7 @@
 		};
 		AD247197CFFE10097CE13BDC9CB00B22 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B673E673E72D603685EF42A29DC833D /* ZFHaversine.xcconfig */;
+			baseConfigurationReference = 27FE5107AFB890C84AFB35C2E4F90E76 /* ZFHaversine.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/ZFHaversine/ZFHaversine-prefix.pch";
