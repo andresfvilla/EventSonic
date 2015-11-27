@@ -25,38 +25,39 @@
 }
 
 -(IBAction)clickNew:(id)sender{
+    NSLog(@"reached new");
     UIStoryboard * storyboard = self.storyboard;
     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
     vc.callingView = self;
+    NSLog(@"presenting event card");
     [self presentViewController:vc animated:YES completion:nil];
     vc.name.text = @"hi";
 
 }
 
 //Table view delegate methods
+#pragma mark - Table View data source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 15;//this needs to be revisited, should be equal to the number of events in the coredata
+    return self.events.count;//this needs to be revisited, should be equal to the number of events in the coredata
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    static NSString * cellID = @"cellID";
-//    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-//    if(cell ==nil){
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+
+    static NSString * CellIdentifier = @"MainCell";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    Event * eventList = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    cell.textLabel.text = eventList.name;
+//    if(cell==nil){
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MainCell"];
 //    }
-//    cell.textLabel.text = [self.name objectAtIndex:indexPath.row];
-//    return cell;
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MainCell"];
-    if(cell==nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MainCell"];
-    }
     //will call the coredata and get all the events, and then populate the name with the name of the event
-    cell.textLabel.text = [NSString stringWithFormat: @"Index row of this cell: %ld", indexPath.row];
+   // cell.textLabel.text = [NSString stringWithFormat: @"Index row of this cell: %ld", indexPath.row];
     return cell;
 }
 

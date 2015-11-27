@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Events.h"
+#import "Event.h"
 #import <CoreData/CoreData.h>
 #import <ZFHaversine/ZFHaversine.h>
 #import <CoreLocation/CoreLocation.h>
@@ -23,7 +23,7 @@
 //@property View CurrentView;//we also need to access attributes on the currentView
 @property int eventCount;//number of events currently being displayed to the user
 @property NSMutableArray * events;//the list of events being shown to the user
-@property Events * eventInfo;//the information from an event requested by the user
+@property Event * eventInfo;//the information from an event requested by the user
 //@property Location userLocation;//users location or the inputted location specified by the user
 
 -(IBAction)clickNew:(id) sender;//used When the user does an action in the map view

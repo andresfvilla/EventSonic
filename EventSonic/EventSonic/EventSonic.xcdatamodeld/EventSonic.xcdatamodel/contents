@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14F27" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Accounts" syncable="YES">
+    <entity name="Account" representedClassName="Account" syncable="YES">
         <attribute name="deviceid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="eventsOwned" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="ownedBy" inverseEntity="Event" syncable="YES"/>
     </entity>
-    <entity name="Events" syncable="YES">
+    <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="ownedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="eventsOwned" inverseEntity="Account" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Accounts" positionX="-54" positionY="-9" width="128" height="88"/>
-        <element name="Events" positionX="-236" positionY="-60" width="128" height="135"/>
+        <element name="Account" positionX="-54" positionY="-9" width="128" height="103"/>
+        <element name="Event" positionX="-317" positionY="-69" width="128" height="150"/>
     </elements>
 </model>

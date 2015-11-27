@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#import "Event.h"
+#import "AppDelegate.h"
 
 @interface EventsController : UIViewController
 
@@ -16,10 +19,14 @@
 @property IBOutlet UITextField * date;
 @property IBOutlet UITextField * location;
 @property IBOutlet UITextField * details;
-@property IBOutlet UILabel * Owner;//Cannot be modified
-@property IBOutlet UILabel * Rating;//Cannot be modified
+@property IBOutlet UILabel * owner;//Cannot be modified
+@property IBOutlet UILabel * rating;//Cannot be modified
 
+//talking with core data
+@property NSArray * events;
+@property NSManagedObjectContext * managedObjectContext;
 
 - (IBAction)clickBack:(id)sender;
+- (IBAction)clickSave:(id)sender;
 
 @end
