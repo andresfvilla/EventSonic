@@ -16,6 +16,9 @@
 @property IBOutlet UITextField * date;
 @property IBOutlet UITextField * location;
 @property IBOutlet UITextField * details;
+@property IBOutlet UILabel * Owner;//Cannot be modified
+@property IBOutlet UILabel * Rating;//Cannot be modified
+
 
 - (IBAction)clickBack:(id)sender;
 

@@ -1,0 +1,34 @@
+[
+ {
+    "name": "FIU football Game",
+    "date": "Today!",
+    "location": "FIU football Stadium",
+    "details": "Football game against the Gators, go panthers",
+    "Owner": "AndresVilla",
+    "Rating": 10
+ },
+ {
+ "name": "Party at My House",
+ "date": "Halloween",
+ "location": "my House",
+ "details": "Throwing a party at my house for halloween",
+ "Owner": "AndresVilla",
+ "Rating": 10
+ },
+ {
+ "name": "FIU football Game",
+ "date": "Today!",
+ "location": "FIU football Stadium",
+ "details": "Football game against the Gators, go panthers",
+ "Owner": "AndresVilla",
+ "Rating": 10
+ },
+ {
+ "name": "FIU football Game",
+ "date": "Today!",
+ "location": "FIU football Stadium",
+ "details": "Football game against the Gators, go panthers",
+ "Owner": "AndresVilla",
+ "Rating": 10
+ }
+]

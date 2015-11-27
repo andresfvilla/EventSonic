@@ -24,6 +24,8 @@
 		047AF4741C07650D0015AA02 /* EventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047AF4731C07650D0015AA02 /* EventsController.m */; };
 		047AF4761C0782D50015AA02 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047AF4751C0782D50015AA02 /* CoreLocation.framework */; };
 		047AF47A1C07B65F0015AA02 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047AF4791C07B65F0015AA02 /* CoreData.framework */; };
+		04BD88F81C080508000092FE /* Accounts.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BD88F71C080508000092FE /* Accounts.json */; };
+		04BD88FA1C080536000092FE /* Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BD88F91C080536000092FE /* Events.json */; };
 		383CF9CF949106A95EB19540 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 148B1E6DAD030168B708B437 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		047AF4751C0782D50015AA02 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		047AF4771C07A4AE0015AA02 /* libZFHaversine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libZFHaversine.a; path = "Pods/../build/Debug-iphoneos/libZFHaversine.a"; sourceTree = "<group>"; };
 		047AF4791C07B65F0015AA02 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		04BD88F71C080508000092FE /* Accounts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Accounts.json; sourceTree = "<group>"; };
+		04BD88F91C080536000092FE /* Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Events.json; sourceTree = "<group>"; };
 		148B1E6DAD030168B708B437 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5019AABAF3FB649E4711246 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EA27236A99B79999C4D3D32E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				043F78F51C0752D700AAA723 /* MapViewController.h */,
 				043F78F61C0752D700AAA723 /* MapViewController.m */,
 				043F78F81C0752E800AAA723 /* ListViewController.h */,
+				04BD88F91C080536000092FE /* Events.json */,
+				04BD88F71C080508000092FE /* Accounts.json */,
 				043F78F91C0752E800AAA723 /* ListViewController.m */,
 				047AF4721C07650D0015AA02 /* EventsController.h */,
 				047AF4731C07650D0015AA02 /* EventsController.m */,
@@ -276,6 +282,8 @@
 			files = (
 				04576B051C0659F5007E552A /* Main.storyboard in Resources */,
 				04576B0A1C0659F5007E552A /* LaunchScreen.xib in Resources */,
+				04BD88FA1C080536000092FE /* Events.json in Resources */,
+				04BD88F81C080508000092FE /* Accounts.json in Resources */,
 				04576B071C0659F5007E552A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
