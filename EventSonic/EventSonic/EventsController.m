@@ -38,16 +38,7 @@
 }
 
 -(void) addEvent:(id)sender{
-    Event * eventsList = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
 
-    eventsList.name = name.text;
-    eventsList.date = date.text;
-    eventsList.location = location.text;
-    eventsList.owner = @"YOU";
-    eventsList.rating = 0;
-    
-    [self.managedObjectContext save:nil];
-    
     
 }
 
@@ -63,28 +54,32 @@
 
 
 - (IBAction)clickBack:(id)sender {
-    //NSLog(@"%@", callingView);
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)clickSave:(id)sender{
+    
     NSLog(@"Saving the event to memory");//this should appear now on the map and the list if its in the area
     
-    Event * eventsList = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    Event * newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
     
-    eventsList.name = name.text;
-    eventsList.date = date.text;
-    eventsList.location = location.text;
-    eventsList.owner = @"YOU";
-    eventsList.rating = 0;
+    newEvent.name = name.text;
+    newEvent.date = date.text;
+    newEvent.location = location.text;
+    newEvent.owner = @"YOU";
+    newEvent.rating = 0;
     
-    NSLog(@"%@, %@", callingView, callingView.title);
     [self.managedObjectContext save:nil];
     
-    self.events = [self.events arrayByAddingObject:eventsList];
-
-//    NSIndexPath * newIndexPath = [NSIndexPath indexPathForRow:self.lists.count-1 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths: [NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //if system clock changes this will fail
+    self.events = [self.events arrayByAddingObject:newEvent];
+    
+    for(int i =0; i<events.count; i++){
+        NSLog(@"%@", ((Event *)[events objectAtIndex:i]).name);
+    }
+    
+    // [self.tableView reloadData];
+    
 }
 
 -(NSManagedObjectContext *)managedObjectContext{

@@ -14,9 +14,33 @@
 
 @implementation ListViewController
 
+@synthesize events, tableView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    
+    self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    [self.tableView reloadData];
+    
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    
+    self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+
+    [self.tableView reloadData];
+}
+-(NSManagedObjectContext *)managedObjectContext{
+    //finds the applications appdelegate, casts it to the type of our appdelegate and then it will find the managedobjectcontext
+    return [(AppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,14 +49,11 @@
 }
 
 -(IBAction)clickNew:(id)sender{
-    NSLog(@"reached new");
     UIStoryboard * storyboard = self.storyboard;
     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
     vc.callingView = self;
-    NSLog(@"presenting event card");
     [self presentViewController:vc animated:YES completion:nil];
-    vc.name.text = @"hi";
-
+    events = vc.events;
 }
 
 //Table view delegate methods
@@ -43,7 +64,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.events.count;//this needs to be revisited, should be equal to the number of events in the coredata
+    return self.events.count-1;//this needs to be revisited, should be equal to the number of events in the coredata
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -53,11 +74,7 @@
     
     Event * eventList = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     cell.textLabel.text = eventList.name;
-//    if(cell==nil){
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MainCell"];
-//    }
-    //will call the coredata and get all the events, and then populate the name with the name of the event
-   // cell.textLabel.text = [NSString stringWithFormat: @"Index row of this cell: %ld", indexPath.row];
+    
     return cell;
 }
 

@@ -12,19 +12,22 @@
 #import <ZFHaversine/ZFHaversine.h>
 #import <CoreLocation/CoreLocation.h>
 #import "EventsController.h"
+#import "AppDelegate.h"
 
 @interface ListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property IBOutlet UITableView * table;
 
-@property NSMutableArray * name;
-@property NSMutableArray * time;
 
 //@property View CurrentView;//we also need to access attributes on the currentView
 @property int eventCount;//number of events currently being displayed to the user
-@property NSMutableArray * events;//the list of events being shown to the user
+@property NSArray * events;//the list of events being shown to the user
 @property Event * eventInfo;//the information from an event requested by the user
 //@property Location userLocation;//users location or the inputted location specified by the user
+
+//core data properties
+@property(nonatomic, readonly) NSManagedObjectContext * managedObjectContext;
+
 
 -(IBAction)clickNew:(id) sender;//used When the user does an action in the map view
 

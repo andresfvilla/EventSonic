@@ -24,37 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view.
-    
-    //manages core data for device
-//    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-//    NSManagedObjectContext * context = [appDelegate managedObjectContext];
-//    NSEntityDescription * entityDesc = [NSEntityDescription entityForName:@"Events" inManagedObjectContext:context];
-//    NSFetchRequest * request = [[NSFetchRequest alloc] init];
-//    [request setEntity:entityDesc];
-//    NSPredicate * pred = [NSPredicate predicateWithFormat:@"(name = %@)", @"FIU football game"];
-//    [request setPredicate:pred];
-//    NSManagedObject *matches = nil;
-//    
-//    NSError * error;
-//    NSArray * objects = [context executeFetchRequest:request error:&error];
-//    
-//    if([objects count] ==0)
-//    {
-//        NSLog(@"No Matches");
-//    }
-//    else
-//    {
-//        for(int i =0; i<[objects count]; i++)
-//        {
-//            matches = objects[i];
-//            [self.name addObject:[matches valueForKey:@"name"]];
-//            [self.time addObject:[matches valueForKey:@"time"]];
-//
-//        }
-//    }
-   
-    
+    // Do any additional setup after loading the view.    
     
     //this is used to find the useres current location
         self.manager = [[CLLocationManager alloc] init];
