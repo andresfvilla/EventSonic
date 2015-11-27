@@ -14,7 +14,7 @@
 
 @implementation EventsController
 
-
+@synthesize callingView, name, date, location, details;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -35,6 +35,31 @@
 }
 */
 
+
 - (IBAction)clickBack:(id)sender {
+    //NSLog(@"%@", callingView);
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+//Handles all the text field protocols
+//removes the keyboard if return is pressed
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    
+    [name resignFirstResponder];
+    [date resignFirstResponder];
+    [location resignFirstResponder];
+    [details resignFirstResponder];
+    
+    return TRUE;
+}
+
+//gets rid of the keyboard if clicking on whitespace
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [name resignFirstResponder];
+    [date resignFirstResponder];
+    [location resignFirstResponder];
+    [details resignFirstResponder];
+    
+    [super touchesBegan:touches withEvent:event];
 }
 @end

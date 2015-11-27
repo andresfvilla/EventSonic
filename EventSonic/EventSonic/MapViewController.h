@@ -13,6 +13,8 @@
 #import <ZFHaversine/ZFHaversine.h>
 #import <CoreData/CoreData.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "AppDelegate.h"
+#import "EventsController.h"
 
 @interface MapViewController : UIViewController <CLLocationManagerDelegate, GMSMapViewDelegate>
 

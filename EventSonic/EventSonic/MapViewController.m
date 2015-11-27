@@ -7,7 +7,6 @@
 //
 
 #import "MapViewController.h"
-#import "AppDelegate.h"
 
 @interface MapViewController ()
 
@@ -132,6 +131,17 @@
 
 -(void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
     NSLog(@"found a tap and creating new event");
+    
+    
+    //EventsController * vc = [[EventsController alloc] init];
+    
+    //[self presentViewController:vc animated:YES completion:nil];
+    
+    UIStoryboard * storyboard = self.storyboard;
+    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+     vc.callingView = self;
+    [self presentViewController:vc animated:YES completion:nil];
+    vc.location.text = [NSString stringWithFormat:@"%f,%f",coordinate.latitude, coordinate.longitude];
 
     //take him to a new card for an event
    // Events * event = [[Events alloc] init];

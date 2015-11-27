@@ -16,7 +16,8 @@
     return self;
 }
 
--(BOOL)createEvent: (Events *) e{
+-(BOOL)createEvent: (NSEntityDescription *) e{
+    
     return YES;
 }
 

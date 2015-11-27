@@ -24,24 +24,48 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) click:(UIButton *) b{
-    
+-(IBAction)clickNew:(id)sender{
+    UIStoryboard * storyboard = self.storyboard;
+    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+    vc.callingView = self;
+    [self presentViewController:vc animated:YES completion:nil];
+    vc.name.text = @"hi";
+
 }
 
 //Table view delegate methods
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.name.count;
+    return 15;//this needs to be revisited, should be equal to the number of events in the coredata
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * cellID = @"cellID";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if(cell ==nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+//    static NSString * cellID = @"cellID";
+//    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+//    if(cell ==nil){
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+//    }
+//    cell.textLabel.text = [self.name objectAtIndex:indexPath.row];
+//    return cell;
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MainCell"];
+    if(cell==nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MainCell"];
     }
-    cell.textLabel.text = [self.name objectAtIndex:indexPath.row];
+    //will call the coredata and get all the events, and then populate the name with the name of the event
+    cell.textLabel.text = [NSString stringWithFormat: @"Index row of this cell: %ld", indexPath.row];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    NSLog(@"selected a specific row");
+//    UIStoryboard * storyboard = self.storyboard;
+//    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+//    vc.callingView = self;
+//    [self presentViewController:vc animated:YES completion:nil];
 }
 /*
 #pragma mark - Navigation

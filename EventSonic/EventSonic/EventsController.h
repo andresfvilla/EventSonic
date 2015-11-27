@@ -10,7 +10,13 @@
 
 @interface EventsController : UIViewController
 
-@property NSString * callingView;//will send the user back to the viewcontroller that called this event
+@property UIViewController * callingView;//will send the user back to the viewcontroller that called this event
+
+@property IBOutlet UITextField * name;
+@property IBOutlet UITextField * date;
+@property IBOutlet UITextField * location;
+@property IBOutlet UITextField * details;
+
 - (IBAction)clickBack:(id)sender;
 
 @end

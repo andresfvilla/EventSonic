@@ -11,6 +11,7 @@
 #import <CoreData/CoreData.h>
 #import <ZFHaversine/ZFHaversine.h>
 #import <CoreLocation/CoreLocation.h>
+#import "EventsController.h"
 
 @interface ListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -25,6 +26,6 @@
 @property Events * eventInfo;//the information from an event requested by the user
 //@property Location userLocation;//users location or the inputted location specified by the user
 
--(void) click:(UIButton *) b;//used When the user does an action in the map view
+-(IBAction)clickNew:(id) sender;//used When the user does an action in the map view
 
 @end

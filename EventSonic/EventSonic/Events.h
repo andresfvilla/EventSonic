@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CoreData/CoreData.h>
 @interface Events : NSObject <CLLocationManagerDelegate>
 
 @property NSMutableArray * events;
@@ -17,7 +18,7 @@
 @property NSString * rating;
 @property NSString * time;
 
--(BOOL)createEvent: (Events *) e;//used when user wishes to create a new event
+-(BOOL)createEvent: (NSEntityDescription *) e;//used when user wishes to create a new event
 -(Events *)getEventsInfo: (Events *) e;//use when user wishes to get more info for a specific event
 -(Events *)eventsAt:(CLLocation *) loc;//When the user wishes to see events at a certain location
 
