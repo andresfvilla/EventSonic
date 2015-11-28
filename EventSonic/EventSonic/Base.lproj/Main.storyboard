@@ -188,7 +188,7 @@
                                     <constraint firstAttribute="height" constant="30" id="I0e-k6-5Yt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                 <connections>
                                     <outlet property="delegate" destination="ZDW-11-QKc" id="hDe-LJ-y4i"/>
                                 </connections>

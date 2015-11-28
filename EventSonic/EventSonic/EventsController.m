@@ -55,12 +55,42 @@
 - (IBAction)clickSave:(id)sender{
     
     NSLog(@"Saving the event to memory");//this should appear now on the map and the list if its in the area
-    if()
+
+    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    
+    NSArray * arr = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    for(int i =0; i<arr.count; i++){
+        Event * e = [arr objectAtIndex:i];
+        if([[e.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[name.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]){
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Name already exist"
+                                                            message:@"An event with that name already exists, please choose a unique name"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
+            [alert show];
+            return;
+        }
+    }
+
+    
     Event * newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
     
     newEvent.name = name.text;
     newEvent.date = date.text;
     newEvent.location = location.text;
+    NSArray * locVerify = [location.text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSNumberFormatter * stringToNum = [[NSNumberFormatter alloc] init];
+    if(locVerify.count!=2 || [stringToNum numberFromString:[locVerify objectAtIndex:0]]!=nil || [stringToNum numberFromString:[locVerify objectAtIndex:1]]!=nil){
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Bad Location"
+                                                        message:@"Please enter coordinates as latitude and longitude separated by spaces (decimal values). Or tap on the Map View to instantly fill out coordinates"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
     newEvent.owner = @"YOU";
     newEvent.rating = 0;
     
@@ -74,6 +104,7 @@
 //    }
     
      //[self.tableView reloadData];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     
 }
 

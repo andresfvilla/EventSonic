@@ -43,23 +43,27 @@
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-//    
         for(int i =0; i<events.count; i++){
             NSLog(@"marker:%@", ((Event *)[events objectAtIndex:i]).name);
         }
     //convert all the locations into longitude and latitute coordinates to place them on the map
     [mapView_ clear];
-    //[self.manager startMonitoringForRegion:[[CLCircularRegion alloc] initWithCenter: userLocation.coordinate radius:(CLLocationDistance)50  identifier:@"UserRegion"];
+//    //[self.manager startMonitoringForRegion:[[CLCircularRegion alloc] initWithCenter: userLocation.coordinate radius:(CLLocationDistance)50  identifier:@"UserRegion"];
+//    for(int i =1; i<events.count; i++){
+//        Event * event = [events objectAtIndex:i];
+//      //  event.location = [geocoder geocodeAddressString:event.location inRegion: completionHandler:<#^(NSArray *placemarks, NSError *error)completionHandler#>
+//        [geocoder geocodeAddressString:event.location
+//                     completionHandler:^(NSArray * placemarks, NSError* error){
+//                         for(CLPlacemark* aPlacemark in placemarks){
+//                             NSLog(@"coords for %@:%f, %f", event.name,aPlacemark.location.coordinate.latitude, aPlacemark.location.coordinate.longitude);
+//                         }
+//                    }
+//         ];
+//    }
     for(int i =1; i<events.count; i++){
-        Event * event = [events objectAtIndex:i];
-      //  event.location = [geocoder geocodeAddressString:event.location inRegion: completionHandler:<#^(NSArray *placemarks, NSError *error)completionHandler#>
-        [geocoder geocodeAddressString:event.location
-                     completionHandler:^(NSArray * placemarks, NSError* error){
-                         for(CLPlacemark* aPlacemark in placemarks){
-                             NSLog(@"coords for %@:%f, %f", event.name,aPlacemark.location.coordinate.latitude, aPlacemark.location.coordinate.longitude);
-                         }
-                    }
-         ];
+                Event * event = [events objectAtIndex:i];
+        NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        CLLocation * coords = [[CLLocation alloc] initWithLatitude:[[latLong objectAtIndex:0] doubleValue] longitude:[[latLong objectAtIndex:1] doubleValue]];
     }
     NSLog(@"finished...");
 }
@@ -125,7 +129,7 @@
     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
      vc.callingView = self;
     [self presentViewController:vc animated:YES completion:nil];
-    vc.location.text = [NSString stringWithFormat:@"%f,%f",coordinate.latitude, coordinate.longitude];
+    vc.location.text = [NSString stringWithFormat:@"%f %f",coordinate.latitude, coordinate.longitude];
 
     //take him to a new card for an event
    // Events * event = [[Events alloc] init];
