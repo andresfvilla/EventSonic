@@ -16,7 +16,7 @@
 #import "AppDelegate.h"
 #import "EventsController.h"
 
-@interface MapViewController : UIViewController <CLLocationManagerDelegate, GMSMapViewDelegate>
+@interface MapViewController : UIViewController <CLLocationManagerDelegate, GMSMapViewDelegate, UIAlertViewDelegate>
 
 //this is for the location of the user
 @property(nonatomic, strong) CLLocationManager * manager;

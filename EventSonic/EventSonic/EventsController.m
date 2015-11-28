@@ -53,7 +53,18 @@
 }
 
 - (IBAction)clickSave:(id)sender{
-
+    if([[name.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[@"" stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]){
+        
+        editing=NO;
+        name.enabled = YES;
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Please enter a name"
+                                                        message:@"Please enter a valid name, must include at least 1 character/symbol"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
     //if updating an existing event. will delete the current instance of the object in order to prevent duplicates in core data
     if(editing){
         [self.managedObjectContext deleteObject:updatingEvent];

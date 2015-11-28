@@ -22,11 +22,21 @@
 @synthesize eventCount, events, eventInfo, manager, desiredRadius;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if([CLLocationManager authorizationStatus]!=kCLAuthorizationStatusDenied){
+        NSLog(@"need location services");
+        
+        //UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Location Services"
+          //                                              message:@"Please enable location services"
+            //                                           delegate:self
+              //                                cancelButtonTitle:@"Settings"
+                //                              otherButtonTitles: nil];
+        //[alert show];
+
+    }
     
-    // Do any additional setup after loading the view.    
     
     //this is used to find the users current location
-        self.manager = [[CLLocationManager alloc] init];
+    self.manager = [[CLLocationManager alloc] init];
     self.manager.delegate = self;
     self.manager.desiredAccuracy = kCLLocationAccuracyBest;
     if([self.manager respondsToSelector:@selector(requestWhenInUseAuthorization)]){
@@ -45,6 +55,9 @@
     
     self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
 
+    for(int i =0; i<events.count; i++){
+        NSLog(@"%@", ((Event *)[events objectAtIndex:i]).name);
+    }
     //Clears all the markers from the map
     [mapView_ clear];
     
@@ -58,6 +71,10 @@
                                                                  zoom:14];
     mapView_.camera = camera;
     //will show the markers for the events, shows when, where, and the distance to that event from the users current location
+    
+    /*
+     weird bug, some locations are returning nan as the distanceandbearing miles. Dont know how to fix this yet. gonna begin testing
+     */
     for(int i =0; i<events.count; i++){
                 Event * event = [events objectAtIndex:i];
         NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -66,6 +83,7 @@
                                                                       longitude1:manager.location.coordinate.longitude
                                                                        latitude2:position.latitude
                                                                       longitude2:position.longitude];
+        NSLog(@"%f", [distanceAndBearing miles]);
         if([distanceAndBearing miles]<=[desiredRadius doubleValue]){
             GMSMarker *marker = [GMSMarker markerWithPosition:position];
             marker.title = event.name;
@@ -102,10 +120,12 @@
         mapView_.myLocationEnabled = YES;
         mapView_.delegate = self;
         self.view = mapView_;
-        
-        //ensures the screen is refreshed with the appropriate data
         [self viewDidAppear:NO];
+
+        //ensures the screen is refreshed with the appropriate data
     }
+    [self viewDidAppear:NO];
+
 }
 
 //Called when a user taps on the map. Will take the user to a new event page, but already includes the location as coordinates
@@ -134,8 +154,20 @@
 
 //Called if there is an error capturing the location
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+
+//    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Location Services"
+//                                                    message:@"Please enable location services"
+//                                                   delegate:self
+//                                          cancelButtonTitle:@"Settings"
+//                                          otherButtonTitles: nil];
+//    [alert show];
     NSLog(@"Error: %@", error);
     NSLog(@"Failed to get location! :(");
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: UIApplicationOpenSettingsURLString]];
 }
 
 //Will poll this to capture any changes to the users location
@@ -153,6 +185,12 @@
     }];
     userLocation = currentLocation;
     [self setupGoogleMap];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    //if(status==YES){
+        NSLog(@"this is good");
+    //}
 }
 
 @end
