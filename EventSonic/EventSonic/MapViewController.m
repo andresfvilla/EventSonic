@@ -49,7 +49,7 @@
     //convert all the locations into longitude and latitute coordinates to place them on the map
     [mapView_ clear];
     
-    for(int i =1; i<events.count; i++){
+    for(int i =0; i<events.count; i++){
                 Event * event = [events objectAtIndex:i];
         NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         CLLocationCoordinate2D position = CLLocationCoordinate2DMake([[latLong objectAtIndex:0] doubleValue], [[latLong objectAtIndex:1] doubleValue]);

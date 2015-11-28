@@ -6,3 +6,5 @@ FIX THIS!!!!
 fix the issue with updating an event thinking its a new event, gives a name alert
 
 ensure the markers only show if in a certain radius of the 
+
+not all markers are appearing on the screen(may be only the last marker in the list is not showing)*** i might have just fixed this but didnt get a chance to test this
