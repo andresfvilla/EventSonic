@@ -1,10 +1,11 @@
 Always use the EventSonic.xcworkspace file when making changes to the file. This is required for the google sdk
 a lot of the documentation for the sdk is located https://developers.google.com/maps/documentation/ios-sdk/map
 
-if you need help using this repo lmk, i suggest you start learning some objective c asap since we have less than a week to finish this. 
+
+
+
 FIX THIS!!!!
-fix the issue with updating an event thinking its a new event, gives a name alert
 
-ensure the markers only show if in a certain radius of the 
+Strange bug with distances being nan
 
-not all markers are appearing on the screen(may be only the last marker in the list is not showing)*** i might have just fixed this but didnt get a chance to test this
+Location services is a bit wonky, sometimes asks for it even though it is already enabled, and it crashes if i change it while the application is runniong
