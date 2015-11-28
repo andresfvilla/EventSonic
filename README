@@ -2,3 +2,7 @@ Always use the EventSonic.xcworkspace file when making changes to the file. This
 a lot of the documentation for the sdk is located https://developers.google.com/maps/documentation/ios-sdk/map
 
 if you need help using this repo lmk, i suggest you start learning some objective c asap since we have less than a week to finish this. 
+FIX THIS!!!!
+fix the issue with updating an event thinking its a new event, gives a name alert
+
+ensure the markers only show if in a certain radius of the 
