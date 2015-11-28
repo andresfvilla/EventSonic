@@ -9,7 +9,7 @@
         <scene sceneID="Nec-Jr-2Re">
             <objects>
                 <tableViewController id="pLB-Ny-hxL" customClass="ListViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NPn-yD-Ig1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="listView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NPn-yD-Ig1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,7 +99,7 @@
         <!--Map-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapView" id="vXZ-lx-hvc" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -126,7 +126,7 @@
                         <viewControllerLayoutGuide type="top" id="PkU-b8-1Q1"/>
                         <viewControllerLayoutGuide type="bottom" id="qAt-gd-Wt0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fhL-Zh-QBU" customClass="I">
+                    <view key="view" contentMode="scaleToFill" id="fhL-Zh-QBU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -311,6 +311,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aHT-GV-6lt"/>
+        <segue reference="IoV-o6-nUC"/>
     </inferredMetricsTieBreakers>
 </document>

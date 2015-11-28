@@ -13,12 +13,11 @@
 #import <CoreLocation/CoreLocation.h>
 #import "EventsController.h"
 #import "AppDelegate.h"
+#import "MapViewController.h"
 
 @interface ListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property IBOutlet UITableView * table;
-
-
 //@property View CurrentView;//we also need to access attributes on the currentView
 @property int eventCount;//number of events currently being displayed to the user
 @property NSArray * events;//the list of events being shown to the user

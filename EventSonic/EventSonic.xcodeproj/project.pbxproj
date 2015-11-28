@@ -125,6 +125,7 @@
 		04576AF51C0659F5007E552A /* EventSonic */ = {
 			isa = PBXGroup;
 			children = (
+				04EC191F1C0A0FAA00F3BC56 /* EventControllers */,
 				04576AFA1C0659F5007E552A /* AppDelegate.h */,
 				04576AFB1C0659F5007E552A /* AppDelegate.m */,
 				04576B001C0659F5007E552A /* ViewController.h */,
@@ -180,6 +181,13 @@
 				04576B141C0659F5007E552A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04EC191F1C0A0FAA00F3BC56 /* EventControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = EventControllers;
 			sourceTree = "<group>";
 		};
 		26C20ABA03B3E856AA167632 /* Pods */ = {

@@ -14,6 +14,7 @@
 
 @implementation EventsController{
     BOOL editing;
+    Event * updatingEvent;
 }
 
 @synthesize callingView, name, date, location, details, events, owner, rating;
@@ -41,6 +42,8 @@
     owner.text = event.owner;
     rating.text = [NSString stringWithFormat:@"%@",event.rating];
     details.text = event.details;
+    updatingEvent = event;
+    name.enabled = NO;
     editing = YES;
 }
 
@@ -61,12 +64,19 @@
 
 - (IBAction)clickSave:(id)sender{
 
+    //if updating an existing event. will delete the current instance of the object in order to prevent duplicates in core data
+    if(editing){
+        [self.managedObjectContext deleteObject:updatingEvent];
+    }
+    
+    //Will fetch all the Events objects in Core Data and sort them by name
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
-    NSArray * arr = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+
     
-    if(editing!=YES){
+    //Searches to ensure no event containt the same name as the new event
+    NSArray * arr = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
         for(int i =0; i<arr.count; i++){
             Event * e = [arr objectAtIndex:i];
             if([[e.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[name.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]){
@@ -79,10 +89,10 @@
                 return;
             }
         }
-    }
+    
+    //Searches to ensure that the location is entered properly(Recommended to use the map view to create events)
     NSArray * locVerify = [location.text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSNumberFormatter * stringToNum = [[NSNumberFormatter alloc] init];
-    //[stringToNum setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
     if(locVerify.count!=2 || [stringToNum numberFromString:[locVerify objectAtIndex:0]]==nil || [stringToNum numberFromString:[locVerify objectAtIndex:1]]==nil){
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Bad Location"
                                                         message:@"Please enter coordinates as latitude and longitude separated by spaces (decimal values). Or tap on the Map View to instantly fill out coordinates"
@@ -92,9 +102,10 @@
         [alert show];
         return;
     }
-    
+
+    //
     Event * newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
-    
+    [self.managedObjectContext save:nil];
     newEvent.name = name.text;
     newEvent.date = date.text;
     newEvent.location = location.text;
@@ -102,7 +113,9 @@
     newEvent.rating = rating.text;
     newEvent.details = details.text;
     //we need an owned by field to be set
+    //arr = [[NSArray alloc] init];
     editing=NO;
+    name.enabled = YES;
     [self.managedObjectContext save:nil];
     
     //if system clock changes this will fail????

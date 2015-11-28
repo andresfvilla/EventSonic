@@ -12,7 +12,11 @@
 
 @end
 
-@implementation ListViewController
+@implementation ListViewController{
+    CLGeocoder * geocoder;
+    CLPlacemark * placemark;
+    CLLocation * userLocation;
+}
 
 @synthesize events, table;
 - (void)viewDidLoad {
@@ -27,11 +31,25 @@
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-
-    
-//    for(int i =0; i<events.count; i++){
-//        NSLog(@"Event:%@", ((Event *)[events objectAtIndex:i]).name);
+//    NSMutableArray * array = [NSMutableArray arrayWithArray:events];
+//    MapViewController * map = [self.storyboard instantiateViewControllerWithIdentifier:@"mapView"];
+//    for(int i =0; i<self.events.count; i++){
+//        Event * e = [events objectAtIndex:i];
+//        NSArray * latLong = [e.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+//        CLLocationCoordinate2D position = CLLocationCoordinate2DMake([[latLong objectAtIndex:0] doubleValue], [[latLong objectAtIndex:1] doubleValue]);
+//        
+//        ZFHaversine *distanceAndBearing = [[ZFHaversine alloc] initWithLatitude1:map.manager.location.coordinate.latitude
+//                                                                      longitude1:map.manager.location.coordinate.longitude
+//                                                                       latitude2:position.latitude
+//                                                                      longitude2:position.longitude];
+//        
+//        MapViewController * map = [self.storyboard instantiateViewControllerWithIdentifier:@"mapView"];
+//        if([distanceAndBearing miles]>=[map.desiredRadius doubleValue]){
+//            NSLog(@"%@", e.name);
+//            [array removeObjectIdenticalTo:e];
+//        }
 //    }
+//    events = [array copy];
     NSLog(@"view appeared");
 //    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
 //    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
@@ -66,6 +84,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+   
     return self.events.count;//this needs to be revisited, should be equal to the number of events in the coredata
 }
 
@@ -105,5 +124,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

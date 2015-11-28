@@ -54,7 +54,10 @@
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = @"You Are Here";
     marker.map = mapView_;
-    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: manager.location.coordinate.latitude
+                                                            longitude: manager.location.coordinate.longitude
+                                                                 zoom:14];
+    mapView_.camera = camera;
     for(int i =0; i<events.count; i++){
                 Event * event = [events objectAtIndex:i];
         NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
