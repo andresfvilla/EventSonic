@@ -36,5 +36,29 @@
         // Put the code you want to measure the time of here.
     }];
 }
+//----------ViewDidLoad
 
+
+//----------ViewDidAppear
+
+
+
+//----------ManagedObjectContext
+
+
+//----------setupGoogleMap
+
+
+
+//----------mapView didTapAtCoordinate
+
+
+
+//----------mapView didTapInfoWindowOfMarker
+
+
+//----------locationManager did Fail With Error
+
+
+//----------alerView clickedButtonAtIndex
 @end
