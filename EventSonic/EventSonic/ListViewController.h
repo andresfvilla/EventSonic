@@ -17,12 +17,10 @@
 
 @interface ListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property IBOutlet UITableView * table;
-//@property View CurrentView;//we also need to access attributes on the currentView
+@property IBOutlet UITableView * table;//The table that is presented on the view
 @property int eventCount;//number of events currently being displayed to the user
 @property NSArray * events;//the list of events being shown to the user
 @property Event * eventInfo;//the information from an event requested by the user
-//@property Location userLocation;//users location or the inputted location specified by the user
 
 //core data properties
 @property(nonatomic, readonly) NSManagedObjectContext * managedObjectContext;

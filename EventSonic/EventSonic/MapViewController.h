@@ -25,8 +25,5 @@
 @property int eventCount;//number of events currently being displayed to the user
 @property NSArray * events;//the list of events being shown to the user
 @property Event * eventInfo;//the information from an event requested by the user
-//@property Location userLocation;//users location or the inputted location specified by the user
-
--(void) click:(UIButton *) b;//used When the user does an action in the map view
 
 @end

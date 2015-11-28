@@ -71,7 +71,6 @@
 -(IBAction)clickNew:(id)sender{
     UIStoryboard * storyboard = self.storyboard;
     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
-    //vc.callingView = self;
     [self presentViewController:vc animated:YES completion:nil];
     events = vc.events;
 }
@@ -89,10 +88,6 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    for(int i =0; i<events.count; i++){
-//        NSLog(@"Event:%@", ((Event *)[events objectAtIndex:i]).name);
-//    }
-    //NSLog(@"searching for a cell");
     static NSString * CellIdentifier = @"MainCell";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil){
@@ -110,7 +105,6 @@
     NSLog(@"selected a specific row");
     UIStoryboard * storyboard = self.storyboard;
     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
-    vc.callingView = self;
     NSLog(@"%@",[events objectAtIndex:indexPath.row]);
     [self presentViewController:vc animated:YES completion:nil];
     [vc editEvent:[events objectAtIndex:indexPath.row]];

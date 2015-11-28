@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 @class Event;
-
+//the NSManagedObject sublass for the Account Entity
 @interface Account : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * deviceid;

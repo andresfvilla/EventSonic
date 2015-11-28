@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 @class Account;
-
+//the NSManagedObject sublass for the Event Entity
 @interface Event : NSManagedObject
 
 @property (nonatomic, retain) NSString * date;

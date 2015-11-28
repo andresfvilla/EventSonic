@@ -13,21 +13,20 @@
 @end
 
 @implementation EventsController{
-    BOOL editing;
-    Event * updatingEvent;
+    BOOL editing;//Used to know if the event being saved is an existing one that is updated
+    Event * updatingEvent;//The event info that is stored in the coreData that is being updated
 }
 
-@synthesize callingView, name, date, location, details, events, owner, rating;
+@synthesize name, date, location, details, events, owner, rating;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    editing = false;
-    //TODO: load lists
+    editing = false;//Ensures that if an event is being made, editing is initialized to false
+    
     //this is basically a query in object form
-    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
-    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-    self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];//Prepares a fetch for the Event entity in CoreData
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];//Will have the lists sorted when fetching
+    self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];//populates the events list
  
-    //this would then tell it to reload the table views data, can be called when returning from the ding dong
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,6 +35,7 @@
 }
 
 -(void) editEvent:(Event *) event{
+    //Will prepare the text fields with the data stored in event
     name.text = event.name;
     date.text = event.date;
     location.text = event.location;
@@ -43,21 +43,11 @@
     rating.text = [NSString stringWithFormat:@"%@",event.rating];
     details.text = event.details;
     updatingEvent = event;
-    name.enabled = NO;
-    editing = YES;
+    name.enabled = NO;//will ensure that the name of the event cannot be changed
+    editing = YES;//Allows the clicksave method to know the event is only being updated, and is not a new one
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
+//Will dismiss the event view from the screen
 - (IBAction)clickBack:(id)sender {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
@@ -103,7 +93,7 @@
         return;
     }
 
-    //
+    //creates the object that will be stored
     Event * newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
     [self.managedObjectContext save:nil];
     newEvent.name = name.text;
@@ -112,24 +102,28 @@
     newEvent.owner = owner.text;
     newEvent.rating = rating.text;
     newEvent.details = details.text;
-    //we need an owned by field to be set
-    //arr = [[NSArray alloc] init];
+    //**we need the ownedby field to be set**
+    
+    //This will alow the name text field to be edited once again, and will ensure that no event is currently being edited
     editing=NO;
     name.enabled = YES;
+    
+    //updates coreData with the changes that occurred
     [self.managedObjectContext save:nil];
     
     //if system clock changes this will fail????
     self.events = [self.events arrayByAddingObject:newEvent];
 
+    //Dismisses the events view controller
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     
 }
 
 -(NSManagedObjectContext *)managedObjectContext{
-    
-    //finds the applications appdelegate, casts it to the type of our appdelegate and then it will find the managedobjectcontext
+    //finds the applications appdelegate, casts it to the type of our "AppDelegate" and then it will find the managedobjectcontext
     return [(AppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];
 }
+
 //Handles all the text field protocols
 //removes the keyboard if return is pressed
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {

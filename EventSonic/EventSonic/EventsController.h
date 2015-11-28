@@ -13,21 +13,19 @@
 
 @interface EventsController : UIViewController
 
-@property UIViewController * callingView;//will send the user back to the viewcontroller that called this event
-
-@property IBOutlet UITextField * name;
-@property IBOutlet UITextField * date;
-@property IBOutlet UITextField * location;
-@property IBOutlet UITextField * details;
-@property IBOutlet UILabel * owner;//Cannot be modified
-@property IBOutlet UILabel * rating;//Cannot be modified
+@property IBOutlet UITextField * name;//The name text field
+@property IBOutlet UITextField * date;//the date text field
+@property IBOutlet UITextField * location;//the location text field
+@property IBOutlet UITextField * details;//the details text field
+@property IBOutlet UILabel * owner;//Cannot be modified by the user
+@property IBOutlet UILabel * rating;//Cannot be modified by the use
 
 //talking with core data
-@property NSArray * events;
-@property NSManagedObjectContext * managedObjectContext;
+@property NSArray * events;//the list of events returned from a fetch request
+@property NSManagedObjectContext * managedObjectContext;//the context for coredata, manages the ojects stored
 
-- (IBAction)clickBack:(id)sender;
-- (IBAction)clickSave:(id)sender;
-- (IBAction)editEvent:(Event *) event;
+- (IBAction)clickBack:(id)sender;//called when the back button is clicked, dismisses the current view
+- (IBAction)clickSave:(id)sender;//used to save a new object to CoreData
+- (IBAction)editEvent:(Event *) event;//used when the user decides to modify or update an event
 
 @end
