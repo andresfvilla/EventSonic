@@ -12,12 +12,14 @@
 
 @end
 
-@implementation EventsController
+@implementation EventsController{
+    BOOL editing;
+}
 
 @synthesize callingView, name, date, location, details, events, owner, rating;
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    editing = false;
     //TODO: load lists
     //this is basically a query in object form
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
@@ -39,6 +41,7 @@
     owner.text = event.owner;
     rating.text = [NSString stringWithFormat:@"%@",event.rating];
     details.text = event.details;
+    editing = YES;
 }
 
 /*
@@ -57,21 +60,24 @@
 }
 
 - (IBAction)clickSave:(id)sender{
+
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     NSArray * arr = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
-    for(int i =0; i<arr.count; i++){
-        Event * e = [arr objectAtIndex:i];
-        if([[e.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[name.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]){
-            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Name already exist"
-                                                            message:@"An event with that name already exists, please choose a unique name"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles: nil];
-            [alert show];
-            return;
+    if(editing!=YES){
+        for(int i =0; i<arr.count; i++){
+            Event * e = [arr objectAtIndex:i];
+            if([[e.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[name.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]){
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Name already exist"
+                                                                message:@"An event with that name already exists, please choose a unique name"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles: nil];
+                [alert show];
+                return;
+            }
         }
     }
     NSArray * locVerify = [location.text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -96,7 +102,7 @@
     newEvent.rating = rating.text;
     newEvent.details = details.text;
     //we need an owned by field to be set
-    
+    editing=NO;
     [self.managedObjectContext save:nil];
     
     //if system clock changes this will fail????

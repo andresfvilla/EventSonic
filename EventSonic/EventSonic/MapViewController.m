@@ -19,7 +19,7 @@
     CLLocation * userLocation;
 }
 
-@synthesize eventCount, events, eventInfo, manager;
+@synthesize eventCount, events, eventInfo, manager, desiredRadius;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -35,6 +35,7 @@
     [self.manager startUpdatingLocation];
 
     geocoder = [[CLGeocoder alloc] init];
+    desiredRadius = [NSNumber numberWithDouble:3];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -49,20 +50,27 @@
     //convert all the locations into longitude and latitute coordinates to place them on the map
     [mapView_ clear];
     
-    for(int i =0; i<events.count; i++){
-                Event * event = [events objectAtIndex:i];
-        NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        CLLocationCoordinate2D position = CLLocationCoordinate2DMake([[latLong objectAtIndex:0] doubleValue], [[latLong objectAtIndex:1] doubleValue]);
-        GMSMarker *marker = [GMSMarker markerWithPosition:position];
-        marker.title = event.name;
-        marker.map = mapView_;
-        marker.userData = event;
-        marker.snippet = [NSString stringWithFormat:@"When: %@\nWhere: %@", event.date, event.details ];
-    }
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(manager.location.coordinate.latitude, manager.location.coordinate.longitude);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = @"You Are Here";
     marker.map = mapView_;
+    
+    for(int i =0; i<events.count; i++){
+                Event * event = [events objectAtIndex:i];
+        NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        CLLocationCoordinate2D position = CLLocationCoordinate2DMake([[latLong objectAtIndex:0] doubleValue], [[latLong objectAtIndex:1] doubleValue]);
+        ZFHaversine *distanceAndBearing = [[ZFHaversine alloc] initWithLatitude1:manager.location.coordinate.latitude
+                                                                      longitude1:manager.location.coordinate.longitude
+                                                                       latitude2:position.latitude
+                                                                      longitude2:position.longitude];
+        if([distanceAndBearing miles]<=[desiredRadius doubleValue]){
+            GMSMarker *marker = [GMSMarker markerWithPosition:position];
+            marker.title = event.name;
+            marker.map = mapView_;
+            marker.userData = event;
+            marker.snippet = [NSString stringWithFormat:@"When: %@\nWhere: %@\nDistance: %f miles", event.date, event.details, [distanceAndBearing miles] ];
+        }
+    }
 }
 
 -(NSManagedObjectContext *)managedObjectContext{
