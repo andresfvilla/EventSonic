@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
-#import "GPS.h"
 #import <CoreLocation/CoreLocation.h>
 #import <ZFHaversine/ZFHaversine.h>
 #import <CoreData/CoreData.h>

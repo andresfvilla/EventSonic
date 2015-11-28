@@ -27,6 +27,9 @@
 		04EC191B1C08E6B800F3BC56 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC191A1C08E6B800F3BC56 /* Event.m */; };
 		04EC191E1C08E6B900F3BC56 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC191D1C08E6B900F3BC56 /* Account.m */; };
 		04EC19221C0A5F8D00F3BC56 /* MapViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC19211C0A5F8D00F3BC56 /* MapViewTest.m */; };
+		04EC19251C0A622A00F3BC56 /* ListViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC19241C0A622A00F3BC56 /* ListViewTest.m */; };
+		04EC19271C0A623E00F3BC56 /* EventsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC19261C0A623E00F3BC56 /* EventsTest.m */; };
+		04EC19291C0A62B500F3BC56 /* AccountTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC19281C0A62B500F3BC56 /* AccountTest.m */; };
 		383CF9CF949106A95EB19540 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 148B1E6DAD030168B708B437 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +78,9 @@
 		04EC191C1C08E6B900F3BC56 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = ../Account.h; sourceTree = "<group>"; };
 		04EC191D1C08E6B900F3BC56 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = ../Account.m; sourceTree = "<group>"; };
 		04EC19211C0A5F8D00F3BC56 /* MapViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewTest.m; sourceTree = "<group>"; };
+		04EC19241C0A622A00F3BC56 /* ListViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewTest.m; sourceTree = "<group>"; };
+		04EC19261C0A623E00F3BC56 /* EventsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsTest.m; sourceTree = "<group>"; };
+		04EC19281C0A62B500F3BC56 /* AccountTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTest.m; sourceTree = "<group>"; };
 		148B1E6DAD030168B708B437 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5019AABAF3FB649E4711246 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EA27236A99B79999C4D3D32E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,9 +157,9 @@
 		04576B121C0659F5007E552A /* EventSonicTests */ = {
 			isa = PBXGroup;
 			children = (
+				04EC19231C0A621600F3BC56 /* ViewControllerTests */,
 				04576B151C0659F5007E552A /* EventSonicTests.m */,
 				04576B131C0659F5007E552A /* Supporting Files */,
-				04EC19211C0A5F8D00F3BC56 /* MapViewTest.m */,
 			);
 			path = EventSonicTests;
 			sourceTree = "<group>";
@@ -194,6 +200,17 @@
 				04BD88F71C080508000092FE /* Account.json */,
 			);
 			name = Storage;
+			sourceTree = "<group>";
+		};
+		04EC19231C0A621600F3BC56 /* ViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				04EC19211C0A5F8D00F3BC56 /* MapViewTest.m */,
+				04EC19241C0A622A00F3BC56 /* ListViewTest.m */,
+				04EC19261C0A623E00F3BC56 /* EventsTest.m */,
+				04EC19281C0A62B500F3BC56 /* AccountTest.m */,
+			);
+			name = ViewControllerTests;
 			sourceTree = "<group>";
 		};
 		26C20ABA03B3E856AA167632 /* Pods */ = {
@@ -387,8 +404,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EC19271C0A623E00F3BC56 /* EventsTest.m in Sources */,
 				04576B161C0659F5007E552A /* EventSonicTests.m in Sources */,
+				04EC19291C0A62B500F3BC56 /* AccountTest.m in Sources */,
 				04EC19221C0A5F8D00F3BC56 /* MapViewTest.m in Sources */,
+				04EC19251C0A622A00F3BC56 /* ListViewTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
