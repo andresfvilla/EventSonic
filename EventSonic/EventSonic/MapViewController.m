@@ -20,7 +20,6 @@
 }
 
 @synthesize eventCount, events, eventInfo, manager;
-@synthesize name, time;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -36,10 +35,38 @@
     [self.manager startUpdatingLocation];
 
     geocoder = [[CLGeocoder alloc] init];
-    
+}
 
-
+-(void)viewDidAppear:(BOOL)animated{
+    NSLog(@"appeared");
+    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
+    self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+//    
+        for(int i =0; i<events.count; i++){
+            NSLog(@"marker:%@", ((Event *)[events objectAtIndex:i]).name);
+        }
+    //convert all the locations into longitude and latitute coordinates to place them on the map
+    [mapView_ clear];
+    //[self.manager startMonitoringForRegion:[[CLCircularRegion alloc] initWithCenter: userLocation.coordinate radius:(CLLocationDistance)50  identifier:@"UserRegion"];
+    for(int i =1; i<events.count; i++){
+        Event * event = [events objectAtIndex:i];
+      //  event.location = [geocoder geocodeAddressString:event.location inRegion: completionHandler:<#^(NSArray *placemarks, NSError *error)completionHandler#>
+        [geocoder geocodeAddressString:event.location
+                     completionHandler:^(NSArray * placemarks, NSError* error){
+                         for(CLPlacemark* aPlacemark in placemarks){
+                             NSLog(@"coords for %@:%f, %f", event.name,aPlacemark.location.coordinate.latitude, aPlacemark.location.coordinate.longitude);
+                         }
+                    }
+         ];
+    }
+    NSLog(@"finished...");
+}
+
+-(NSManagedObjectContext *)managedObjectContext{
+    //finds the applications appdelegate, casts it to the type of our appdelegate and then it will find the managedobjectcontext
+    return [(AppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,20 +76,8 @@
 
 -(void)click:(UIButton *)b{
     NSLog(@"This responded to a click");
-//    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-//    NSManagedObjectContext * context = [appDelegate managedObjectContext];
-//    NSManagedObject * newContact;
-//    
-//    newContact = [NSEntityDescription insertNewObjectForEntityForName:@"Events" inManagedObjectContext:context];
-//    [newContact setValue: @"???" forKey:@"???"];
-//    [self.name addObject: @"???"];
-//    [newContact setValue:@"???" forKey:@"???"];
-//    [self.time addObject:@"???"];
-//    [newContact setValue:@"???" forKey:@"???"];
-//    [self.time addObject:@"???"];
-//    NSError * error;
-//    [context save:&error];
-//    NSLog(@"saved some stuff");
+    
+
 }
 
 -(void)setupGoogleMap{

@@ -19,16 +19,11 @@
     [super viewDidLoad];
 
     //TODO: load lists
-    
     //this is basically a query in object form
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-    
-    NSError * error = nil;
-    self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if(error !=nil){
-        NSLog(@"problem with my fetch request");
-    }
+    self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+ 
     //this would then tell it to reload the table views data, can be called when returning from the ding dong
 }
 
@@ -60,7 +55,7 @@
 - (IBAction)clickSave:(id)sender{
     
     NSLog(@"Saving the event to memory");//this should appear now on the map and the list if its in the area
-    
+    if()
     Event * newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
     
     newEvent.name = name.text;
