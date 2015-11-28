@@ -48,24 +48,21 @@
         }
     //convert all the locations into longitude and latitute coordinates to place them on the map
     [mapView_ clear];
-//    //[self.manager startMonitoringForRegion:[[CLCircularRegion alloc] initWithCenter: userLocation.coordinate radius:(CLLocationDistance)50  identifier:@"UserRegion"];
-//    for(int i =1; i<events.count; i++){
-//        Event * event = [events objectAtIndex:i];
-//      //  event.location = [geocoder geocodeAddressString:event.location inRegion: completionHandler:<#^(NSArray *placemarks, NSError *error)completionHandler#>
-//        [geocoder geocodeAddressString:event.location
-//                     completionHandler:^(NSArray * placemarks, NSError* error){
-//                         for(CLPlacemark* aPlacemark in placemarks){
-//                             NSLog(@"coords for %@:%f, %f", event.name,aPlacemark.location.coordinate.latitude, aPlacemark.location.coordinate.longitude);
-//                         }
-//                    }
-//         ];
-//    }
+    
     for(int i =1; i<events.count; i++){
                 Event * event = [events objectAtIndex:i];
         NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        CLLocation * coords = [[CLLocation alloc] initWithLatitude:[[latLong objectAtIndex:0] doubleValue] longitude:[[latLong objectAtIndex:1] doubleValue]];
+        CLLocationCoordinate2D position = CLLocationCoordinate2DMake([[latLong objectAtIndex:0] doubleValue], [[latLong objectAtIndex:1] doubleValue]);
+        GMSMarker *marker = [GMSMarker markerWithPosition:position];
+        marker.title = event.name;
+        marker.map = mapView_;
+        marker.userData = event;
+        marker.snippet = [NSString stringWithFormat:@"When: %@\nWhere: %@", event.date, event.details ];
     }
-    NSLog(@"finished...");
+    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(manager.location.coordinate.latitude, manager.location.coordinate.longitude);
+    GMSMarker *marker = [GMSMarker markerWithPosition:position];
+    marker.title = @"You Are Here";
+    marker.map = mapView_;
 }
 
 -(NSManagedObjectContext *)managedObjectContext{
@@ -105,11 +102,7 @@
         self.view = mapView_;
         
         // Creates a marker in the center of the map.
-        GMSMarker *marker = [[GMSMarker alloc] init];
-        marker.position = CLLocationCoordinate2DMake(manager.location.coordinate.latitude, manager.location.coordinate.longitude);
-        marker.title = @"apple";
-        marker.snippet = @"Offices";
-        marker.map = mapView_;
+        [self viewDidAppear:NO];
     }
     if([distanceAndBearing miles]>=10){
         
@@ -118,13 +111,6 @@
 }
 
 -(void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
-    NSLog(@"found a tap and creating new event");
-    
-    
-    //EventsController * vc = [[EventsController alloc] init];
-    
-    //[self presentViewController:vc animated:YES completion:nil];
-    
     UIStoryboard * storyboard = self.storyboard;
     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
      vc.callingView = self;
@@ -132,13 +118,27 @@
     vc.location.text = [NSString stringWithFormat:@"%f %f",coordinate.latitude, coordinate.longitude];
 
     //take him to a new card for an event
-   // Events * event = [[Events alloc] init];
 }
 
--(BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker{
-    //this will be used to take you to the detail page of that marker, if you have permissions and owner, you can edit that marker also
-    NSLog(@"Found a tap on a marker");
-    return YES;
+//-(BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker{
+//    //this will be used to take you to the detail page of that marker, if you have permissions and owner, you can edit that marker also
+//    if([marker.title isEqualToString:@"You Are Here"]){
+//        return NO;
+//    }
+//    
+//    
+//    return NO;
+//}
+
+-(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker{
+    if([marker.title isEqualToString:@"You Are Here"]){
+                return;
+    }
+    UIStoryboard * storyboard = self.storyboard;
+    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+    vc.callingView = self;
+    [self presentViewController:vc animated:YES completion:nil];
+    [vc editEvent:marker.userData];
 }
 /*
 #pragma mark - Navigation
@@ -163,8 +163,6 @@
     CLLocation * currentLocation = [locations objectAtIndex:[locations count]-1];
     if(currentLocation !=nil){
         //set your variables to keep track of the location
-        //NSLog(@"%@", [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude]);
-        //NSLog(@"%@", [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude]);
     }
     
     [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -174,7 +172,7 @@
        //     NSLog(@"%@",[NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@", placemark.subThoroughfare, placemark.thoroughfare, placemark.postalCode, placemark.locality, placemark.administrativeArea, placemark.country]);
         }
         else{
-         //   NSLog(@"%@", error.debugDescription);
+            NSLog(@"%@", error.debugDescription);
         }
     }];
     userLocation = currentLocation;

@@ -33,8 +33,12 @@
 }
 
 -(void) editEvent:(Event *) event{
-    NSLog(@"this will be called when a row is selected");
-    NSLog(@"%@", event.name);
+    name.text = event.name;
+    date.text = event.date;
+    location.text = event.location;
+    owner.text = event.owner;
+    rating.text = [NSString stringWithFormat:@"%@",event.rating];
+    details.text = event.details;
 }
 
 /*
@@ -53,9 +57,6 @@
 }
 
 - (IBAction)clickSave:(id)sender{
-    
-    NSLog(@"Saving the event to memory");//this should appear now on the map and the list if its in the area
-
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
@@ -73,16 +74,10 @@
             return;
         }
     }
-
-    
-    Event * newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
-    
-    newEvent.name = name.text;
-    newEvent.date = date.text;
-    newEvent.location = location.text;
     NSArray * locVerify = [location.text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSNumberFormatter * stringToNum = [[NSNumberFormatter alloc] init];
-    if(locVerify.count!=2 || [stringToNum numberFromString:[locVerify objectAtIndex:0]]!=nil || [stringToNum numberFromString:[locVerify objectAtIndex:1]]!=nil){
+    //[stringToNum setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
+    if(locVerify.count!=2 || [stringToNum numberFromString:[locVerify objectAtIndex:0]]==nil || [stringToNum numberFromString:[locVerify objectAtIndex:1]]==nil){
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Bad Location"
                                                         message:@"Please enter coordinates as latitude and longitude separated by spaces (decimal values). Or tap on the Map View to instantly fill out coordinates"
                                                        delegate:self
@@ -91,19 +86,22 @@
         [alert show];
         return;
     }
-    newEvent.owner = @"YOU";
-    newEvent.rating = 0;
+    
+    Event * newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    
+    newEvent.name = name.text;
+    newEvent.date = date.text;
+    newEvent.location = location.text;
+    newEvent.owner = owner.text;
+    newEvent.rating = rating.text;
+    newEvent.details = details.text;
+    //we need an owned by field to be set
     
     [self.managedObjectContext save:nil];
     
-    //if system clock changes this will fail
+    //if system clock changes this will fail????
     self.events = [self.events arrayByAddingObject:newEvent];
-    
-//    for(int i =0; i<events.count; i++){
-//        NSLog(@"EventController: %@", ((Event *)[events objectAtIndex:i]).name);
-//    }
-    
-     //[self.tableView reloadData];
+
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     
 }

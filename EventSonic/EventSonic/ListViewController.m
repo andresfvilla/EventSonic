@@ -92,9 +92,9 @@
     UIStoryboard * storyboard = self.storyboard;
     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
     vc.callingView = self;
-    [vc editEvent:[events objectAtIndex:indexPath.row]];
+    NSLog(@"%@",[events objectAtIndex:indexPath.row]);
     [self presentViewController:vc animated:YES completion:nil];
-    
+    [vc editEvent:[events objectAtIndex:indexPath.row]];
 }
 /*
 #pragma mark - Navigation
