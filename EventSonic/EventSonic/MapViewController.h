@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 #import <CoreLocation/CoreLocation.h>
-#import <ZFHaversine/ZFHaversine.h>
 #import <CoreData/CoreData.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import "AppDelegate.h"

@@ -18,7 +18,7 @@
     CLLocation * userLocation;
 }
 
-@synthesize events, table;
+@synthesize events, table, tableData;
 - (void)viewDidLoad {
     NSLog(@"loaded the view");
     [super viewDidLoad];
@@ -30,32 +30,23 @@
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
+    tableData = [[NSMutableArray alloc] init];
     self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-//    NSMutableArray * array = [NSMutableArray arrayWithArray:events];
-//    MapViewController * map = [self.storyboard instantiateViewControllerWithIdentifier:@"mapView"];
-//    for(int i =0; i<self.events.count; i++){
-//        Event * e = [events objectAtIndex:i];
-//        NSArray * latLong = [e.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-//        CLLocationCoordinate2D position = CLLocationCoordinate2DMake([[latLong objectAtIndex:0] doubleValue], [[latLong objectAtIndex:1] doubleValue]);
-//        
-//        ZFHaversine *distanceAndBearing = [[ZFHaversine alloc] initWithLatitude1:map.manager.location.coordinate.latitude
-//                                                                      longitude1:map.manager.location.coordinate.longitude
-//                                                                       latitude2:position.latitude
-//                                                                      longitude2:position.longitude];
-//        
-//        MapViewController * map = [self.storyboard instantiateViewControllerWithIdentifier:@"mapView"];
-//        if([distanceAndBearing miles]>=[map.desiredRadius doubleValue]){
-//            NSLog(@"%@", e.name);
-//            [array removeObjectIdenticalTo:e];
-//        }
-//    }
-//    events = [array copy];
+    MapViewController * mapvc = [self.tabBarController.viewControllers objectAtIndex:0];
+
+    for(int i =0; i<events.count; i++){
+        Event * event = [events objectAtIndex:i];
+        NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        CLLocation * position = [[CLLocation alloc] initWithLatitude:[[latLong objectAtIndex:0] doubleValue] longitude:[[latLong objectAtIndex:1] doubleValue]];
+        
+        NSLog(@"Distance i meters: %f", [position distanceFromLocation:mapvc.manager.location]);
+        if(([position distanceFromLocation:mapvc.manager.location]/1609.34)<=[mapvc.desiredRadius doubleValue]){
+            [tableData addObject:event];
+        }
+    }
+
     NSLog(@"view appeared");
-//    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
-//    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-//    
-//    self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    //self.events = nil;
+
     [table reloadData];
 }
 -(NSManagedObjectContext *)managedObjectContext{
@@ -84,7 +75,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
    
-    return self.events.count;//this needs to be revisited, should be equal to the number of events in the coredata
+    return tableData.count;//this needs to be revisited, should be equal to the number of events in the coredata
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -94,7 +85,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     //Event * eventList = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-    Event * eventList = [self.events objectAtIndex:indexPath.row];
+    Event * eventList = [self.tableData objectAtIndex:indexPath.row];
 
     cell.textLabel.text = eventList.name;
     

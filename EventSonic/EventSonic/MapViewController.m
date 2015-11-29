@@ -79,20 +79,18 @@
     for(int i =0; i<events.count; i++){
                 Event * event = [events objectAtIndex:i];
         NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        CLLocationCoordinate2D position = CLLocationCoordinate2DMake([[latLong objectAtIndex:0] doubleValue], [[latLong objectAtIndex:1] doubleValue]);
-        ZFHaversine *distanceAndBearing = [[ZFHaversine alloc] initWithLatitude1:manager.location.coordinate.latitude
-                                                                      longitude1:manager.location.coordinate.longitude
-                                                                       latitude2:position.latitude
-                                                                      longitude2:position.longitude];
-        NSLog(@"%f", [distanceAndBearing miles]);
-        if([distanceAndBearing miles]<=[desiredRadius doubleValue]){
-            GMSMarker *marker = [GMSMarker markerWithPosition:position];
-            marker.title = event.name;
-            marker.map = mapView_;
-            marker.userData = event;
-            marker.snippet = [NSString stringWithFormat:@"When: %@\nWhere: %@\nDistance: %f miles", event.date, event.details, [distanceAndBearing miles] ];
-            [markerList addObject:marker];
-        }
+        CLLocation * position = [[CLLocation alloc] initWithLatitude:[[latLong objectAtIndex:0] doubleValue] longitude:[[latLong objectAtIndex:1] doubleValue]];
+
+        NSLog(@"Distance i meters mapview: %f, %f", [position distanceFromLocation:manager.location], [desiredRadius doubleValue]);
+                if(([position distanceFromLocation:manager.location]/1609.34)<=[desiredRadius doubleValue]){
+                    GMSMarker *marker = [GMSMarker markerWithPosition:position.coordinate];
+                    marker.title = event.name;
+                    marker.map = mapView_;
+                    marker.userData = event;
+                    marker.snippet = [NSString stringWithFormat:@"When: %@\nWhere: %@\nDistance: %f miles", event.date, event.details, [position distanceFromLocation:position]];
+                    [markerList addObject:marker];
+                }
+
     }
 }
 

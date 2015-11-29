@@ -1,9 +1,10 @@
 Always use the EventSonic.xcworkspace file when making changes to the file. This is required for the google sdk
 a lot of the documentation for the sdk is located https://developers.google.com/maps/documentation/ios-sdk/map
 
-groovy http://frankencover.it/with -source-dir ~/EventSonic/EventSonic/EventSonic/
+Enter the EventSonic directory and then type "sh coverage.sh"
 run that in terminal, it will give you test coverage results, in percentage and it will also make an html file that you can open to view it on a browser
 
+If this doesnt give you results for all files, you might have to clean the xcode project before running the teests, and then rn the command
 
 FIX THIS!!!!
 

@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - /Users/andresv/EventSonic/EventSonic/EventSonic/ListViewController.m</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../index.html">top level</a> - <a href="index.html">Users/andresv/EventSonic/EventSonic/EventSonic</a> - ListViewController.m<span style="font-size: 80%;"> (source / <a href="ListViewController.m.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">49</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2015-11-29 16:52:41</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : //</a>
+<span class="lineNum">       2 </span>            : //  ListViewController.m
+<span class="lineNum">       3 </span>            : //  EventSonic
+<span class="lineNum">       4 </span>            : //
+<span class="lineNum">       5 </span>            : //  Created by Andres Villa on 11/26/15.
+<span class="lineNum">       6 </span>            : //  Copyright (c) 2015 Andres Villa. All rights reserved.
+<span class="lineNum">       7 </span>            : //
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            : #import &quot;ListViewController.h&quot;
+<span class="lineNum">      10 </span>            : 
+<span class="lineNum">      11 </span>            : @interface ListViewController ()
+<span class="lineNum">      12 </span>            : 
+<a name="13"><span class="lineNum">      13 </span>            : @end</a>
+<span class="lineNum">      14 </span>            : 
+<span class="lineNum">      15 </span><span class="lineNoCov">          0 : @implementation ListViewController{</span>
+<span class="lineNum">      16 </span>            :     CLGeocoder * geocoder;
+<span class="lineNum">      17 </span>            :     CLPlacemark * placemark;
+<span class="lineNum">      18 </span>            :     CLLocation * userLocation;
+<span class="lineNum">      19 </span>            : }
+<a name="20"><span class="lineNum">      20 </span>            : </a>
+<span class="lineNum">      21 </span>            : @synthesize events, table, tableData;
+<span class="lineNum">      22 </span>            : - (void)viewDidLoad {
+<span class="lineNum">      23 </span><span class="lineNoCov">          0 :     NSLog(@&quot;loaded the view&quot;);</span>
+<span class="lineNum">      24 </span><span class="lineNoCov">          0 :     [super viewDidLoad];</span>
+<span class="lineNum">      25 </span>            :     // Do any additional setup after loading the view.
+<a name="26"><span class="lineNum">      26 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            : -(void)viewDidAppear:(BOOL)animated{
+<span class="lineNum">      29 </span><span class="lineNoCov">          0 :     NSLog(@&quot;did this&quot;);</span>
+<span class="lineNum">      30 </span><span class="lineNoCov">          0 :     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@&quot;Event&quot;];</span>
+<span class="lineNum">      31 </span><span class="lineNoCov">          0 :     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@&quot;name&quot; ascending:YES]];</span>
+<span class="lineNum">      32 </span>            :     
+<span class="lineNum">      33 </span><span class="lineNoCov">          0 :     tableData = [[NSMutableArray alloc] init];</span>
+<span class="lineNum">      34 </span><span class="lineNoCov">          0 :     self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];</span>
+<span class="lineNum">      35 </span><span class="lineNoCov">          0 :     MapViewController * mapvc = [self.tabBarController.viewControllers objectAtIndex:0];</span>
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span><span class="lineNoCov">          0 :     for(int i =0; i&lt;events.count; i++){</span>
+<span class="lineNum">      38 </span><span class="lineNoCov">          0 :         Event * event = [events objectAtIndex:i];</span>
+<span class="lineNum">      39 </span><span class="lineNoCov">          0 :         NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];</span>
+<span class="lineNum">      40 </span><span class="lineNoCov">          0 :         CLLocation * position = [[CLLocation alloc] initWithLatitude:[[latLong objectAtIndex:0] doubleValue] longitude:[[latLong objectAtIndex:1] doubleValue]];</span>
+<span class="lineNum">      41 </span>            :         
+<span class="lineNum">      42 </span><span class="lineNoCov">          0 :         NSLog(@&quot;Distance i meters: %f&quot;, [position distanceFromLocation:mapvc.manager.location]);</span>
+<span class="lineNum">      43 </span><span class="lineNoCov">          0 :         if(([position distanceFromLocation:mapvc.manager.location]/1609.34)&lt;=[mapvc.desiredRadius doubleValue]){</span>
+<span class="lineNum">      44 </span><span class="lineNoCov">          0 :             [tableData addObject:event];</span>
+<span class="lineNum">      45 </span><span class="lineNoCov">          0 :         }</span>
+<span class="lineNum">      46 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span><span class="lineNoCov">          0 :     NSLog(@&quot;view appeared&quot;);</span>
+<span class="lineNum">      49 </span>            : 
+<a name="50"><span class="lineNum">      50 </span><span class="lineNoCov">          0 :     [table reloadData];</span></a>
+<span class="lineNum">      51 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">      52 </span>            : -(NSManagedObjectContext *)managedObjectContext{
+<span class="lineNum">      53 </span>            :     //finds the applications appdelegate, casts it to the type of our appdelegate and then it will find the managedobjectcontext
+<span class="lineNum">      54 </span><span class="lineNoCov">          0 :     return [(AppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];</span>
+<a name="55"><span class="lineNum">      55 </span>            : }</a>
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            : - (void)didReceiveMemoryWarning {
+<span class="lineNum">      58 </span><span class="lineNoCov">          0 :     [super didReceiveMemoryWarning];</span>
+<span class="lineNum">      59 </span>            :     // Dispose of any resources that can be recreated.
+<a name="60"><span class="lineNum">      60 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      61 </span>            : 
+<span class="lineNum">      62 </span>            : -(IBAction)clickNew:(id)sender{
+<span class="lineNum">      63 </span><span class="lineNoCov">          0 :     UIStoryboard * storyboard = self.storyboard;</span>
+<span class="lineNum">      64 </span><span class="lineNoCov">          0 :     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@&quot;eventView&quot;];</span>
+<span class="lineNum">      65 </span><span class="lineNoCov">          0 :     [self presentViewController:vc animated:YES completion:nil];</span>
+<span class="lineNum">      66 </span><span class="lineNoCov">          0 :     events = vc.events;</span>
+<span class="lineNum">      67 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">      68 </span>            : 
+<span class="lineNum">      69 </span>            : //Table view delegate methods
+<a name="70"><span class="lineNum">      70 </span>            : #pragma mark - Table View data source</a>
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span>            : -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+<span class="lineNum">      73 </span><span class="lineNoCov">          0 :     return 1;</span>
+<a name="74"><span class="lineNum">      74 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      75 </span>            : 
+<span class="lineNum">      76 </span>            : -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+<span class="lineNum">      77 </span>            :    
+<span class="lineNum">      78 </span><span class="lineNoCov">          0 :     return tableData.count;//this needs to be revisited, should be equal to the number of events in the coredata</span>
+<a name="79"><span class="lineNum">      79 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span>            : -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+<span class="lineNum">      82 </span>            :     static NSString * CellIdentifier = @&quot;MainCell&quot;;
+<span class="lineNum">      83 </span><span class="lineNoCov">          0 :     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];</span>
+<span class="lineNum">      84 </span><span class="lineNoCov">          0 :     if(cell == nil){</span>
+<span class="lineNum">      85 </span><span class="lineNoCov">          0 :         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];</span>
+<span class="lineNum">      86 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">      87 </span>            :     //Event * eventList = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+<span class="lineNum">      88 </span><span class="lineNoCov">          0 :     Event * eventList = [self.tableData objectAtIndex:indexPath.row];</span>
+<span class="lineNum">      89 </span>            : 
+<span class="lineNum">      90 </span><span class="lineNoCov">          0 :     cell.textLabel.text = eventList.name;</span>
+<span class="lineNum">      91 </span>            :     
+<span class="lineNum">      92 </span><span class="lineNoCov">          0 :     return cell;</span>
+<a name="93"><span class="lineNum">      93 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      94 </span>            : 
+<span class="lineNum">      95 </span>            : -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+<span class="lineNum">      96 </span><span class="lineNoCov">          0 :     NSLog(@&quot;selected a specific row&quot;);</span>
+<span class="lineNum">      97 </span><span class="lineNoCov">          0 :     UIStoryboard * storyboard = self.storyboard;</span>
+<span class="lineNum">      98 </span><span class="lineNoCov">          0 :     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@&quot;eventView&quot;];</span>
+<span class="lineNum">      99 </span><span class="lineNoCov">          0 :     NSLog(@&quot;%@&quot;,[events objectAtIndex:indexPath.row]);</span>
+<span class="lineNum">     100 </span><span class="lineNoCov">          0 :     [self presentViewController:vc animated:YES completion:nil];</span>
+<span class="lineNum">     101 </span><span class="lineNoCov">          0 :     [vc editEvent:[events objectAtIndex:indexPath.row]];</span>
+<span class="lineNum">     102 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     103 </span>            : /*
+<span class="lineNum">     104 </span>            : #pragma mark - Navigation
+<span class="lineNum">     105 </span>            : 
+<span class="lineNum">     106 </span>            : // In a storyboard-based application, you will often want to do a little preparation before navigation
+<span class="lineNum">     107 </span>            : - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+<span class="lineNum">     108 </span>            :     // Get the new view controller using [segue destinationViewController].
+<span class="lineNum">     109 </span>            :     // Pass the selected object to the new view controller.
+<span class="lineNum">     110 </span>            : }
+<span class="lineNum">     111 </span>            : */
+<span class="lineNum">     112 </span>            : 
+<span class="lineNum">     113 </span>            : 
+<span class="lineNum">     114 </span>            : @end
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

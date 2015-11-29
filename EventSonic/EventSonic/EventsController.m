@@ -47,6 +47,12 @@
 //Will dismiss the event view from the screen
 - (IBAction)clickBack:(id)sender {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    name.text = @"";
+    date.text = @"";
+    location.text = @"";
+    owner.text = @"";
+    rating.text = @"";
+    details.text = @"";
 }
 
 - (IBAction)clickSave:(id)sender{
@@ -130,6 +136,12 @@
 
     //Dismisses the events view controller
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    name.text = @"";
+    date.text = @"";
+    location.text = @"";
+    owner.text = @"";
+    rating.text = @"";
+    details.text = @"";
     
 }
 

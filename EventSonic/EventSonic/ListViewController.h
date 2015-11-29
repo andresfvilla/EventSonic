@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 #import <CoreData/CoreData.h>
-#import <ZFHaversine/ZFHaversine.h>
 #import <CoreLocation/CoreLocation.h>
 #import "EventsController.h"
 #import "AppDelegate.h"
@@ -21,6 +20,8 @@
 @property int eventCount;//number of events currently being displayed to the user
 @property NSArray * events;//the list of events being shown to the user
 @property Event * eventInfo;//the information from an event requested by the user
+@property NSMutableArray * tableData;//the list of events being shown
+
 
 //core data properties
 @property(nonatomic, readonly) NSManagedObjectContext * managedObjectContext;
