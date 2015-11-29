@@ -25,12 +25,12 @@
     if([CLLocationManager authorizationStatus]!=kCLAuthorizationStatusDenied){
         NSLog(@"need location services");
         
-        //UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Location Services"
-          //                                              message:@"Please enable location services"
-            //                                           delegate:self
-              //                                cancelButtonTitle:@"Settings"
-                //                              otherButtonTitles: nil];
-        //[alert show];
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Location Services"
+                                                        message:@"Please enable location services"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Settings"
+                                              otherButtonTitles: nil];
+        [alert show];
 
     }
     
@@ -155,12 +155,12 @@
 //Called if there is an error capturing the location
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
 
-//    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Location Services"
-//                                                    message:@"Please enable location services"
-//                                                   delegate:self
-//                                          cancelButtonTitle:@"Settings"
-//                                          otherButtonTitles: nil];
-//    [alert show];
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Location Services"
+                                                    message:@"Please enable location services"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Settings"
+                                          otherButtonTitles: nil];
+    [alert show];
     NSLog(@"Error: %@", error);
     NSLog(@"Failed to get location! :(");
 }

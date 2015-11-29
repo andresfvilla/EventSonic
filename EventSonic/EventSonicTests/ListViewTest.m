@@ -37,4 +37,24 @@
     }];
 }
 
+//------viewDidAppear
+
+
+//------managedObjectsContext
+
+
+//------clickNew
+
+
+
+//-----numbersofsectionsintableview
+
+
+//----tableview numberofrowsinsection
+
+
+//----tableview cellforrowatindexpath
+
+
+//----tableview didselectrowatindexpath
 @end

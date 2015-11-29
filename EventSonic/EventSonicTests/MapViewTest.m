@@ -37,7 +37,9 @@
     }];
 }
 //----------ViewDidLoad
-
+-(void)testViewLoad{
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:MainStoryboard bundle:<#(NSBundle *)#>]
+}
 
 //----------ViewDidAppear
 
@@ -61,4 +63,11 @@
 
 
 //----------alerView clickedButtonAtIndex
+
+//----------locationmanager didupdatelocations
+
+
+//----------locationmanaer didchangeauthorizationstatus
+
+
 @end

@@ -37,4 +37,21 @@
     }];
 }
 
+//-------viewDidLoad
+
+
+//-------editEvent
+
+
+//--------clickBack
+
+//--------clickSave
+
+
+
+//-------textFieldShouldReturn
+
+
+//--------touchesbegan with event
+
 @end
