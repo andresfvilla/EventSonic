@@ -1,0 +1,380 @@
+TN:
+SF:/Users/andresv/EventSonic/EventSonic/EventSonic/AccountController.h
+FN:13,-[AccountController setUsername:]
+FN:13,-[AccountController username]
+FNDA:0,-[AccountController username]
+FNDA:0,-[AccountController setUsername:]
+FNF:2
+FNH:0
+DA:13,0
+LF:1
+LH:0
+end_of_record
+TN:
+SF:/Users/andresv/EventSonic/EventSonic/EventSonic/AccountController.m
+FN:15,-[AccountController .cxx_destruct]
+FN:17,-[AccountController viewDidLoad]
+FN:22,-[AccountController didReceiveMemoryWarning]
+FN:27,-[AccountController click:]
+FNDA:0,-[AccountController didReceiveMemoryWarning]
+FNDA:0,-[AccountController click:]
+FNDA:0,-[AccountController .cxx_destruct]
+FNDA:0,-[AccountController viewDidLoad]
+FNF:4
+FNH:0
+DA:15,0
+DA:18,0
+DA:20,0
+DA:23,0
+DA:25,0
+DA:29,0
+LF:6
+LH:0
+end_of_record
+TN:
+SF:/Users/andresv/EventSonic/EventSonic/EventSonic/AccountInfo.m
+FN:13,-[AccountInfo login:password:]
+FN:17,-[AccountInfo favorites:]
+FN:21,-[AccountInfo addFavorite:]
+FNDA:0,-[AccountInfo login:password:]
+FNDA:0,-[AccountInfo favorites:]
+FNDA:0,-[AccountInfo addFavorite:]
+FNF:3
+FNH:0
+DA:14,0
+DA:15,0
+DA:18,0
+DA:19,0
+DA:22,0
+DA:23,0
+LF:6
+LH:0
+end_of_record
+TN:
+SF:/Users/andresv/EventSonic/EventSonic/EventSonic/AppDelegate.h
+FN:15,-[AppDelegate window]
+FN:15,-[AppDelegate setWindow:]
+FNDA:54,-[AppDelegate window]
+FNDA:18,-[AppDelegate setWindow:]
+FNF:2
+FNH:2
+DA:15,72
+LF:1
+LH:1
+end_of_record
+TN:
+SF:/Users/andresv/EventSonic/EventSonic/EventSonic/AppDelegate.m
+FN:16,-[AppDelegate .cxx_destruct]
+FN:19,-[AppDelegate application:didFinishLaunchingWithOptions:]
+FN:25,-[AppDelegate applicationWillResignActive:]
+FN:30,-[AppDelegate applicationDidEnterBackground:]
+FN:35,-[AppDelegate applicationWillEnterForeground:]
+FN:39,-[AppDelegate applicationDidBecomeActive:]
+FN:43,-[AppDelegate applicationWillTerminate:]
+FN:55,-[AppDelegate applicationDocumentsDirectory]
+FN:60,-[AppDelegate managedObjectModel]
+FN:70,-[AppDelegate persistentStoreCoordinator]
+FN:99,-[AppDelegate managedObjectContext]
+FN:116,-[AppDelegate saveContext]
+FNDA:0,-[AppDelegate applicationWillTerminate:]
+FNDA:0,-[AppDelegate saveContext]
+FNDA:18,-[AppDelegate application:didFinishLaunchingWithOptions:]
+FNDA:155,-[AppDelegate managedObjectContext]
+FNDA:18,-[AppDelegate applicationDocumentsDirectory]
+FNDA:0,-[AppDelegate applicationWillEnterForeground:]
+FNDA:18,-[AppDelegate managedObjectModel]
+FNDA:0,-[AppDelegate applicationWillResignActive:]
+FNDA:18,-[AppDelegate applicationDidBecomeActive:]
+FNDA:18,-[AppDelegate persistentStoreCoordinator]
+FNDA:0,-[AppDelegate .cxx_destruct]
+FNDA:0,-[AppDelegate applicationDidEnterBackground:]
+FNF:12
+FNH:6
+DA:16,0
+DA:21,18
+DA:22,18
+DA:23,18
+DA:28,0
+DA:33,0
+DA:37,0
+DA:41,18
+DA:46,0
+DA:47,0
+DA:57,18
+DA:62,18
+DA:63,0
+DA:65,18
+DA:66,18
+DA:67,18
+DA:68,36
+DA:72,18
+DA:73,0
+DA:78,18
+DA:79,18
+DA:80,18
+DA:81,18
+DA:82,18
+DA:84,0
+DA:85,0
+DA:86,0
+DA:87,0
+DA:88,0
+DA:91,0
+DA:92,0
+DA:95,18
+DA:96,36
+DA:101,155
+DA:102,137
+DA:105,18
+DA:106,18
+DA:107,0
+DA:109,18
+DA:110,18
+DA:111,18
+DA:112,173
+DA:117,0
+DA:118,0
+DA:119,0
+DA:120,0
+DA:123,0
+DA:124,0
+DA:126,0
+DA:127,0
+LF:50
+LH:26
+end_of_record
+TN:
+SF:/Users/andresv/EventSonic/EventSonic/EventSonic/EventsController.h
+FN:16,-[EventsController setName:]
+FN:16,-[EventsController name]
+FN:17,-[EventsController setDate:]
+FN:17,-[EventsController date]
+FN:18,-[EventsController location]
+FN:18,-[EventsController setLocation:]
+FN:19,-[EventsController details]
+FN:19,-[EventsController setDetails:]
+FN:20,-[EventsController setOwner:]
+FN:20,-[EventsController owner]
+FN:21,-[EventsController rating]
+FN:21,-[EventsController setRating:]
+FN:24,-[EventsController events]
+FN:24,-[EventsController setEvents:]
+FN:25,-[EventsController setManagedObjectContext:]
+FNDA:10,-[EventsController name]
+FNDA:72,-[EventsController setDetails:]
+FNDA:10,-[EventsController details]
+FNDA:0,-[EventsController rating]
+FNDA:60,-[EventsController location]
+FNDA:0,-[EventsController setOwner:]
+FNDA:36,-[EventsController setDate:]
+FNDA:0,-[EventsController owner]
+FNDA:72,-[EventsController setName:]
+FNDA:0,-[EventsController setManagedObjectContext:]
+FNDA:0,-[EventsController events]
+FNDA:10,-[EventsController date]
+FNDA:36,-[EventsController setEvents:]
+FNDA:0,-[EventsController setRating:]
+FNDA:72,-[EventsController setLocation:]
+FNF:15
+FNH:9
+DA:16,82
+DA:17,46
+DA:18,132
+DA:19,82
+DA:20,0
+DA:21,0
+DA:24,36
+DA:25,0
+LF:8
+LH:5
+end_of_record
+TN:
+SF:/Users/andresv/EventSonic/EventSonic/EventSonic/EventsController.m
+FN:11,-[EventsController .cxx_destruct]
+FN:19,-[EventsController viewDidLoad]
+FN:29,-[EventsController didReceiveMemoryWarning]
+FN:34,-[EventsController editEvent:]
+FN:48,-[EventsController clickBack:]
+FN:52,-[EventsController clickSave:]
+FN:136,-[EventsController managedObjectContext]
+FN:143,-[EventsController textFieldShouldReturn:]
+FN:154,-[EventsController touchesBegan:withEvent:]
+FNDA:1,-[EventsController clickBack:]
+FNDA:10,-[EventsController clickSave:]
+FNDA:0,-[EventsController touchesBegan:withEvent:]
+FNDA:76,-[EventsController managedObjectContext]
+FNDA:0,-[EventsController didReceiveMemoryWarning]
+FNDA:0,-[EventsController textFieldShouldReturn:]
+FNDA:10,-[EventsController .cxx_destruct]
+FNDA:20,-[EventsController editEvent:]
+FNDA:36,-[EventsController viewDidLoad]
+FNF:9
+FNH:6
+DA:11,10
+DA:20,36
+DA:21,36
+DA:24,36
+DA:25,36
+DA:26,36
+DA:27,36
+DA:30,0
+DA:32,0
+DA:36,20
+DA:37,20
+DA:38,20
+DA:39,20
+DA:40,20
+DA:41,20
+DA:42,20
+DA:43,20
+DA:44,20
+DA:45,20
+DA:49,1
+DA:50,1
+DA:53,10
+DA:55,0
+DA:56,0
+DA:57,0
+DA:62,0
+DA:64,0
+DA:66,10
+DA:67,10
+DA:68,10
+DA:71,10
+DA:72,10
+DA:77,10
+DA:78,20
+DA:79,10
+DA:80,10
+DA:81,10
+DA:86,10
+DA:88,10
+DA:89,10
+DA:92,0
+DA:93,0
+DA:94,0
+DA:101,0
+DA:106,0
+DA:108,0
+DA:111,0
+DA:112,0
+DA:113,0
+DA:114,0
+DA:115,0
+DA:116,0
+DA:117,0
+DA:118,0
+DA:122,0
+DA:123,0
+DA:126,0
+DA:129,0
+DA:132,0
+DA:134,30
+DA:138,76
+DA:145,0
+DA:146,0
+DA:147,0
+DA:148,0
+DA:150,0
+DA:151,0
+DA:155,0
+DA:156,0
+DA:157,0
+DA:158,0
+DA:160,0
+DA:161,0
+LF:73
+LH:35
+end_of_record
+TN:
+SF:/Users/andresv/EventSonic/EventSonic/EventSonic/ListViewController.h
+FN:20,-[ListViewController setTable:]
+FN:20,-[ListViewController table]
+FN:21,-[ListViewController eventCount]
+FN:21,-[ListViewController setEventCount:]
+FN:22,-[ListViewController setEvents:]
+FN:22,-[ListViewController events]
+FN:23,-[ListViewController setEventInfo:]
+FN:23,-[ListViewController eventInfo]
+FNDA:0,-[ListViewController setEventCount:]
+FNDA:0,-[ListViewController table]
+FNDA:0,-[ListViewController setTable:]
+FNDA:0,-[ListViewController eventInfo]
+FNDA:0,-[ListViewController eventCount]
+FNDA:0,-[ListViewController setEvents:]
+FNDA:0,-[ListViewController setEventInfo:]
+FNDA:0,-[ListViewController events]
+FNF:8
+FNH:0
+DA:20,0
+DA:21,0
+DA:22,0
+DA:23,0
+LF:4
+LH:0
+end_of_record
+TN:
+SF:/Users/andresv/EventSonic/EventSonic/EventSonic/ListViewController.m
+FN:15,-[ListViewController .cxx_destruct]
+FN:22,-[ListViewController viewDidLoad]
+FN:28,-[ListViewController viewDidAppear:]
+FN:61,-[ListViewController managedObjectContext]
+FN:66,-[ListViewController didReceiveMemoryWarning]
+FN:71,-[ListViewController clickNew:]
+FN:81,-[ListViewController numberOfSectionsInTableView:]
+FN:85,-[ListViewController tableView:numberOfRowsInSection:]
+FN:90,-[ListViewController tableView:cellForRowAtIndexPath:]
+FN:104,-[ListViewController tableView:didSelectRowAtIndexPath:]
+FNDA:0,-[ListViewController .cxx_destruct]
+FNDA:0,-[ListViewController tableView:numberOfRowsInSection:]
+FNDA:0,-[ListViewController numberOfSectionsInTableView:]
+FNDA:0,-[ListViewController tableView:didSelectRowAtIndexPath:]
+FNDA:0,-[ListViewController viewDidAppear:]
+FNDA:0,-[ListViewController tableView:cellForRowAtIndexPath:]
+FNDA:0,-[ListViewController managedObjectContext]
+FNDA:0,-[ListViewController clickNew:]
+FNDA:0,-[ListViewController didReceiveMemoryWarning]
+FNDA:0,-[ListViewController viewDidLoad]
+FNF:10
+FNH:0
+DA:15,0
+DA:23,0
+DA:24,0
+DA:26,0
+DA:29,0
+DA:30,0
+DA:31,0
+DA:33,0
+DA:53,0
+DA:59,0
+DA:60,0
+DA:63,0
+DA:67,0
+DA:69,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:75,0
+DA:76,0
+DA:82,0
+DA:83,0
+DA:87,0
+DA:88,0
+DA:92,0
+DA:93,0
+DA:94,0
+DA:95,0
+DA:97,0
+DA:99,0
+DA:101,0
+DA:102,0
+DA:105,0
+DA:106,0
+DA:107,0
+DA:108,0
+DA:109,0
+DA:110,0
+DA:111,0
+LF:38
+LH:0
+end_of_record

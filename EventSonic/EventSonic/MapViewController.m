@@ -18,7 +18,7 @@
     CLLocation * userLocation;
 }
 
-@synthesize eventCount, events, manager, desiredRadius, mapView_, markerList;
+@synthesize eventCount, events, manager, desiredRadius, mapView_, markerList, eventController;
 - (void)viewDidLoad {
     [super viewDidLoad];
     if([CLLocationManager authorizationStatus]!=kCLAuthorizationStatusDenied){
@@ -128,9 +128,12 @@
 //Called when a user taps on the map. Will take the user to a new event page, but already includes the location as coordinates
 -(void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
     UIStoryboard * storyboard = self.storyboard;
-    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
-    [self presentViewController:vc animated:YES completion:nil];
-    vc.location.text = [NSString stringWithFormat:@"%f %f",coordinate.latitude, coordinate.longitude];
+    if(eventController==nil){
+     eventController = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+    }
+    [self presentViewController:eventController animated:YES completion:nil];
+    eventController.location.text= [NSString stringWithFormat:@"%f %f",coordinate.latitude, coordinate.longitude];
+    NSLog(@"location:%@", eventController.location.text);
 
 }
 
@@ -169,6 +172,10 @@
 
 //Will poll this to capture any changes to the users location
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    if(![[locations objectAtIndex:[locations count]-1] isKindOfClass:[CLLocation class]]){
+        NSLog(@"could not read users location");
+        return;
+    }
     CLLocation * currentLocation = [locations objectAtIndex:[locations count]-1];
     
     [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -186,7 +193,7 @@
 
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
     //if(status==YES){
-        NSLog(@"this is good");
+        NSLog(@"Authorization status changed");
     //}
 }
 

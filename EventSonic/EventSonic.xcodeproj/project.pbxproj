@@ -10,11 +10,9 @@
 		043F78F41C0752C400AAA723 /* AccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043F78F31C0752C400AAA723 /* AccountController.m */; };
 		043F78F71C0752D700AAA723 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043F78F61C0752D700AAA723 /* MapViewController.m */; };
 		043F78FA1C0752E800AAA723 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043F78F91C0752E800AAA723 /* ListViewController.m */; };
-		043F79001C07530F00AAA723 /* AccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 043F78FF1C07530F00AAA723 /* AccountInfo.m */; };
 		04576AF91C0659F5007E552A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04576AF81C0659F5007E552A /* main.m */; };
 		04576AFC1C0659F5007E552A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04576AFB1C0659F5007E552A /* AppDelegate.m */; };
 		04576AFF1C0659F5007E552A /* EventSonic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04576AFD1C0659F5007E552A /* EventSonic.xcdatamodeld */; };
-		04576B021C0659F5007E552A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04576B011C0659F5007E552A /* ViewController.m */; };
 		04576B051C0659F5007E552A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04576B031C0659F5007E552A /* Main.storyboard */; };
 		04576B071C0659F5007E552A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04576B061C0659F5007E552A /* Images.xcassets */; };
 		04576B0A1C0659F5007E552A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04576B081C0659F5007E552A /* LaunchScreen.xib */; };
@@ -52,16 +50,12 @@
 		043F78F61C0752D700AAA723 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		043F78F81C0752E800AAA723 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		043F78F91C0752E800AAA723 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		043F78FE1C07530F00AAA723 /* AccountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfo.h; sourceTree = "<group>"; };
-		043F78FF1C07530F00AAA723 /* AccountInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountInfo.m; sourceTree = "<group>"; };
 		04576AF31C0659F5007E552A /* EventSonic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventSonic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04576AF71C0659F5007E552A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04576AF81C0659F5007E552A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04576AFA1C0659F5007E552A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04576AFB1C0659F5007E552A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		04576AFE1C0659F5007E552A /* EventSonic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EventSonic.xcdatamodel; sourceTree = "<group>"; };
-		04576B001C0659F5007E552A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		04576B011C0659F5007E552A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		04576B041C0659F5007E552A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04576B061C0659F5007E552A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		04576B091C0659F5007E552A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -139,8 +133,6 @@
 				04576AFA1C0659F5007E552A /* AppDelegate.h */,
 				04576AFB1C0659F5007E552A /* AppDelegate.m */,
 				04576B031C0659F5007E552A /* Main.storyboard */,
-				043F78FE1C07530F00AAA723 /* AccountInfo.h */,
-				043F78FF1C07530F00AAA723 /* AccountInfo.m */,
 				04EC19201C0A5C2B00F3BC56 /* Storage */,
 				04EC191F1C0A0FAA00F3BC56 /* EventControllers */,
 				04576B061C0659F5007E552A /* Images.xcassets */,
@@ -181,8 +173,6 @@
 		04EC191F1C0A0FAA00F3BC56 /* EventControllers */ = {
 			isa = PBXGroup;
 			children = (
-				04576B001C0659F5007E552A /* ViewController.h */,
-				04576B011C0659F5007E552A /* ViewController.m */,
 				043F78F51C0752D700AAA723 /* MapViewController.h */,
 				043F78F61C0752D700AAA723 /* MapViewController.m */,
 				043F78F81C0752E800AAA723 /* ListViewController.h */,
@@ -417,10 +407,8 @@
 				043F78FA1C0752E800AAA723 /* ListViewController.m in Sources */,
 				04576AF91C0659F5007E552A /* main.m in Sources */,
 				043F78F71C0752D700AAA723 /* MapViewController.m in Sources */,
-				04576B021C0659F5007E552A /* ViewController.m in Sources */,
 				04EC191E1C08E6B900F3BC56 /* Account.m in Sources */,
 				04576AFF1C0659F5007E552A /* EventSonic.xcdatamodeld in Sources */,
-				043F79001C07530F00AAA723 /* AccountInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +477,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -551,6 +541,8 @@
 			baseConfigurationReference = EA27236A99B79999C4D3D32E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = EventSonic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - /Users/andresv/EventSonic/EventSonic/EventSonic/EventsController.h</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../index.html">top level</a> - <a href="index.html">Users/andresv/EventSonic/EventSonic/EventSonic</a> - EventsController.h<span style="font-size: 80%;"> (source / <a href="EventsController.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntryLo">62.5 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2015-11-29 15:17:18</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntryLo">60.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : //</a>
+<span class="lineNum">       2 </span>            : //  EventsController.h
+<span class="lineNum">       3 </span>            : //  EventSonic
+<span class="lineNum">       4 </span>            : //
+<span class="lineNum">       5 </span>            : //  Created by Andres Villa on 11/26/15.
+<span class="lineNum">       6 </span>            : //  Copyright (c) 2015 Andres Villa. All rights reserved.
+<span class="lineNum">       7 </span>            : //
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            : #import &lt;UIKit/UIKit.h&gt;
+<span class="lineNum">      10 </span>            : #import &lt;CoreData/CoreData.h&gt;
+<span class="lineNum">      11 </span>            : #import &quot;Event.h&quot;
+<span class="lineNum">      12 </span>            : #import &quot;AppDelegate.h&quot;
+<span class="lineNum">      13 </span>            : 
+<a name="14"><span class="lineNum">      14 </span>            : @interface EventsController : UIViewController</a>
+<a name="15"><span class="lineNum">      15 </span>            : </a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">         82 : @property IBOutlet UITextField * name;//The name text field</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">         46 : @property IBOutlet UITextField * date;//the date text field</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">        132 : @property IBOutlet UITextField * location;//the location text field</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">         82 : @property IBOutlet UITextField * details;//the details text field</span></a>
+<span class="lineNum">      20 </span><span class="lineNoCov">          0 : @property IBOutlet UILabel * owner;//Cannot be modified by the user</span>
+<span class="lineNum">      21 </span><span class="lineNoCov">          0 : @property IBOutlet UILabel * rating;//Cannot be modified by the use</span>
+<a name="22"><span class="lineNum">      22 </span>            : </a>
+<a name="23"><span class="lineNum">      23 </span>            : //talking with core data</a>
+<span class="lineNum">      24 </span><span class="lineCov">         36 : @property NSArray * events;//the list of events returned from a fetch request</span>
+<span class="lineNum">      25 </span><span class="lineNoCov">          0 : @property NSManagedObjectContext * managedObjectContext;//the context for coredata, manages the ojects stored</span>
+<span class="lineNum">      26 </span>            : 
+<span class="lineNum">      27 </span>            : - (IBAction)clickBack:(id)sender;//called when the back button is clicked, dismisses the current view
+<span class="lineNum">      28 </span>            : - (IBAction)clickSave:(id)sender;//used to save a new object to CoreData
+<span class="lineNum">      29 </span>            : - (IBAction)editEvent:(Event *) event;//used when the user decides to modify or update an event
+<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      31 </span>            : @end
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

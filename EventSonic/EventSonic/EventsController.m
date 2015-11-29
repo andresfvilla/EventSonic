@@ -8,10 +8,6 @@
 
 #import "EventsController.h"
 
-@interface EventsController ()
-
-@end
-
 @implementation EventsController{
     BOOL editing;//Used to know if the event being saved is an existing one that is updated
     Event * updatingEvent;//The event info that is stored in the coreData that is being updated

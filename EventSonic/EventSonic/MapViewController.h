@@ -25,6 +25,7 @@
 @property NSArray * events;//the list of events being shown to the user
 @property GMSMapView *mapView_;//the map view object, shows google maps and its markers
 @property NSMutableArray * markerList;//the list of markers being shown
+@property(strong)EventsController * eventController;
 
 
 

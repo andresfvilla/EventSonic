@@ -70,23 +70,26 @@
 
 //----------mapView didTapAtCoordinate
 -(void)testTapOnMap{
-//    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    MapViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"mapView"];
-//    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: 0
-//                                                            longitude: 0
-//                                                                 zoom:14];
-//    GMSMapView *testMapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-//    testMapView_.myLocationEnabled = YES;
-//    testMapView_.delegate = vc;
-//    vc.view = testMapView_;
-//    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(1, 1);
-//    [vc mapView: testMapView_ didTapAtCoordinate:position];
-//    EventsController * eventsController = (EventsController *)vc.presentedViewController;
-//    XCTAssertEqualObjects(eventsController.location.text, @"1, 1");
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MapViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"mapView"];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: 0
+                                                            longitude: 0
+                                                                 zoom:14];
+    GMSMapView *testMapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    testMapView_.myLocationEnabled = YES;
+    testMapView_.delegate = vc;
+    vc.view = testMapView_;
+    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(15, 15);
+    [vc mapView: testMapView_ didTapAtCoordinate:position];
+    NSLog(@"testlocation:%@", vc.eventController.location.text);
+    NSString * expected = [NSString stringWithFormat:@"%f %f", position.latitude, position.longitude];
+    XCTAssertEqualObjects(vc.eventController.location.text, expected);
 }
 
 //----------mapView didTapInfoWindowOfMarker
-
+-(void)test{
+    
+}
 
 //----------locationManager did Fail With Error
 
@@ -95,12 +98,12 @@
 
 //----------locationmanager didupdatelocations
 -(void)testUpdateLocations{
-//    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    MapViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"mapView"];
-//    vc.view.hidden = NO;
-//    [vc viewDidAppear:NO];
-//    [vc locationManager:vc.manager didUpdateLocations:[[NSArray alloc] initWithObjects:@"not a location", nil]];
-    //XCTAssert(vc.);
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MapViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"mapView"];
+    vc.view.hidden = NO;
+    [vc viewDidAppear:NO];
+    [vc locationManager:vc.manager didUpdateLocations:[[NSArray alloc] initWithObjects:@"not a location", nil]];
+    //ensures that no exception is thrown, and no state is changed
 }
 
 //----------locationmanaer didchangeauthorizationstatus
