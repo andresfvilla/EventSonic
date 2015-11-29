@@ -30,6 +30,8 @@
 		04EC19251C0A622A00F3BC56 /* ListViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC19241C0A622A00F3BC56 /* ListViewTest.m */; };
 		04EC19271C0A623E00F3BC56 /* EventsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC19261C0A623E00F3BC56 /* EventsTest.m */; };
 		04EC19291C0A62B500F3BC56 /* AccountTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC19281C0A62B500F3BC56 /* AccountTest.m */; };
+		04EC192B1C0A9F0C00F3BC56 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047AF4751C0782D50015AA02 /* CoreLocation.framework */; };
+		04EC192F1C0A9F1400F3BC56 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EC192E1C0A9F1400F3BC56 /* libPods.a */; };
 		383CF9CF949106A95EB19540 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 148B1E6DAD030168B708B437 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,8 @@
 		04EC19241C0A622A00F3BC56 /* ListViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewTest.m; sourceTree = "<group>"; };
 		04EC19261C0A623E00F3BC56 /* EventsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsTest.m; sourceTree = "<group>"; };
 		04EC19281C0A62B500F3BC56 /* AccountTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTest.m; sourceTree = "<group>"; };
+		04EC192C1C0A9F1000F3BC56 /* libZFHaversine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libZFHaversine.a; path = "Pods/../build/Debug-iphoneos/libZFHaversine.a"; sourceTree = "<group>"; };
+		04EC192E1C0A9F1400F3BC56 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		148B1E6DAD030168B708B437 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5019AABAF3FB649E4711246 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EA27236A99B79999C4D3D32E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EC192F1C0A9F1400F3BC56 /* libPods.a in Frameworks */,
+				04EC192B1C0A9F0C00F3BC56 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +231,8 @@
 		D002417953B07BF357554886 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04EC192E1C0A9F1400F3BC56 /* libPods.a */,
+				04EC192C1C0A9F1000F3BC56 /* libZFHaversine.a */,
 				047AF4791C07B65F0015AA02 /* CoreData.framework */,
 				047AF4771C07A4AE0015AA02 /* libZFHaversine.a */,
 				047AF4751C0782D50015AA02 /* CoreLocation.framework */,
@@ -568,6 +576,10 @@
 				);
 				INFOPLIST_FILE = EventSonicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EventSonic.app/EventSonic";
 			};
@@ -583,6 +595,10 @@
 				);
 				INFOPLIST_FILE = EventSonicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EventSonic.app/EventSonic";
 			};

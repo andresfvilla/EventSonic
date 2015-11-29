@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "MapViewController.h"
 
 @interface MapViewTest : XCTestCase
 
@@ -38,7 +39,11 @@
 }
 //----------ViewDidLoad
 -(void)testViewLoad{
-    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:MainStoryboard bundle:<#(NSBundle *)#>]
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    MapViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"mapView"];
+    vc.view.hidden = NO;
+    
+    XCTAssertNotNil(vc, @"View controller should not be nil");
 }
 
 //----------ViewDidAppear
