@@ -121,7 +121,6 @@
 
         //ensures the screen is refreshed with the appropriate data
     }
-    //[self viewDidAppear:NO];
 
 }
 
