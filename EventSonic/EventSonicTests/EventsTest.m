@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "EventsController.h"
+#import "Event.h"
 
 @interface EventsTest : XCTestCase
 
@@ -30,17 +32,46 @@
     XCTAssert(YES, @"Pass");
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
 
 //-------viewDidLoad
 
 
 //-------editEvent
+-(void)testEventEdit{
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+    vc.view.hidden = NO;
+    //[vc viewDidAppear:NO];
+    Event * newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:vc.managedObjectContext];;
+    newEvent.name = @"test";
+    newEvent.date = @"test";
+    newEvent.location = @"1 1";
+    newEvent.details = @"test";
+    [vc editEvent:newEvent];
+    XCTAssertEqualObjects(newEvent.name, vc.name.text);
+    XCTAssertEqualObjects(newEvent.date, vc.date.text);
+    XCTAssertEqualObjects(newEvent.location, vc.location.text);
+    XCTAssertEqualObjects(newEvent.details, vc.details.text);
+}
+
+
+-(void)testEventSaveWithBadCoordinates{
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+    vc.view.hidden = NO;
+    //[vc viewDidAppear:NO];
+    Event * newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:vc.managedObjectContext];;
+    newEvent.name = @"test";
+    newEvent.date = @"test";
+    newEvent.location = @"200 200";
+    newEvent.details = @"test";
+    [vc editEvent:newEvent];
+    
+    [vc clickSave:nil];
+    Class UIAlertManager = objc_getClass("_UIAlertManager");
+    UIAlertView *topMostAlert = [UIAlertManager performSelector:@selector(topMostAlert)];
+    NSLog(@"Title of Alert:%@",topMostAlert.title);
+}
 
 
 //--------clickBack

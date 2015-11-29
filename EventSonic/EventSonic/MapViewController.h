@@ -23,6 +23,9 @@
 @property NSNumber * desiredRadius;
 @property int eventCount;//number of events currently being displayed to the user
 @property NSArray * events;//the list of events being shown to the user
-@property Event * eventInfo;//the information from an event requested by the user
+@property GMSMapView *mapView_;//the map view object, shows google maps and its markers
+@property NSMutableArray * markerList;//the list of markers being shown
+
+
 
 @end

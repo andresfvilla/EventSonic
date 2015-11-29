@@ -13,24 +13,23 @@
 @end
 
 @implementation MapViewController{
-    GMSMapView *mapView_;//the map view object, shows google maps and its markers
     CLGeocoder * geocoder;//converts coordinates to address, and vice versa
     CLPlacemark * placemark;
     CLLocation * userLocation;
 }
 
-@synthesize eventCount, events, eventInfo, manager, desiredRadius;
+@synthesize eventCount, events, manager, desiredRadius, mapView_, markerList;
 - (void)viewDidLoad {
     [super viewDidLoad];
     if([CLLocationManager authorizationStatus]!=kCLAuthorizationStatusDenied){
-        NSLog(@"need location services");
-        
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Location Services"
-                                                        message:@"Please enable location services"
-                                                       delegate:self
-                                              cancelButtonTitle:@"Settings"
-                                              otherButtonTitles: nil];
-        [alert show];
+//        NSLog(@"need location services");
+//        
+//        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Location Services"
+//                                                        message:@"Please enable location services"
+//                                                       delegate:self
+//                                              cancelButtonTitle:@"Settings"
+//                                              otherButtonTitles: nil];
+//        [alert show];
 
     }
     
@@ -60,7 +59,8 @@
     }
     //Clears all the markers from the map
     [mapView_ clear];
-    
+    markerList = [[NSMutableArray alloc] init];
+
     //Will add the users current location as a marker on the map, and then adds markers that are only within a user specified range(default 3) to display on the map
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(manager.location.coordinate.latitude, manager.location.coordinate.longitude);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
@@ -70,6 +70,7 @@
                                                             longitude: manager.location.coordinate.longitude
                                                                  zoom:14];
     mapView_.camera = camera;
+    [markerList addObject:marker];
     //will show the markers for the events, shows when, where, and the distance to that event from the users current location
     
     /*
@@ -90,6 +91,7 @@
             marker.map = mapView_;
             marker.userData = event;
             marker.snippet = [NSString stringWithFormat:@"When: %@\nWhere: %@\nDistance: %f miles", event.date, event.details, [distanceAndBearing miles] ];
+            [markerList addObject:marker];
         }
     }
 }
@@ -106,11 +108,6 @@
 
 
 -(void)setupGoogleMap{
-    //uses haversines formula to find the distance around the globe using latitude and longitude of 2 points
-    ZFHaversine *distanceAndBearing = [[ZFHaversine alloc] initWithLatitude1:mapView_.myLocation.coordinate.latitude
-                                                                  longitude1:mapView_.myLocation.coordinate.longitude
-                                                                   latitude2:userLocation.coordinate.latitude
-                                                                  longitude2:userLocation.coordinate.longitude];
     //if the user is still within a certain distance, theres no reason to reset the camera, if its null though, override the value since it hasnt been instantiated
     if(mapView_.camera == NULL){
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: manager.location.coordinate.latitude
@@ -154,15 +151,15 @@
 
 //Called if there is an error capturing the location
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-
-    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Location Services"
-                                                    message:@"Please enable location services"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Settings"
-                                          otherButtonTitles: nil];
-    [alert show];
-    NSLog(@"Error: %@", error);
-    NSLog(@"Failed to get location! :(");
+//
+//    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Location Services"
+//                                                    message:@"Please enable location services"
+//                                                   delegate:self
+//                                          cancelButtonTitle:@"Settings"
+//                                          otherButtonTitles: nil];
+//    [alert show];
+//    NSLog(@"Error: %@", error);
+//    NSLog(@"Failed to get location! :(");
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

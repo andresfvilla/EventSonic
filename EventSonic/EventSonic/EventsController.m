@@ -15,9 +15,11 @@
 @implementation EventsController{
     BOOL editing;//Used to know if the event being saved is an existing one that is updated
     Event * updatingEvent;//The event info that is stored in the coreData that is being updated
+    EventsController * instance_;
 }
 
 @synthesize name, date, location, details, events, owner, rating;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     editing = false;//Ensures that if an event is being made, editing is initialized to false
@@ -25,8 +27,7 @@
     //this is basically a query in object form
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];//Prepares a fetch for the Event entity in CoreData
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];//Will have the lists sorted when fetching
-    self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];//populates the events list
- 
+    self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];//populates the events list 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,9 +95,15 @@
     //Searches to ensure that the location is entered properly(Recommended to use the map view to create events)
     NSArray * locVerify = [location.text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSNumberFormatter * stringToNum = [[NSNumberFormatter alloc] init];
-    if(locVerify.count!=2 || [stringToNum numberFromString:[locVerify objectAtIndex:0]]==nil || [stringToNum numberFromString:[locVerify objectAtIndex:1]]==nil){
+    if(locVerify.count!=2
+       || [stringToNum numberFromString:[locVerify objectAtIndex:0]]==nil
+       || ([[stringToNum numberFromString:[locVerify objectAtIndex:0]] intValue]>180
+           || [[stringToNum numberFromString:[locVerify objectAtIndex:0]] intValue]<-180)
+       || [stringToNum numberFromString:[locVerify objectAtIndex:1]]==nil
+       || ([[stringToNum numberFromString:[locVerify objectAtIndex:1]] intValue]>180
+           || [[stringToNum numberFromString:[locVerify objectAtIndex:1]] intValue]<-180)){
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Bad Location"
-                                                        message:@"Please enter coordinates as latitude and longitude separated by spaces (decimal values). Or tap on the Map View to instantly fill out coordinates"
+                                                        message:@"Please enter coordinates as latitude and longitude separated by spaces (decimal values, and -180<=x<=180). Or tap on the Map View to instantly fill out coordinates"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles: nil];

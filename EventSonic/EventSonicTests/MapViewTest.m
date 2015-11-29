@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "MapViewController.h"
+#import "EventsController.h"
 
 @interface MapViewTest : XCTestCase
 
@@ -19,6 +20,8 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    [GMSServices provideAPIKey:@"AIzaSyCptcXEIK3QAxhyvYGPYUWuUoyvdZEb9kw"];
+
 }
 
 - (void)tearDown {
@@ -26,20 +29,9 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
 //----------ViewDidLoad
 -(void)testViewLoad{
-    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MapViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"mapView"];
     vc.view.hidden = NO;
     
@@ -48,18 +40,50 @@
 
 //----------ViewDidAppear
 
+-(void)testViewAppearing{
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MapViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"mapView"];
+    vc.view.hidden = NO;
+    [vc viewDidAppear:NO];
+    GMSMarker *marker = nil;
 
+    for(int i =0; i<vc.markerList.count;i++){
+        if([((GMSMarker *)[vc.markerList objectAtIndex:i]).title isEqualToString:@"You Are Here"]){
+            marker =(GMSMarker *)[vc.markerList objectAtIndex:i];
+        }
+    }
+    XCTAssertNotNil(marker, @"User marker should exist");
+
+}
 
 //----------ManagedObjectContext
 
 
 //----------setupGoogleMap
-
+-(void)testGoogleMap{
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MapViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"mapView"];
+    vc.view.hidden = NO;
+    
+}
 
 
 //----------mapView didTapAtCoordinate
-
-
+-(void)testTapOnMap{
+//    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    MapViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"mapView"];
+//    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: 0
+//                                                            longitude: 0
+//                                                                 zoom:14];
+//    GMSMapView *testMapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+//    testMapView_.myLocationEnabled = YES;
+//    testMapView_.delegate = vc;
+//    vc.view = testMapView_;
+//    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(1, 1);
+//    [vc mapView: testMapView_ didTapAtCoordinate:position];
+//    EventsController * eventsController = (EventsController *)vc.presentedViewController;
+//    XCTAssertEqualObjects(eventsController.location.text, @"1, 1");
+}
 
 //----------mapView didTapInfoWindowOfMarker
 
@@ -70,7 +94,14 @@
 //----------alerView clickedButtonAtIndex
 
 //----------locationmanager didupdatelocations
-
+-(void)testUpdateLocations{
+//    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    MapViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"mapView"];
+//    vc.view.hidden = NO;
+//    [vc viewDidAppear:NO];
+//    [vc locationManager:vc.manager didUpdateLocations:[[NSArray alloc] initWithObjects:@"not a location", nil]];
+    //XCTAssert(vc.);
+}
 
 //----------locationmanaer didchangeauthorizationstatus
 

@@ -183,10 +183,10 @@
 			children = (
 				04576B001C0659F5007E552A /* ViewController.h */,
 				04576B011C0659F5007E552A /* ViewController.m */,
+				043F78F51C0752D700AAA723 /* MapViewController.h */,
 				043F78F61C0752D700AAA723 /* MapViewController.m */,
 				043F78F81C0752E800AAA723 /* ListViewController.h */,
 				043F78F91C0752E800AAA723 /* ListViewController.m */,
-				043F78F51C0752D700AAA723 /* MapViewController.h */,
 				047AF4721C07650D0015AA02 /* EventsController.h */,
 				047AF4731C07650D0015AA02 /* EventsController.m */,
 				043F78F21C0752C400AAA723 /* AccountController.h */,
@@ -271,6 +271,7 @@
 				04576B0B1C0659F5007E552A /* Sources */,
 				04576B0C1C0659F5007E552A /* Frameworks */,
 				04576B0D1C0659F5007E552A /* Resources */,
+				41C4919831CB95E1BE8725C7 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -370,6 +371,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		41C4919831CB95E1BE8725C7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A043E57897609D051F855FA7 /* Copy Pods Resources */ = {
@@ -564,6 +580,7 @@
 		};
 		04576B1D1C0659F5007E552A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA27236A99B79999C4D3D32E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -587,6 +604,7 @@
 		};
 		04576B1E1C0659F5007E552A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5019AABAF3FB649E4711246 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
