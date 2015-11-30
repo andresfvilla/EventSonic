@@ -81,7 +81,7 @@
             marker.title = event.name;
             marker.map = mapView_;
             marker.userData = event;
-            marker.snippet = [NSString stringWithFormat:@"When: %@\nWhere: %@\nDistance: %f miles", event.date, event.details, [position distanceFromLocation:position]];
+            marker.snippet = [NSString stringWithFormat:@"When: %@\nWhere: %@\nDistance: %f miles", event.date, event.details, [position distanceFromLocation:manager.location]/1609.34];
             [markerList addObject:marker];
         }
 
