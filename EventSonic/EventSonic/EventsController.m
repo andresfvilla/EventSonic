@@ -83,33 +83,12 @@
     NSArray * arr = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
         for(int i =0; i<arr.count; i++){
             Event * e = [arr objectAtIndex:i];
-            if([[e.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[name.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]){
-                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Name already exist"
-                                                                message:@"An event with that name already exists, please choose a unique name"
-                                                               delegate:self
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles: nil];
-                [alert show];
+            if(![self validateName:e.name]){
                 return;
             }
         }
-    
-    //Searches to ensure that the location is entered properly(Recommended to use the map view to create events)
-    NSArray * locVerify = [location.text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSNumberFormatter * stringToNum = [[NSNumberFormatter alloc] init];
-    if(locVerify.count!=2
-       || [stringToNum numberFromString:[locVerify objectAtIndex:0]]==nil
-       || ([[stringToNum numberFromString:[locVerify objectAtIndex:0]] intValue]>180
-           || [[stringToNum numberFromString:[locVerify objectAtIndex:0]] intValue]<-180)
-       || [stringToNum numberFromString:[locVerify objectAtIndex:1]]==nil
-       || ([[stringToNum numberFromString:[locVerify objectAtIndex:1]] intValue]>180
-           || [[stringToNum numberFromString:[locVerify objectAtIndex:1]] intValue]<-180)){
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Bad Location"
-                                                        message:@"Please enter coordinates as latitude and longitude separated by spaces (decimal values, and -180<=x<=180). Or tap on the Map View to instantly fill out coordinates"
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles: nil];
-        [alert show];
+
+    if(![self validatelocation:location.text]){
         return;
     }
 
@@ -145,6 +124,40 @@
     
 }
 
+-(BOOL)validatelocation:(NSString *)location{
+    NSArray * locVerify = [location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSNumberFormatter * stringToNum = [[NSNumberFormatter alloc] init];
+    if(locVerify.count!=2
+       || [stringToNum numberFromString:[locVerify objectAtIndex:0]]==nil
+       || ([[stringToNum numberFromString:[locVerify objectAtIndex:0]] intValue]>180
+           || [[stringToNum numberFromString:[locVerify objectAtIndex:0]] intValue]<-180)
+       || [stringToNum numberFromString:[locVerify objectAtIndex:1]]==nil
+       || ([[stringToNum numberFromString:[locVerify objectAtIndex:1]] intValue]>180
+           || [[stringToNum numberFromString:[locVerify objectAtIndex:1]] intValue]<-180)){
+           UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Bad Location"
+                                                           message:@"Please enter coordinates as latitude and longitude separated by spaces (decimal values, and -180<=x<=180). Or tap on the Map View to instantly fill out coordinates"
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles: nil];
+           [alert show];
+           return NO;
+       }
+    return YES;
+}
+
+//Searches to ensure no event containt the same name as the new event
+-(BOOL)validateName:(NSString *) name{
+    if([[name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[self.name.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]){
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Name already exist"
+                                                        message:@"An event with that name already exists, please choose a unique name"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        return NO;
+    }
+    return YES;
+}
 -(NSManagedObjectContext *)managedObjectContext{
     //finds the applications appdelegate, casts it to the type of our "AppDelegate" and then it will find the managedobjectcontext
     return [(AppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-11-29 16:52:41</td>
+            <td class="headerValue">2015-11-29 17:41:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -79,14 +79,14 @@
 <a name="17"><span class="lineNum">      17 </span>            : @synthesize name, date, location, details, events, owner, rating;</a>
 <span class="lineNum">      18 </span>            : 
 <span class="lineNum">      19 </span>            : - (void)viewDidLoad {
-<span class="lineNum">      20 </span><span class="lineCov">          3 :     [super viewDidLoad];</span>
-<span class="lineNum">      21 </span><span class="lineCov">          3 :     editing = false;//Ensures that if an event is being made, editing is initialized to false</span>
+<span class="lineNum">      20 </span><span class="lineCov">          4 :     [super viewDidLoad];</span>
+<span class="lineNum">      21 </span><span class="lineCov">          4 :     editing = false;//Ensures that if an event is being made, editing is initialized to false</span>
 <span class="lineNum">      22 </span>            :     
 <span class="lineNum">      23 </span>            :     //this is basically a query in object form
-<span class="lineNum">      24 </span><span class="lineCov">          3 :     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@&quot;Event&quot;];//Prepares a fetch for the Event entity in CoreData</span>
-<span class="lineNum">      25 </span><span class="lineCov">          3 :     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@&quot;name&quot; ascending:YES]];//Will have the lists sorted when fetching</span>
-<span class="lineNum">      26 </span><span class="lineCov">          3 :     self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];//populates the events list </span>
-<a name="27"><span class="lineNum">      27 </span><span class="lineCov">          3 : }</span></a>
+<span class="lineNum">      24 </span><span class="lineCov">          4 :     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@&quot;Event&quot;];//Prepares a fetch for the Event entity in CoreData</span>
+<span class="lineNum">      25 </span><span class="lineCov">          4 :     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@&quot;name&quot; ascending:YES]];//Will have the lists sorted when fetching</span>
+<span class="lineNum">      26 </span><span class="lineCov">          4 :     self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];//populates the events list </span>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">      28 </span>            : 
 <span class="lineNum">      29 </span>            : - (void)didReceiveMemoryWarning {
 <span class="lineNum">      30 </span><span class="lineNoCov">          0 :     [super didReceiveMemoryWarning];</span>
@@ -209,7 +209,7 @@
 <span class="lineNum">     147 </span>            : 
 <span class="lineNum">     148 </span>            : -(NSManagedObjectContext *)managedObjectContext{
 <span class="lineNum">     149 </span>            :     //finds the applications appdelegate, casts it to the type of our &quot;AppDelegate&quot; and then it will find the managedobjectcontext
-<span class="lineNum">     150 </span><span class="lineCov">          7 :     return [(AppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];</span>
+<span class="lineNum">     150 </span><span class="lineCov">          8 :     return [(AppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];</span>
 <span class="lineNum">     151 </span>            : }
 <span class="lineNum">     152 </span>            : 
 <a name="153"><span class="lineNum">     153 </span>            : //Handles all the text field protocols</a>

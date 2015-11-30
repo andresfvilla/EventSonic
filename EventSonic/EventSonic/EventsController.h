@@ -28,4 +28,10 @@
 - (IBAction)clickSave:(id)sender;//used to save a new object to CoreData
 - (IBAction)editEvent:(Event *) event;//used when the user decides to modify or update an event
 
+//Searches to ensure that the location is entered properly(Recommended to use the map view to create events)
+-(BOOL)validatelocation:(NSString *)location;
+
+//Searches to ensure no event containt the same name as the new event
+-(BOOL)validateName:(NSString *) name;
+
 @end

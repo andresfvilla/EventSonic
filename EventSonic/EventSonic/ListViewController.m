@@ -20,13 +20,11 @@
 
 @synthesize events, table, tableData;
 - (void)viewDidLoad {
-    NSLog(@"loaded the view");
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    NSLog(@"did this");
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
@@ -39,14 +37,10 @@
         NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         CLLocation * position = [[CLLocation alloc] initWithLatitude:[[latLong objectAtIndex:0] doubleValue] longitude:[[latLong objectAtIndex:1] doubleValue]];
         
-        NSLog(@"Distance i meters: %f", [position distanceFromLocation:mapvc.manager.location]);
         if(([position distanceFromLocation:mapvc.manager.location]/1609.34)<=[mapvc.desiredRadius doubleValue]){
             [tableData addObject:event];
         }
     }
-
-    NSLog(@"view appeared");
-
     [table reloadData];
 }
 -(NSManagedObjectContext *)managedObjectContext{
@@ -61,9 +55,14 @@
 
 -(IBAction)clickNew:(id)sender{
     UIStoryboard * storyboard = self.storyboard;
-    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
-    [self presentViewController:vc animated:YES completion:nil];
-    events = vc.events;
+    MapViewController * mapvc = [self.tabBarController.viewControllers objectAtIndex:0];
+    EventsController * eventController = mapvc.eventController;
+    if(eventController==nil){
+        eventController = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+        mapvc.eventController = eventController;
+    }
+    [self presentViewController:eventController animated:YES completion:nil];
+    events = mapvc.events;
 }
 
 //Table view delegate methods
@@ -79,12 +78,14 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row>=tableData.count || indexPath.row<0){
+        return nil;
+    }
     static NSString * CellIdentifier = @"MainCell";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    //Event * eventList = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     Event * eventList = [self.tableData objectAtIndex:indexPath.row];
 
     cell.textLabel.text = eventList.name;
@@ -93,22 +94,17 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"selected a specific row");
     UIStoryboard * storyboard = self.storyboard;
-    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+    
+    MapViewController * mapvc = [self.tabBarController.viewControllers objectAtIndex:0];
+    EventsController * vc = mapvc.eventController;
+    if(vc==nil){
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+        mapvc.eventController = vc;
+    }
+    
     NSLog(@"%@",[events objectAtIndex:indexPath.row]);
     [self presentViewController:vc animated:YES completion:nil];
     [vc editEvent:[events objectAtIndex:indexPath.row]];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
 @end

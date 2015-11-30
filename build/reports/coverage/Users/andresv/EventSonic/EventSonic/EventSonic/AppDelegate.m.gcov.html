@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-11-29 16:52:41</td>
+            <td class="headerValue">2015-11-29 17:41:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -160,8 +160,8 @@
 <span class="lineNum">      98 </span>            : 
 <span class="lineNum">      99 </span>            : - (NSManagedObjectContext *)managedObjectContext {
 <span class="lineNum">     100 </span>            :     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
-<span class="lineNum">     101 </span><span class="lineCov">         10 :     if (_managedObjectContext != nil) {</span>
-<span class="lineNum">     102 </span><span class="lineCov">          9 :         return _managedObjectContext;</span>
+<span class="lineNum">     101 </span><span class="lineCov">         11 :     if (_managedObjectContext != nil) {</span>
+<span class="lineNum">     102 </span><span class="lineCov">         10 :         return _managedObjectContext;</span>
 <span class="lineNum">     103 </span>            :     }
 <span class="lineNum">     104 </span>            :     
 <span class="lineNum">     105 </span><span class="lineCov">          1 :     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];</span>
@@ -171,7 +171,7 @@
 <span class="lineNum">     109 </span><span class="lineCov">          1 :     _managedObjectContext = [[NSManagedObjectContext alloc] init];</span>
 <span class="lineNum">     110 </span><span class="lineCov">          1 :     [_managedObjectContext setPersistentStoreCoordinator:coordinator];</span>
 <span class="lineNum">     111 </span><span class="lineCov">          1 :     return _managedObjectContext;</span>
-<span class="lineNum">     112 </span><span class="lineCov">         11 : }</span>
+<span class="lineNum">     112 </span><span class="lineCov">         12 : }</span>
 <span class="lineNum">     113 </span>            : 
 <a name="114"><span class="lineNum">     114 </span>            : #pragma mark - Core Data Saving support</a>
 <span class="lineNum">     115 </span>            : 

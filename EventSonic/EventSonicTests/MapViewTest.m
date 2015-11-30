@@ -81,15 +81,10 @@
     vc.view = testMapView_;
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(15, 15);
     [vc mapView: testMapView_ didTapAtCoordinate:position];
-    NSLog(@"testlocation:%@", vc.eventController.location.text);
     NSString * expected = [NSString stringWithFormat:@"%f %f", position.latitude, position.longitude];
     XCTAssertEqualObjects(vc.eventController.location.text, expected);
 }
 
-//----------mapView didTapInfoWindowOfMarker
--(void)test{
-    
-}
 
 //----------locationManager did Fail With Error
 

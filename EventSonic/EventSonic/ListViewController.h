@@ -22,7 +22,6 @@
 @property Event * eventInfo;//the information from an event requested by the user
 @property NSMutableArray * tableData;//the list of events being shown
 
-
 //core data properties
 @property(nonatomic, readonly) NSManagedObjectContext * managedObjectContext;
 

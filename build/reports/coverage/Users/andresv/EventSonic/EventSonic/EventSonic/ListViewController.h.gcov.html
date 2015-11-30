@@ -31,18 +31,18 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">1</td>
             <td class="headerCovTableEntry">5</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">20.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-11-29 16:52:41</td>
+            <td class="headerValue">2015-11-29 17:41:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">1</td>
             <td class="headerCovTableEntry">10</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">10.0 %</td>
           </tr>
           <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -78,20 +78,19 @@
 <span class="lineNum">      16 </span>            : 
 <a name="17"><span class="lineNum">      17 </span>            : @interface ListViewController : UITableViewController &lt;UITableViewDelegate, UITableViewDataSource&gt;</a>
 <a name="18"><span class="lineNum">      18 </span>            : </a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineNoCov">          0 : @property IBOutlet UITableView * table;//The table that is presented on the view</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">          1 : @property IBOutlet UITableView * table;//The table that is presented on the view</span></a>
 <a name="20"><span class="lineNum">      20 </span><span class="lineNoCov">          0 : @property int eventCount;//number of events currently being displayed to the user</span></a>
 <a name="21"><span class="lineNum">      21 </span><span class="lineNoCov">          0 : @property NSArray * events;//the list of events being shown to the user</span></a>
 <span class="lineNum">      22 </span><span class="lineNoCov">          0 : @property Event * eventInfo;//the information from an event requested by the user</span>
 <span class="lineNum">      23 </span><span class="lineNoCov">          0 : @property NSMutableArray * tableData;//the list of events being shown</span>
 <span class="lineNum">      24 </span>            : 
-<span class="lineNum">      25 </span>            : 
-<span class="lineNum">      26 </span>            : //core data properties
-<span class="lineNum">      27 </span>            : @property(nonatomic, readonly) NSManagedObjectContext * managedObjectContext;
+<span class="lineNum">      25 </span>            : //core data properties
+<span class="lineNum">      26 </span>            : @property(nonatomic, readonly) NSManagedObjectContext * managedObjectContext;
+<span class="lineNum">      27 </span>            : 
 <span class="lineNum">      28 </span>            : 
-<span class="lineNum">      29 </span>            : 
-<span class="lineNum">      30 </span>            : -(IBAction)clickNew:(id) sender;//used When the user does an action in the map view
-<span class="lineNum">      31 </span>            : 
-<span class="lineNum">      32 </span>            : @end
+<span class="lineNum">      29 </span>            : -(IBAction)clickNew:(id) sender;//used When the user does an action in the map view
+<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      31 </span>            : @end
 </pre>
       </td>
     </tr>

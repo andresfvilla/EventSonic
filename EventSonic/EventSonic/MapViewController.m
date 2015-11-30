@@ -53,10 +53,6 @@
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-
-    for(int i =0; i<events.count; i++){
-        NSLog(@"%@", ((Event *)[events objectAtIndex:i]).name);
-    }
     //Clears all the markers from the map
     [mapView_ clear];
     markerList = [[NSMutableArray alloc] init];
@@ -77,19 +73,17 @@
      weird bug, some locations are returning nan as the distanceandbearing miles. Dont know how to fix this yet. gonna begin testing
      */
     for(int i =0; i<events.count; i++){
-                Event * event = [events objectAtIndex:i];
+        Event * event = [events objectAtIndex:i];
         NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         CLLocation * position = [[CLLocation alloc] initWithLatitude:[[latLong objectAtIndex:0] doubleValue] longitude:[[latLong objectAtIndex:1] doubleValue]];
-
-        NSLog(@"Distance i meters mapview: %f, %f", [position distanceFromLocation:manager.location], [desiredRadius doubleValue]);
-                if(([position distanceFromLocation:manager.location]/1609.34)<=[desiredRadius doubleValue]){
-                    GMSMarker *marker = [GMSMarker markerWithPosition:position.coordinate];
-                    marker.title = event.name;
-                    marker.map = mapView_;
-                    marker.userData = event;
-                    marker.snippet = [NSString stringWithFormat:@"When: %@\nWhere: %@\nDistance: %f miles", event.date, event.details, [position distanceFromLocation:position]];
-                    [markerList addObject:marker];
-                }
+        if(([position distanceFromLocation:manager.location]/1609.34)<=[desiredRadius doubleValue]){
+            GMSMarker *marker = [GMSMarker markerWithPosition:position.coordinate];
+            marker.title = event.name;
+            marker.map = mapView_;
+            marker.userData = event;
+            marker.snippet = [NSString stringWithFormat:@"When: %@\nWhere: %@\nDistance: %f miles", event.date, event.details, [position distanceFromLocation:position]];
+            [markerList addObject:marker];
+        }
 
     }
 }
@@ -142,9 +136,11 @@
                 return;
     }
     UIStoryboard * storyboard = self.storyboard;
-    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
-    [self presentViewController:vc animated:YES completion:nil];
-    [vc editEvent:marker.userData];
+    if(eventController==nil){
+        eventController = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+    }
+    [self presentViewController:eventController animated:YES completion:nil];
+    [eventController editEvent:marker.userData];
 }
 
 #pragma mark CLLocationManagerDelegate Methods

@@ -31,18 +31,18 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">49</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">50</td>
+            <td class="headerCovTableEntryLo">24.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-11-29 16:52:41</td>
+            <td class="headerValue">2015-11-29 17:41:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntry">10</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">20.0 %</td>
           </tr>
           <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -82,98 +82,97 @@
 <a name="20"><span class="lineNum">      20 </span>            : </a>
 <span class="lineNum">      21 </span>            : @synthesize events, table, tableData;
 <span class="lineNum">      22 </span>            : - (void)viewDidLoad {
-<span class="lineNum">      23 </span><span class="lineNoCov">          0 :     NSLog(@&quot;loaded the view&quot;);</span>
-<span class="lineNum">      24 </span><span class="lineNoCov">          0 :     [super viewDidLoad];</span>
-<span class="lineNum">      25 </span>            :     // Do any additional setup after loading the view.
-<a name="26"><span class="lineNum">      26 </span><span class="lineNoCov">          0 : }</span></a>
-<span class="lineNum">      27 </span>            : 
-<span class="lineNum">      28 </span>            : -(void)viewDidAppear:(BOOL)animated{
-<span class="lineNum">      29 </span><span class="lineNoCov">          0 :     NSLog(@&quot;did this&quot;);</span>
-<span class="lineNum">      30 </span><span class="lineNoCov">          0 :     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@&quot;Event&quot;];</span>
-<span class="lineNum">      31 </span><span class="lineNoCov">          0 :     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@&quot;name&quot; ascending:YES]];</span>
-<span class="lineNum">      32 </span>            :     
-<span class="lineNum">      33 </span><span class="lineNoCov">          0 :     tableData = [[NSMutableArray alloc] init];</span>
-<span class="lineNum">      34 </span><span class="lineNoCov">          0 :     self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];</span>
-<span class="lineNum">      35 </span><span class="lineNoCov">          0 :     MapViewController * mapvc = [self.tabBarController.viewControllers objectAtIndex:0];</span>
-<span class="lineNum">      36 </span>            : 
-<span class="lineNum">      37 </span><span class="lineNoCov">          0 :     for(int i =0; i&lt;events.count; i++){</span>
-<span class="lineNum">      38 </span><span class="lineNoCov">          0 :         Event * event = [events objectAtIndex:i];</span>
-<span class="lineNum">      39 </span><span class="lineNoCov">          0 :         NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];</span>
-<span class="lineNum">      40 </span><span class="lineNoCov">          0 :         CLLocation * position = [[CLLocation alloc] initWithLatitude:[[latLong objectAtIndex:0] doubleValue] longitude:[[latLong objectAtIndex:1] doubleValue]];</span>
-<span class="lineNum">      41 </span>            :         
-<span class="lineNum">      42 </span><span class="lineNoCov">          0 :         NSLog(@&quot;Distance i meters: %f&quot;, [position distanceFromLocation:mapvc.manager.location]);</span>
-<span class="lineNum">      43 </span><span class="lineNoCov">          0 :         if(([position distanceFromLocation:mapvc.manager.location]/1609.34)&lt;=[mapvc.desiredRadius doubleValue]){</span>
-<span class="lineNum">      44 </span><span class="lineNoCov">          0 :             [tableData addObject:event];</span>
-<span class="lineNum">      45 </span><span class="lineNoCov">          0 :         }</span>
-<span class="lineNum">      46 </span><span class="lineNoCov">          0 :     }</span>
-<span class="lineNum">      47 </span>            : 
-<span class="lineNum">      48 </span><span class="lineNoCov">          0 :     NSLog(@&quot;view appeared&quot;);</span>
-<span class="lineNum">      49 </span>            : 
-<a name="50"><span class="lineNum">      50 </span><span class="lineNoCov">          0 :     [table reloadData];</span></a>
-<span class="lineNum">      51 </span><span class="lineNoCov">          0 : }</span>
-<span class="lineNum">      52 </span>            : -(NSManagedObjectContext *)managedObjectContext{
-<span class="lineNum">      53 </span>            :     //finds the applications appdelegate, casts it to the type of our appdelegate and then it will find the managedobjectcontext
-<span class="lineNum">      54 </span><span class="lineNoCov">          0 :     return [(AppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];</span>
-<a name="55"><span class="lineNum">      55 </span>            : }</a>
-<span class="lineNum">      56 </span>            : 
-<span class="lineNum">      57 </span>            : - (void)didReceiveMemoryWarning {
-<span class="lineNum">      58 </span><span class="lineNoCov">          0 :     [super didReceiveMemoryWarning];</span>
-<span class="lineNum">      59 </span>            :     // Dispose of any resources that can be recreated.
-<a name="60"><span class="lineNum">      60 </span><span class="lineNoCov">          0 : }</span></a>
-<span class="lineNum">      61 </span>            : 
-<span class="lineNum">      62 </span>            : -(IBAction)clickNew:(id)sender{
-<span class="lineNum">      63 </span><span class="lineNoCov">          0 :     UIStoryboard * storyboard = self.storyboard;</span>
-<span class="lineNum">      64 </span><span class="lineNoCov">          0 :     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@&quot;eventView&quot;];</span>
-<span class="lineNum">      65 </span><span class="lineNoCov">          0 :     [self presentViewController:vc animated:YES completion:nil];</span>
-<span class="lineNum">      66 </span><span class="lineNoCov">          0 :     events = vc.events;</span>
-<span class="lineNum">      67 </span><span class="lineNoCov">          0 : }</span>
-<span class="lineNum">      68 </span>            : 
-<span class="lineNum">      69 </span>            : //Table view delegate methods
-<a name="70"><span class="lineNum">      70 </span>            : #pragma mark - Table View data source</a>
-<span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span>            : -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-<span class="lineNum">      73 </span><span class="lineNoCov">          0 :     return 1;</span>
-<a name="74"><span class="lineNum">      74 </span><span class="lineNoCov">          0 : }</span></a>
-<span class="lineNum">      75 </span>            : 
-<span class="lineNum">      76 </span>            : -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-<span class="lineNum">      77 </span>            :    
-<span class="lineNum">      78 </span><span class="lineNoCov">          0 :     return tableData.count;//this needs to be revisited, should be equal to the number of events in the coredata</span>
-<a name="79"><span class="lineNum">      79 </span><span class="lineNoCov">          0 : }</span></a>
-<span class="lineNum">      80 </span>            : 
-<span class="lineNum">      81 </span>            : -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-<span class="lineNum">      82 </span>            :     static NSString * CellIdentifier = @&quot;MainCell&quot;;
-<span class="lineNum">      83 </span><span class="lineNoCov">          0 :     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];</span>
-<span class="lineNum">      84 </span><span class="lineNoCov">          0 :     if(cell == nil){</span>
-<span class="lineNum">      85 </span><span class="lineNoCov">          0 :         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];</span>
-<span class="lineNum">      86 </span><span class="lineNoCov">          0 :     }</span>
-<span class="lineNum">      87 </span>            :     //Event * eventList = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-<span class="lineNum">      88 </span><span class="lineNoCov">          0 :     Event * eventList = [self.tableData objectAtIndex:indexPath.row];</span>
-<span class="lineNum">      89 </span>            : 
-<span class="lineNum">      90 </span><span class="lineNoCov">          0 :     cell.textLabel.text = eventList.name;</span>
-<span class="lineNum">      91 </span>            :     
-<span class="lineNum">      92 </span><span class="lineNoCov">          0 :     return cell;</span>
-<a name="93"><span class="lineNum">      93 </span><span class="lineNoCov">          0 : }</span></a>
-<span class="lineNum">      94 </span>            : 
-<span class="lineNum">      95 </span>            : -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-<span class="lineNum">      96 </span><span class="lineNoCov">          0 :     NSLog(@&quot;selected a specific row&quot;);</span>
-<span class="lineNum">      97 </span><span class="lineNoCov">          0 :     UIStoryboard * storyboard = self.storyboard;</span>
-<span class="lineNum">      98 </span><span class="lineNoCov">          0 :     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@&quot;eventView&quot;];</span>
-<span class="lineNum">      99 </span><span class="lineNoCov">          0 :     NSLog(@&quot;%@&quot;,[events objectAtIndex:indexPath.row]);</span>
-<span class="lineNum">     100 </span><span class="lineNoCov">          0 :     [self presentViewController:vc animated:YES completion:nil];</span>
-<span class="lineNum">     101 </span><span class="lineNoCov">          0 :     [vc editEvent:[events objectAtIndex:indexPath.row]];</span>
-<span class="lineNum">     102 </span><span class="lineNoCov">          0 : }</span>
-<span class="lineNum">     103 </span>            : /*
-<span class="lineNum">     104 </span>            : #pragma mark - Navigation
-<span class="lineNum">     105 </span>            : 
-<span class="lineNum">     106 </span>            : // In a storyboard-based application, you will often want to do a little preparation before navigation
-<span class="lineNum">     107 </span>            : - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-<span class="lineNum">     108 </span>            :     // Get the new view controller using [segue destinationViewController].
-<span class="lineNum">     109 </span>            :     // Pass the selected object to the new view controller.
-<span class="lineNum">     110 </span>            : }
-<span class="lineNum">     111 </span>            : */
+<span class="lineNum">      23 </span><span class="lineCov">          1 :     [super viewDidLoad];</span>
+<span class="lineNum">      24 </span>            :     // Do any additional setup after loading the view.
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">      26 </span>            : 
+<span class="lineNum">      27 </span>            : -(void)viewDidAppear:(BOOL)animated{
+<span class="lineNum">      28 </span><span class="lineNoCov">          0 :     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@&quot;Event&quot;];</span>
+<span class="lineNum">      29 </span><span class="lineNoCov">          0 :     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@&quot;name&quot; ascending:YES]];</span>
+<span class="lineNum">      30 </span>            :     
+<span class="lineNum">      31 </span><span class="lineNoCov">          0 :     tableData = [[NSMutableArray alloc] init];</span>
+<span class="lineNum">      32 </span><span class="lineNoCov">          0 :     self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];</span>
+<span class="lineNum">      33 </span><span class="lineNoCov">          0 :     MapViewController * mapvc = [self.tabBarController.viewControllers objectAtIndex:0];</span>
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span><span class="lineNoCov">          0 :     for(int i =0; i&lt;events.count; i++){</span>
+<span class="lineNum">      36 </span><span class="lineNoCov">          0 :         Event * event = [events objectAtIndex:i];</span>
+<span class="lineNum">      37 </span><span class="lineNoCov">          0 :         NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];</span>
+<span class="lineNum">      38 </span><span class="lineNoCov">          0 :         CLLocation * position = [[CLLocation alloc] initWithLatitude:[[latLong objectAtIndex:0] doubleValue] longitude:[[latLong objectAtIndex:1] doubleValue]];</span>
+<span class="lineNum">      39 </span>            :         
+<span class="lineNum">      40 </span><span class="lineNoCov">          0 :         if(([position distanceFromLocation:mapvc.manager.location]/1609.34)&lt;=[mapvc.desiredRadius doubleValue]){</span>
+<span class="lineNum">      41 </span><span class="lineNoCov">          0 :             [tableData addObject:event];</span>
+<span class="lineNum">      42 </span><span class="lineNoCov">          0 :         }</span>
+<span class="lineNum">      43 </span><span class="lineNoCov">          0 :     }</span>
+<a name="44"><span class="lineNum">      44 </span><span class="lineNoCov">          0 :     [table reloadData];</span></a>
+<span class="lineNum">      45 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">      46 </span>            : -(NSManagedObjectContext *)managedObjectContext{
+<span class="lineNum">      47 </span>            :     //finds the applications appdelegate, casts it to the type of our appdelegate and then it will find the managedobjectcontext
+<span class="lineNum">      48 </span><span class="lineNoCov">          0 :     return [(AppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];</span>
+<a name="49"><span class="lineNum">      49 </span>            : }</a>
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span>            : - (void)didReceiveMemoryWarning {
+<span class="lineNum">      52 </span><span class="lineNoCov">          0 :     [super didReceiveMemoryWarning];</span>
+<span class="lineNum">      53 </span>            :     // Dispose of any resources that can be recreated.
+<a name="54"><span class="lineNum">      54 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      55 </span>            : 
+<span class="lineNum">      56 </span>            : -(IBAction)clickNew:(id)sender{
+<span class="lineNum">      57 </span><span class="lineCov">          1 :     UIStoryboard * storyboard = self.storyboard;</span>
+<span class="lineNum">      58 </span><span class="lineCov">          1 :     MapViewController * mapvc = [self.tabBarController.viewControllers objectAtIndex:0];</span>
+<span class="lineNum">      59 </span><span class="lineCov">          1 :     EventsController * eventController = mapvc.eventController;</span>
+<span class="lineNum">      60 </span><span class="lineCov">          1 :     if(eventController==nil){</span>
+<span class="lineNum">      61 </span><span class="lineCov">          1 :         eventController = [storyboard instantiateViewControllerWithIdentifier:@&quot;eventView&quot;];</span>
+<span class="lineNum">      62 </span><span class="lineCov">          1 :         mapvc.eventController = eventController;</span>
+<span class="lineNum">      63 </span><span class="lineCov">          1 :     }</span>
+<span class="lineNum">      64 </span><span class="lineCov">          1 :     [self presentViewController:eventController animated:YES completion:nil];</span>
+<span class="lineNum">      65 </span><span class="lineCov">          1 :     events = mapvc.events;</span>
+<span class="lineNum">      66 </span><span class="lineCov">          1 : }</span>
+<span class="lineNum">      67 </span>            : 
+<span class="lineNum">      68 </span>            : //Table view delegate methods
+<a name="69"><span class="lineNum">      69 </span>            : #pragma mark - Table View data source</a>
+<span class="lineNum">      70 </span>            : 
+<span class="lineNum">      71 </span>            : -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+<span class="lineNum">      72 </span><span class="lineNoCov">          0 :     return 1;</span>
+<a name="73"><span class="lineNum">      73 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      74 </span>            : 
+<span class="lineNum">      75 </span>            : -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+<span class="lineNum">      76 </span>            :    
+<span class="lineNum">      77 </span><span class="lineNoCov">          0 :     return tableData.count;//this needs to be revisited, should be equal to the number of events in the coredata</span>
+<a name="78"><span class="lineNum">      78 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      79 </span>            : 
+<span class="lineNum">      80 </span>            : -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+<span class="lineNum">      81 </span>            :     static NSString * CellIdentifier = @&quot;MainCell&quot;;
+<span class="lineNum">      82 </span><span class="lineNoCov">          0 :     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];</span>
+<span class="lineNum">      83 </span><span class="lineNoCov">          0 :     if(cell == nil){</span>
+<span class="lineNum">      84 </span><span class="lineNoCov">          0 :         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];</span>
+<span class="lineNum">      85 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">      86 </span>            :     //Event * eventList = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+<span class="lineNum">      87 </span><span class="lineNoCov">          0 :     Event * eventList = [self.tableData objectAtIndex:indexPath.row];</span>
+<span class="lineNum">      88 </span>            : 
+<span class="lineNum">      89 </span><span class="lineNoCov">          0 :     cell.textLabel.text = eventList.name;</span>
+<span class="lineNum">      90 </span>            :     
+<span class="lineNum">      91 </span><span class="lineNoCov">          0 :     return cell;</span>
+<a name="92"><span class="lineNum">      92 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      93 </span>            : 
+<span class="lineNum">      94 </span>            : -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+<span class="lineNum">      95 </span><span class="lineNoCov">          0 :     NSLog(@&quot;selected a specific row&quot;);</span>
+<span class="lineNum">      96 </span><span class="lineNoCov">          0 :     UIStoryboard * storyboard = self.storyboard;</span>
+<span class="lineNum">      97 </span><span class="lineNoCov">          0 :     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@&quot;eventView&quot;];</span>
+<span class="lineNum">      98 </span><span class="lineNoCov">          0 :     NSLog(@&quot;%@&quot;,[events objectAtIndex:indexPath.row]);</span>
+<span class="lineNum">      99 </span><span class="lineNoCov">          0 :     [self presentViewController:vc animated:YES completion:nil];</span>
+<span class="lineNum">     100 </span><span class="lineNoCov">          0 :     [vc editEvent:[events objectAtIndex:indexPath.row]];</span>
+<span class="lineNum">     101 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     102 </span>            : /*
+<span class="lineNum">     103 </span>            : #pragma mark - Navigation
+<span class="lineNum">     104 </span>            : 
+<span class="lineNum">     105 </span>            : // In a storyboard-based application, you will often want to do a little preparation before navigation
+<span class="lineNum">     106 </span>            : - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+<span class="lineNum">     107 </span>            :     // Get the new view controller using [segue destinationViewController].
+<span class="lineNum">     108 </span>            :     // Pass the selected object to the new view controller.
+<span class="lineNum">     109 </span>            : }
+<span class="lineNum">     110 </span>            : */
+<span class="lineNum">     111 </span>            : 
 <span class="lineNum">     112 </span>            : 
-<span class="lineNum">     113 </span>            : 
-<span class="lineNum">     114 </span>            : @end
+<span class="lineNum">     113 </span>            : @end
 </pre>
       </td>
     </tr>

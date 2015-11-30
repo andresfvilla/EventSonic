@@ -1,7 +1,7 @@
 TN:
 SF:/Users/andresv/EventSonic/EventSonic/EventSonic/AccountController.h
-FN:13,-[AccountController username]
 FN:13,-[AccountController setUsername:]
+FN:13,-[AccountController username]
 FNDA:0,-[AccountController username]
 FNDA:0,-[AccountController setUsername:]
 FNF:2
@@ -65,7 +65,7 @@ FNDA:0,-[AppDelegate applicationWillTerminate:]
 FNDA:1,-[AppDelegate applicationDocumentsDirectory]
 FNDA:1,-[AppDelegate managedObjectModel]
 FNDA:1,-[AppDelegate persistentStoreCoordinator]
-FNDA:10,-[AppDelegate managedObjectContext]
+FNDA:11,-[AppDelegate managedObjectContext]
 FNDA:0,-[AppDelegate saveContext]
 FNF:12
 FNH:6
@@ -102,15 +102,15 @@ DA:91,0
 DA:92,0
 DA:95,1
 DA:96,2
-DA:101,10
-DA:102,9
+DA:101,11
+DA:102,10
 DA:105,1
 DA:106,1
 DA:107,0
 DA:109,1
 DA:110,1
 DA:111,1
-DA:112,11
+DA:112,12
 DA:117,0
 DA:118,0
 DA:119,0
@@ -128,41 +128,41 @@ FN:16,-[EventsController setName:]
 FN:16,-[EventsController name]
 FN:17,-[EventsController date]
 FN:17,-[EventsController setDate:]
-FN:18,-[EventsController setLocation:]
 FN:18,-[EventsController location]
+FN:18,-[EventsController setLocation:]
 FN:19,-[EventsController details]
 FN:19,-[EventsController setDetails:]
-FN:20,-[EventsController owner]
 FN:20,-[EventsController setOwner:]
-FN:21,-[EventsController rating]
+FN:20,-[EventsController owner]
 FN:21,-[EventsController setRating:]
+FN:21,-[EventsController rating]
 FN:24,-[EventsController setEvents:]
 FN:24,-[EventsController events]
 FN:25,-[EventsController setManagedObjectContext:]
 FNDA:1,-[EventsController name]
-FNDA:6,-[EventsController setName:]
+FNDA:8,-[EventsController setName:]
 FNDA:1,-[EventsController date]
-FNDA:3,-[EventsController setDate:]
-FNDA:5,-[EventsController location]
-FNDA:6,-[EventsController setLocation:]
+FNDA:4,-[EventsController setDate:]
+FNDA:4,-[EventsController location]
+FNDA:8,-[EventsController setLocation:]
 FNDA:1,-[EventsController details]
-FNDA:6,-[EventsController setDetails:]
+FNDA:8,-[EventsController setDetails:]
 FNDA:0,-[EventsController owner]
 FNDA:0,-[EventsController setOwner:]
 FNDA:0,-[EventsController rating]
 FNDA:0,-[EventsController setRating:]
 FNDA:0,-[EventsController events]
-FNDA:3,-[EventsController setEvents:]
+FNDA:4,-[EventsController setEvents:]
 FNDA:0,-[EventsController setManagedObjectContext:]
 FNF:15
 FNH:9
-DA:16,7
-DA:17,4
-DA:18,11
-DA:19,7
+DA:16,9
+DA:17,5
+DA:18,12
+DA:19,9
 DA:20,0
 DA:21,0
-DA:24,3
+DA:24,4
 DA:25,0
 LF:8
 LH:5
@@ -178,23 +178,23 @@ FN:148,-[EventsController managedObjectContext]
 FN:155,-[EventsController textFieldShouldReturn:]
 FN:166,-[EventsController touchesBegan:withEvent:]
 FNDA:1,-[EventsController .cxx_destruct]
-FNDA:3,-[EventsController viewDidLoad]
+FNDA:4,-[EventsController viewDidLoad]
 FNDA:0,-[EventsController didReceiveMemoryWarning]
 FNDA:2,-[EventsController editEvent:]
 FNDA:0,-[EventsController clickBack:]
 FNDA:1,-[EventsController clickSave:]
-FNDA:7,-[EventsController managedObjectContext]
+FNDA:8,-[EventsController managedObjectContext]
 FNDA:0,-[EventsController textFieldShouldReturn:]
 FNDA:0,-[EventsController touchesBegan:withEvent:]
 FNF:9
 FNH:5
 DA:11,1
-DA:20,3
-DA:21,3
-DA:24,3
-DA:25,3
-DA:26,3
-DA:27,3
+DA:20,4
+DA:21,4
+DA:24,4
+DA:25,4
+DA:26,4
+DA:27,4
 DA:30,0
 DA:32,0
 DA:36,2
@@ -260,7 +260,7 @@ DA:142,0
 DA:143,0
 DA:144,0
 DA:146,3
-DA:150,7
+DA:150,8
 DA:157,0
 DA:158,0
 DA:159,0
@@ -282,14 +282,14 @@ FN:19,-[ListViewController table]
 FN:19,-[ListViewController setTable:]
 FN:20,-[ListViewController setEventCount:]
 FN:20,-[ListViewController eventCount]
-FN:21,-[ListViewController setEvents:]
 FN:21,-[ListViewController events]
-FN:22,-[ListViewController setEventInfo:]
+FN:21,-[ListViewController setEvents:]
 FN:22,-[ListViewController eventInfo]
+FN:22,-[ListViewController setEventInfo:]
 FN:23,-[ListViewController tableData]
 FN:23,-[ListViewController setTableData:]
 FNDA:0,-[ListViewController table]
-FNDA:0,-[ListViewController setTable:]
+FNDA:1,-[ListViewController setTable:]
 FNDA:0,-[ListViewController eventCount]
 FNDA:0,-[ListViewController setEventCount:]
 FNDA:0,-[ListViewController events]
@@ -299,89 +299,90 @@ FNDA:0,-[ListViewController setEventInfo:]
 FNDA:0,-[ListViewController tableData]
 FNDA:0,-[ListViewController setTableData:]
 FNF:10
-FNH:0
-DA:19,0
+FNH:1
+DA:19,1
 DA:20,0
 DA:21,0
 DA:22,0
 DA:23,0
 LF:5
-LH:0
+LH:1
 end_of_record
 SF:/Users/andresv/EventSonic/EventSonic/EventSonic/ListViewController.m
 FN:15,-[ListViewController .cxx_destruct]
 FN:22,-[ListViewController viewDidLoad]
-FN:28,-[ListViewController viewDidAppear:]
-FN:52,-[ListViewController managedObjectContext]
-FN:57,-[ListViewController didReceiveMemoryWarning]
-FN:62,-[ListViewController clickNew:]
-FN:72,-[ListViewController numberOfSectionsInTableView:]
-FN:76,-[ListViewController tableView:numberOfRowsInSection:]
-FN:81,-[ListViewController tableView:cellForRowAtIndexPath:]
-FN:95,-[ListViewController tableView:didSelectRowAtIndexPath:]
+FN:27,-[ListViewController viewDidAppear:]
+FN:46,-[ListViewController managedObjectContext]
+FN:51,-[ListViewController didReceiveMemoryWarning]
+FN:56,-[ListViewController clickNew:]
+FN:71,-[ListViewController numberOfSectionsInTableView:]
+FN:75,-[ListViewController tableView:numberOfRowsInSection:]
+FN:80,-[ListViewController tableView:cellForRowAtIndexPath:]
+FN:94,-[ListViewController tableView:didSelectRowAtIndexPath:]
 FNDA:0,-[ListViewController .cxx_destruct]
-FNDA:0,-[ListViewController viewDidLoad]
+FNDA:1,-[ListViewController viewDidLoad]
 FNDA:0,-[ListViewController viewDidAppear:]
 FNDA:0,-[ListViewController managedObjectContext]
 FNDA:0,-[ListViewController didReceiveMemoryWarning]
-FNDA:0,-[ListViewController clickNew:]
+FNDA:1,-[ListViewController clickNew:]
 FNDA:0,-[ListViewController numberOfSectionsInTableView:]
 FNDA:0,-[ListViewController tableView:numberOfRowsInSection:]
 FNDA:0,-[ListViewController tableView:cellForRowAtIndexPath:]
 FNDA:0,-[ListViewController tableView:didSelectRowAtIndexPath:]
 FNF:10
-FNH:0
+FNH:2
 DA:15,0
-DA:23,0
-DA:24,0
-DA:26,0
+DA:23,1
+DA:25,1
+DA:28,0
 DA:29,0
-DA:30,0
 DA:31,0
+DA:32,0
 DA:33,0
-DA:34,0
 DA:35,0
+DA:36,0
 DA:37,0
 DA:38,0
-DA:39,0
 DA:40,0
+DA:41,0
 DA:42,0
 DA:43,0
 DA:44,0
 DA:45,0
-DA:46,0
 DA:48,0
-DA:50,0
-DA:51,0
+DA:52,0
 DA:54,0
-DA:58,0
-DA:60,0
-DA:63,0
-DA:64,0
-DA:65,0
-DA:66,0
-DA:67,0
+DA:57,1
+DA:58,1
+DA:59,1
+DA:60,1
+DA:61,1
+DA:62,1
+DA:63,1
+DA:64,1
+DA:65,1
+DA:66,1
+DA:72,0
 DA:73,0
-DA:74,0
+DA:77,0
 DA:78,0
-DA:79,0
+DA:82,0
 DA:83,0
 DA:84,0
 DA:85,0
-DA:86,0
-DA:88,0
-DA:90,0
+DA:87,0
+DA:89,0
+DA:91,0
 DA:92,0
-DA:93,0
+DA:95,0
 DA:96,0
 DA:97,0
 DA:98,0
 DA:99,0
 DA:100,0
 DA:101,0
-DA:102,0
-LF:49
-LH:0
+LF:50
+LH:12
 end_of_record
 TN:
 SF:/Users/andresv/EventSonic/EventSonic/EventSonic/MapViewController.h
@@ -389,14 +390,14 @@ FN:20,-[MapViewController manager]
 FN:20,-[MapViewController setManager:]
 FN:22,-[MapViewController desiredRadius]
 FN:22,-[MapViewController setDesiredRadius:]
-FN:23,-[MapViewController eventCount]
 FN:23,-[MapViewController setEventCount:]
+FN:23,-[MapViewController eventCount]
 FN:24,-[MapViewController setEvents:]
 FN:24,-[MapViewController events]
-FN:25,-[MapViewController mapView_]
 FN:25,-[MapViewController setMapView_:]
-FN:26,-[MapViewController setMarkerList:]
+FN:25,-[MapViewController mapView_]
 FN:26,-[MapViewController markerList]
+FN:26,-[MapViewController setMarkerList:]
 FN:27,-[MapViewController eventController]
 FN:27,-[MapViewController setEventController:]
 FNDA:26,-[MapViewController manager]
@@ -409,9 +410,9 @@ FNDA:0,-[MapViewController events]
 FNDA:3,-[MapViewController setEvents:]
 FNDA:0,-[MapViewController mapView_]
 FNDA:0,-[MapViewController setMapView_:]
-FNDA:24,-[MapViewController markerList]
+FNDA:14,-[MapViewController markerList]
 FNDA:0,-[MapViewController setMarkerList:]
-FNDA:2,-[MapViewController eventController]
+FNDA:1,-[MapViewController eventController]
 FNDA:0,-[MapViewController setEventController:]
 FNF:14
 FNH:5
@@ -420,8 +421,8 @@ DA:22,0
 DA:23,0
 DA:24,3
 DA:25,0
-DA:26,24
-DA:27,2
+DA:26,14
+DA:27,1
 LF:7
 LH:4
 end_of_record
@@ -429,16 +430,16 @@ SF:/Users/andresv/EventSonic/EventSonic/EventSonic/MapViewController.m
 FN:15,-[MapViewController .cxx_destruct]
 FN:22,-[MapViewController viewDidLoad]
 FN:50,-[MapViewController viewDidAppear:]
-FN:97,-[MapViewController managedObjectContext]
-FN:102,-[MapViewController didReceiveMemoryWarning]
-FN:108,-[MapViewController setupGoogleMap]
-FN:126,-[MapViewController mapView:didTapAtCoordinate:]
-FN:138,-[MapViewController mapView:didTapInfoWindowOfMarker:]
-FN:153,-[MapViewController locationManager:didFailWithError:]
-FN:165,-[MapViewController alertView:clickedButtonAtIndex:]
-FN:171,-[MapViewController locationManager:didUpdateLocations:]
-FN:178,__56-[MapViewController locationManager:didUpdateLocations:]_block_invoke
-FN:191,-[MapViewController locationManager:didChangeAuthorizationStatus:]
+FN:91,-[MapViewController managedObjectContext]
+FN:96,-[MapViewController didReceiveMemoryWarning]
+FN:102,-[MapViewController setupGoogleMap]
+FN:120,-[MapViewController mapView:didTapAtCoordinate:]
+FN:132,-[MapViewController mapView:didTapInfoWindowOfMarker:]
+FN:149,-[MapViewController locationManager:didFailWithError:]
+FN:161,-[MapViewController alertView:clickedButtonAtIndex:]
+FN:167,-[MapViewController locationManager:didUpdateLocations:]
+FN:174,__56-[MapViewController locationManager:didUpdateLocations:]_block_invoke
+FN:187,-[MapViewController locationManager:didChangeAuthorizationStatus:]
 FNDA:4,-[MapViewController .cxx_destruct]
 FNDA:5,-[MapViewController viewDidLoad]
 FNDA:3,-[MapViewController viewDidAppear:]
@@ -471,79 +472,77 @@ DA:48,5
 DA:52,3
 DA:53,3
 DA:55,3
-DA:57,64
-DA:58,29
-DA:59,29
-DA:61,3
+DA:57,3
+DA:58,3
+DA:61,15
 DA:62,3
+DA:63,3
+DA:64,3
 DA:65,15
-DA:66,3
-DA:67,3
 DA:68,3
-DA:69,15
-DA:72,3
-DA:73,3
-DA:79,64
-DA:80,29
-DA:81,29
-DA:82,29
-DA:84,29
-DA:85,29
-DA:86,87
-DA:87,29
+DA:69,3
+DA:75,64
+DA:76,29
+DA:77,29
+DA:78,29
+DA:79,29
+DA:80,45
+DA:81,15
+DA:82,15
+DA:83,15
+DA:84,15
+DA:85,15
+DA:86,15
 DA:88,29
-DA:89,29
-DA:90,29
-DA:91,29
-DA:92,29
-DA:94,29
-DA:95,3
-DA:99,3
-DA:103,0
+DA:89,3
+DA:93,3
+DA:97,0
+DA:99,0
+DA:104,0
 DA:105,0
+DA:108,0
+DA:109,0
 DA:110,0
 DA:111,0
-DA:114,0
+DA:112,0
 DA:115,0
-DA:116,0
 DA:117,0
-DA:118,0
-DA:121,0
-DA:123,0
+DA:121,1
+DA:122,1
+DA:123,1
+DA:124,1
+DA:125,1
+DA:126,1
 DA:127,1
-DA:128,1
 DA:129,1
-DA:130,1
-DA:131,1
-DA:132,1
-DA:133,1
-DA:135,1
+DA:135,0
+DA:136,0
+DA:138,0
+DA:139,0
+DA:140,0
 DA:141,0
 DA:142,0
+DA:143,0
 DA:144,0
-DA:145,0
-DA:146,0
-DA:147,0
-DA:148,0
+DA:159,0
+DA:162,0
 DA:163,0
-DA:166,0
-DA:167,0
-DA:168,0
-DA:172,1
-DA:173,1
-DA:174,1
+DA:164,0
+DA:168,1
+DA:169,1
+DA:170,1
+DA:172,0
+DA:174,0
 DA:176,0
+DA:177,0
 DA:178,0
 DA:180,0
-DA:181,0
 DA:182,0
+DA:183,0
 DA:184,0
-DA:186,0
-DA:187,0
-DA:188,0
-DA:189,2
-DA:193,1
-DA:195,1
-LF:90
-LH:59
+DA:185,2
+DA:189,1
+DA:191,1
+LF:88
+LH:55
 end_of_record

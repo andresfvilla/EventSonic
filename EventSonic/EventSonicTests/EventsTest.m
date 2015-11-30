@@ -27,11 +27,6 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
-
 
 //-------viewDidLoad
 
@@ -55,34 +50,23 @@
 }
 
 
--(void)testEventSaveWithBadCoordinates{
+//--------validateName
+-(void)testNameValidation{
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
     vc.view.hidden = NO;
-    //[vc viewDidAppear:NO];
-    Event * newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:vc.managedObjectContext];;
-    newEvent.name = @"test";
-    newEvent.date = @"test";
-    newEvent.location = @"200 200";
-    newEvent.details = @"test";
-    [vc editEvent:newEvent];
     
-    [vc clickSave:nil];
-    Class UIAlertManager = objc_getClass("_UIAlertManager");
-    UIAlertView *topMostAlert = [UIAlertManager performSelector:@selector(topMostAlert)];
-    NSLog(@"Title of Alert:%@",topMostAlert.title);
+    BOOL valid = [vc validateName:@"testName"];
+    XCTAssert(valid, @"expected to be valid");
 }
 
-
-//--------clickBack
-
-//--------clickSave
-
-
-
-//-------textFieldShouldReturn
-
-
-//--------touchesbegan with event
+-(void)testBadLocationValidation{
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+    vc.view.hidden = NO;
+    
+    BOOL valid = [vc validatelocation:@"1, 2"];
+    XCTAssert(!valid, @"expected to be invalid");
+}
 
 @end
