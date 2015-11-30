@@ -83,7 +83,6 @@
     NSIndexPath * path = [NSIndexPath indexPathForRow:0 inSection:1];
     [vc tableView:vc.tableView didSelectRowAtIndexPath:path];
     
-    //[vc clickNew:nil];
     MapViewController * mapvc = [vc.tabBarController.viewControllers objectAtIndex:0];
 
     XCTAssertEqual(mapvc.eventController.view.hidden, NO);
