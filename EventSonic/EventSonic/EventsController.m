@@ -27,13 +27,13 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    AccountController * accountvc = [self.tabBarController.viewControllers objectAtIndex:2];
     //[self presentViewController:accountvc animated:YES completion:nil];
-    NSLog(@"%@", accountvc);
     if([GIDSignIn sharedInstance].currentUser.authentication != nil){
+        if(!editing){
         NSLog(@"testing this check");
         NSLog(@"%@", [GIDSignIn sharedInstance].currentUser.profile.name);
         owner.text = [GIDSignIn sharedInstance].currentUser.profile.name ;
+        }
     }
 
 }
@@ -49,6 +49,7 @@
     date.text = event.date;
     location.text = event.location;
     owner.text = event.owner;
+    NSLog(@"owner.text:%@", event.owner);
     rating.text = [NSString stringWithFormat:@"%@",event.rating];
     details.text = event.details;
     updatingEvent = event;
@@ -68,10 +69,22 @@
 }
 
 - (IBAction)clickSave:(id)sender{
-    AccountController * accountvc = [self.tabBarController.viewControllers objectAtIndex:2];
-    if(accountvc.currentUser==nil){
+    if([owner.text isEqualToString:@""]){
+        editing=NO;
+        name.enabled = YES;
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Please sign in"
-                                                        message:@"Please view the account tab and sign in with a google account if you wish to create events"
+                                                        message:@"If you would like to create events, please sign in"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    if(![[GIDSignIn sharedInstance].currentUser.profile.name isEqualToString:owner.text]){
+        editing=NO;
+        name.enabled = YES;
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"You cannot save this event"
+                                                        message:@"Only the owner of this event can modiy it"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles: nil];
@@ -88,6 +101,8 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles: nil];
         [alert show];
+        editing=NO;
+        name.enabled = YES;
         return;
     }
     //if updating an existing event. will delete the current instance of the object in order to prevent duplicates in core data
@@ -106,6 +121,8 @@
         for(int i =0; i<arr.count; i++){
             Event * e = [arr objectAtIndex:i];
             if(![self validateName:e.name]){
+                editing=NO;
+                name.enabled = YES;
                 return;
             }
         }
@@ -121,8 +138,7 @@
     newEvent.name = name.text;
     newEvent.date = date.text;
     newEvent.location = location.text;
-    //newEvent.owner = owner.text;
-    newEvent.owner = accountvc.currentUser;
+    newEvent.owner = owner.text;
     newEvent.rating = rating.text;
     newEvent.details = details.text;
     //**we need the ownedby field to be set**
