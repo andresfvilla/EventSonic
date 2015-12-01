@@ -68,10 +68,6 @@
     mapView_.camera = camera;
     [markerList addObject:marker];
     //will show the markers for the events, shows when, where, and the distance to that event from the users current location
-    
-    /*
-     weird bug, some locations are returning nan as the distanceandbearing miles. Dont know how to fix this yet. gonna begin testing
-     */
     for(int i =0; i<events.count; i++){
         Event * event = [events objectAtIndex:i];
         NSArray * latLong = [event.location componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -81,7 +77,7 @@
             marker.title = event.name;
             marker.map = mapView_;
             marker.userData = event;
-            marker.snippet = [NSString stringWithFormat:@"When: %@\nWhere: %@\nDistance: %f miles", event.date, event.details, [position distanceFromLocation:manager.location]/1609.34];
+            marker.snippet = [NSString stringWithFormat:@"When: %@\nWhere: %@\nDistance: %f miles", event.date, event.details, [position distanceFromLocation:manager.location]];
             [markerList addObject:marker];
         }
 

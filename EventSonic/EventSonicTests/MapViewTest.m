@@ -56,15 +56,11 @@
 
 }
 
-//----------ManagedObjectContext
-
-
 //----------setupGoogleMap
 -(void)testGoogleMap{
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MapViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"mapView"];
     vc.view.hidden = NO;
-    
 }
 
 
@@ -85,12 +81,6 @@
     XCTAssertEqualObjects(vc.eventController.location.text, expected);
 }
 
-
-//----------locationManager did Fail With Error
-
-
-//----------alerView clickedButtonAtIndex
-
 //----------locationmanager didupdatelocations
 -(void)testUpdateLocations{
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -100,8 +90,5 @@
     [vc locationManager:vc.manager didUpdateLocations:[[NSArray alloc] initWithObjects:@"not a location", nil]];
     //ensures that no exception is thrown, and no state is changed
 }
-
-//----------locationmanaer didchangeauthorizationstatus
-
 
 @end

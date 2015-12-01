@@ -28,9 +28,6 @@
 }
 
 
-//-------viewDidLoad
-
-
 //-------editEvent
 -(void)testEventEdit{
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -43,6 +40,7 @@
     newEvent.location = @"1 1";
     newEvent.details = @"test";
     [vc editEvent:newEvent];
+    //Expecting vc.<text>.<fields> has the same data from the event
     XCTAssertEqualObjects(newEvent.name, vc.name.text);
     XCTAssertEqualObjects(newEvent.date, vc.date.text);
     XCTAssertEqualObjects(newEvent.location, vc.location.text);

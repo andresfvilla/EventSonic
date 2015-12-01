@@ -27,8 +27,6 @@
     [super tearDown];
 }
 
-//------viewDidAppear
-
 
 //------clickNew
 -(void)testNewEvent{
@@ -43,9 +41,6 @@
     
     
 }
-
-
-//-----numbersofsectionsintableview
 
 
 //if one object exists, should only have 1 row to populate
