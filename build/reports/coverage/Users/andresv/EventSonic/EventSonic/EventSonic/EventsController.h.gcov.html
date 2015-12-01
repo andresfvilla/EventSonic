@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-11-29 17:41:40</td>
+            <td class="headerValue">2015-11-30 22:04:57</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">9</td>
@@ -75,22 +75,28 @@
 <span class="lineNum">      13 </span>            : 
 <a name="14"><span class="lineNum">      14 </span>            : @interface EventsController : UIViewController</a>
 <a name="15"><span class="lineNum">      15 </span>            : </a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">          9 : @property IBOutlet UITextField * name;//The name text field</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          5 : @property IBOutlet UITextField * date;//the date text field</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">         12 : @property IBOutlet UITextField * location;//the location text field</span></a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">          9 : @property IBOutlet UITextField * details;//the details text field</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">         14 : @property IBOutlet UITextField * name;//The name text field</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          7 : @property IBOutlet UITextField * date;//the date text field</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">         16 : @property IBOutlet UITextField * location;//the location text field</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">         13 : @property IBOutlet UITextField * details;//the details text field</span></a>
 <span class="lineNum">      20 </span><span class="lineNoCov">          0 : @property IBOutlet UILabel * owner;//Cannot be modified by the user</span>
 <span class="lineNum">      21 </span><span class="lineNoCov">          0 : @property IBOutlet UILabel * rating;//Cannot be modified by the use</span>
 <a name="22"><span class="lineNum">      22 </span>            : </a>
 <a name="23"><span class="lineNum">      23 </span>            : //talking with core data</a>
-<span class="lineNum">      24 </span><span class="lineCov">          4 : @property NSArray * events;//the list of events returned from a fetch request</span>
+<span class="lineNum">      24 </span><span class="lineCov">          6 : @property NSArray * events;//the list of events returned from a fetch request</span>
 <span class="lineNum">      25 </span><span class="lineNoCov">          0 : @property NSManagedObjectContext * managedObjectContext;//the context for coredata, manages the ojects stored</span>
 <span class="lineNum">      26 </span>            : 
 <span class="lineNum">      27 </span>            : - (IBAction)clickBack:(id)sender;//called when the back button is clicked, dismisses the current view
 <span class="lineNum">      28 </span>            : - (IBAction)clickSave:(id)sender;//used to save a new object to CoreData
 <span class="lineNum">      29 </span>            : - (IBAction)editEvent:(Event *) event;//used when the user decides to modify or update an event
 <span class="lineNum">      30 </span>            : 
-<span class="lineNum">      31 </span>            : @end
+<span class="lineNum">      31 </span>            : //Searches to ensure that the location is entered properly(Recommended to use the map view to create events)
+<span class="lineNum">      32 </span>            : -(BOOL)validatelocation:(NSString *)location;
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : //Searches to ensure no event containt the same name as the new event
+<span class="lineNum">      35 </span>            : -(BOOL)validateName:(NSString *) name;
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : @end
 </pre>
       </td>
     </tr>

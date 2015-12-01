@@ -8,9 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-@interface AccountController : UITableViewController
+#import <Google/SignIn.h>
 
-@property NSString * username;
+// [START viewcontroller_interfaces]
+@interface AccountController : UIViewController <GIDSignInUIDelegate>
+// [END viewcontroller_interfaces]
 
--(void) click:(UIButton *) b;//used for when the user presses a button. Processes info like logging in and user settings
+// [START viewcontroller_vars]
+@property (weak, nonatomic) IBOutlet GIDSignInButton *signInButton;
+@property (weak, nonatomic) IBOutlet UIButton *signOutButton;
+@property (weak, nonatomic) IBOutlet UIButton *disconnectButton;
+@property (weak, nonatomic) IBOutlet UILabel *statusText;
+// [END viewcontroller_vars]
+@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePic;
+
 @end

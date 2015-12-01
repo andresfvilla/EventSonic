@@ -22,6 +22,7 @@
 		047AF47A1C07B65F0015AA02 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047AF4791C07B65F0015AA02 /* CoreData.framework */; };
 		04BD88F81C080508000092FE /* Account.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BD88F71C080508000092FE /* Account.json */; };
 		04BD88FA1C080536000092FE /* Event.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BD88F91C080536000092FE /* Event.json */; };
+		04C63DB11C0D3C43000A3F0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C63DB01C0D3C43000A3F0C /* GoogleService-Info.plist */; };
 		04EC191B1C08E6B800F3BC56 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC191A1C08E6B800F3BC56 /* Event.m */; };
 		04EC191E1C08E6B900F3BC56 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC191D1C08E6B900F3BC56 /* Account.m */; };
 		04EC19221C0A5F8D00F3BC56 /* MapViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC19211C0A5F8D00F3BC56 /* MapViewTest.m */; };
@@ -69,6 +70,7 @@
 		047AF4791C07B65F0015AA02 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		04BD88F71C080508000092FE /* Account.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Account.json; sourceTree = "<group>"; };
 		04BD88F91C080536000092FE /* Event.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.json; sourceTree = "<group>"; };
+		04C63DB01C0D3C43000A3F0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04EC19191C08E6B800F3BC56 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
 		04EC191A1C08E6B800F3BC56 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
 		04EC191C1C08E6B900F3BC56 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = ../Account.h; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		04576AF61C0659F5007E552A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04C63DB01C0D3C43000A3F0C /* GoogleService-Info.plist */,
 				04576AF71C0659F5007E552A /* Info.plist */,
 				04576AF81C0659F5007E552A /* main.m */,
 			);
@@ -320,6 +323,7 @@
 				04BD88FA1C080536000092FE /* Event.json in Resources */,
 				04BD88F81C080508000092FE /* Account.json in Resources */,
 				04576B071C0659F5007E552A /* Images.xcassets in Resources */,
+				04C63DB11C0D3C43000A3F0C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +554,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -566,7 +570,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

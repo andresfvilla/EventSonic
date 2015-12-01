@@ -2,7 +2,7 @@
 //  Account.m
 //  EventSonic
 //
-//  Created by Andres Villa on 11/27/15.
+//  Created by Andres Villa on 11/30/15.
 //  Copyright (c) 2015 Andres Villa. All rights reserved.
 //
 
@@ -13,7 +13,6 @@
 @implementation Account
 
 @dynamic deviceid;
-@dynamic password;
 @dynamic username;
 @dynamic eventsOwned;
 
