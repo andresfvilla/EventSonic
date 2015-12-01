@@ -30,8 +30,6 @@
     //[self presentViewController:accountvc animated:YES completion:nil];
     if([GIDSignIn sharedInstance].currentUser.authentication != nil){
         if(!editing){
-        NSLog(@"testing this check");
-        NSLog(@"%@", [GIDSignIn sharedInstance].currentUser.profile.name);
         owner.text = [GIDSignIn sharedInstance].currentUser.profile.name ;
         }
     }
@@ -49,7 +47,6 @@
     date.text = event.date;
     location.text = event.location;
     owner.text = event.owner;
-    NSLog(@"owner.text:%@", event.owner);
     rating.text = [NSString stringWithFormat:@"%@",event.rating];
     details.text = event.details;
     updatingEvent = event;
