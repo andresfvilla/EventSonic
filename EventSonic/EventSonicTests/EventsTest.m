@@ -67,4 +67,15 @@
     XCTAssert(!valid, @"expected to be invalid");
 }
 
+
+-(void) testNameValidationWithBadName{
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    EventsController * vc = [storyboard instantiateViewControllerWithIdentifier:@"eventView"];
+    vc.view.hidden = NO;
+    
+    BOOL valid = [vc validateName:@"     "];
+    XCTAssert(!valid, @"expected to be invalid");
+    
+
+}
 @end

@@ -14,6 +14,7 @@
 
 @dynamic deviceid;
 @dynamic username;
+@dynamic userkey;
 @dynamic eventsOwned;
 
 @end

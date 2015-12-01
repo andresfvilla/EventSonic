@@ -125,7 +125,7 @@
 
 }
 
-//
+
 -(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker{
     //If the user taps the popup window for a marker, it will take him to the events page, containing all the info for that marker.
     //If the marker is titles "You Are Here", that is not an event. That is simply the location of the User

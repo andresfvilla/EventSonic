@@ -23,7 +23,7 @@
 		04BD88F81C080508000092FE /* Account.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BD88F71C080508000092FE /* Account.json */; };
 		04BD88FA1C080536000092FE /* Event.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BD88F91C080536000092FE /* Event.json */; };
 		04C63DB11C0D3C43000A3F0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C63DB01C0D3C43000A3F0C /* GoogleService-Info.plist */; };
-		04C63DB41C0D4925000A3F0C /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C63DB31C0D4925000A3F0C /* Account.m */; };
+		04C63DBA1C0D5B75000A3F0C /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C63DB91C0D5B75000A3F0C /* Account.m */; };
 		04EC191B1C08E6B800F3BC56 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC191A1C08E6B800F3BC56 /* Event.m */; };
 		04EC19221C0A5F8D00F3BC56 /* MapViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC19211C0A5F8D00F3BC56 /* MapViewTest.m */; };
 		04EC19251C0A622A00F3BC56 /* ListViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC19241C0A622A00F3BC56 /* ListViewTest.m */; };
@@ -71,8 +71,8 @@
 		04BD88F71C080508000092FE /* Account.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Account.json; sourceTree = "<group>"; };
 		04BD88F91C080536000092FE /* Event.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.json; sourceTree = "<group>"; };
 		04C63DB01C0D3C43000A3F0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		04C63DB21C0D4925000A3F0C /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = ../Account.h; sourceTree = "<group>"; };
-		04C63DB31C0D4925000A3F0C /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = ../Account.m; sourceTree = "<group>"; };
+		04C63DB81C0D5B75000A3F0C /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = ../Account.h; sourceTree = "<group>"; };
+		04C63DB91C0D5B75000A3F0C /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = ../Account.m; sourceTree = "<group>"; };
 		04EC19191C08E6B800F3BC56 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
 		04EC191A1C08E6B800F3BC56 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
 		04EC19211C0A5F8D00F3BC56 /* MapViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewTest.m; sourceTree = "<group>"; };
@@ -191,8 +191,8 @@
 		04EC19201C0A5C2B00F3BC56 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				04C63DB21C0D4925000A3F0C /* Account.h */,
-				04C63DB31C0D4925000A3F0C /* Account.m */,
+				04C63DB81C0D5B75000A3F0C /* Account.h */,
+				04C63DB91C0D5B75000A3F0C /* Account.m */,
 				04EC19191C08E6B800F3BC56 /* Event.h */,
 				04EC191A1C08E6B800F3BC56 /* Event.m */,
 				04BD88F91C080536000092FE /* Event.json */,
@@ -404,7 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04C63DB41C0D4925000A3F0C /* Account.m in Sources */,
+				04C63DBA1C0D5B75000A3F0C /* Account.m in Sources */,
 				04EC191B1C08E6B800F3BC56 /* Event.m in Sources */,
 				043F78F41C0752C400AAA723 /* AccountController.m in Sources */,
 				04576AFC1C0659F5007E552A /* AppDelegate.m in Sources */,

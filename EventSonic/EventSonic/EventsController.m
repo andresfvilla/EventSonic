@@ -26,6 +26,18 @@
     self.events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];//populates the events list 
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    AccountController * accountvc = [self.tabBarController.viewControllers objectAtIndex:2];
+    //[self presentViewController:accountvc animated:YES completion:nil];
+    NSLog(@"%@", accountvc);
+    if([GIDSignIn sharedInstance].currentUser.authentication != nil){
+        NSLog(@"testing this check");
+        NSLog(@"%@", [GIDSignIn sharedInstance].currentUser.profile.name);
+        owner.text = [GIDSignIn sharedInstance].currentUser.profile.name ;
+    }
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -56,6 +68,16 @@
 }
 
 - (IBAction)clickSave:(id)sender{
+    AccountController * accountvc = [self.tabBarController.viewControllers objectAtIndex:2];
+    if(accountvc.currentUser==nil){
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Please sign in"
+                                                        message:@"Please view the account tab and sign in with a google account if you wish to create events"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
     if([[name.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[@"" stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]){
         
         editing=NO;
@@ -91,6 +113,7 @@
     if(![self validatelocation:location.text]){
         return;
     }
+    
 
     //creates the object that will be stored
     Event * newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
@@ -98,7 +121,8 @@
     newEvent.name = name.text;
     newEvent.date = date.text;
     newEvent.location = location.text;
-    newEvent.owner = owner.text;
+    //newEvent.owner = owner.text;
+    newEvent.owner = accountvc.currentUser;
     newEvent.rating = rating.text;
     newEvent.details = details.text;
     //**we need the ownedby field to be set**

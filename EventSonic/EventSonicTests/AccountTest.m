@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "AccountController.h"
+#import <Google/SignIn.h>
+#import "AppDelegate.h"
 
 @interface AccountTest : XCTestCase
 
@@ -25,5 +28,14 @@
     [super tearDown];
 }
 
+-(void)testAuthUI{
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AccountController * vc = [storyboard instantiateViewControllerWithIdentifier:@"accountView"];
+    vc.view.hidden = NO;//this will call view did load, should not auto sign in
+    
+    XCTAssertEqual(vc.signInButton.hidden, NO);
+    XCTAssertEqual(vc.signOutButton.hidden, YES);
+    XCTAssertEqual(vc.profilePic.hidden, YES);
+}
 
 @end

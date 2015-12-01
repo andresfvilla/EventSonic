@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "Event.h"
 #import "AppDelegate.h"
+#import "AccountController.h"
+#import <Google/SignIn.h>
 
 @interface EventsController : UIViewController
 

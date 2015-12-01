@@ -62,17 +62,18 @@
         self.welcomeLabel.text = [NSString stringWithFormat:@"Sign in stranger"];
         self.signInButton.hidden = NO;
         self.signOutButton.hidden = YES;
-        self.disconnectButton.hidden = YES;
         self.profilePic.hidden = YES;
     } else {
         // Signed in
         self.signInButton.hidden = YES;
         self.signOutButton.hidden = NO;
-        self.disconnectButton.hidden = NO;
+        self.currentUser = [NSString stringWithFormat:@"Welcome %@",[GIDSignIn sharedInstance].currentUser.profile.name];
+        self.currentUserKey = [NSString stringWithFormat:@"Welcome %@",[GIDSignIn sharedInstance].currentUser.authentication.idToken];
         NSURL *profilePicURL = [[[GIDSignIn sharedInstance].currentUser profile]imageURLWithDimension:175];
         self.profilePic.image =[UIImage imageWithData: [NSData dataWithContentsOfURL:profilePicURL]];
         self.profilePic.hidden = NO;
         self.welcomeLabel.text = [NSString stringWithFormat:@"Welcome %@",[GIDSignIn sharedInstance].currentUser.profile.name];
+        [self verifyDeviceID];
     }
 }
 // [END toggle_auth]
@@ -96,8 +97,36 @@
     }
 }
 
+-(NSManagedObjectContext *)managedObjectContext{
+    //finds the applications appdelegate, casts it to the type of our appdelegate and then it will find the managedobjectcontext
+    return [(AppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];
+}
 
 -(void)verifyDeviceID{
+    
+    NSString * identifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    
+    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"username" ascending:YES]];
+    NSArray * arr = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSMutableArray * array = [[NSMutableArray alloc] initWithArray:arr];
+    for(int i =0; i<array.count; i++){
+        if([((Account *)[array objectAtIndex:i]).username isEqualToString:[GIDSignIn sharedInstance].currentUser.profile.name] && ![identifier isEqualToString:((Account *)[array objectAtIndex:i]).deviceid]){
+            NSLog(@"mismatch id's, send the email");
+            [self didTapSignOut:nil];
+            return;
+        }
+    }
+    
+    Account * newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:self.managedObjectContext];
+    newAccount.userkey =[GIDSignIn sharedInstance].currentUser.authentication.idToken;
+    newAccount.username = [GIDSignIn sharedInstance].currentUser.profile.name;
+    newAccount.deviceid = identifier;
+    [array addObject:newAccount];
+    arr = [NSArray arrayWithArray:array];
+    [self.managedObjectContext save:nil];
+    
+    NSLog(@"%@",newAccount.deviceid);
     /*
      fetchRequest
      array = [fetchrequest execut];

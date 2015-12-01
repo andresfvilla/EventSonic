@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import <Google/SignIn.h>
+#import "AppDelegate.h"
+#import "Account.h"
 
 // [START viewcontroller_interfaces]
 @interface AccountController : UIViewController <GIDSignInUIDelegate>
@@ -19,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *signOutButton;
 @property (weak, nonatomic) IBOutlet UIButton *disconnectButton;
 @property (weak, nonatomic) IBOutlet UILabel *statusText;
+@property NSString * currentUser;//the current users name "Alex Henao"
+@property NSString * currentUserKey;//the current users hash value from google api
 // [END viewcontroller_vars]
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;

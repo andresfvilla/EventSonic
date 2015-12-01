@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14F27" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Account" representedClassName="Account" syncable="YES">
-        <attribute name="deviceid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="deviceid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userkey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="eventsOwned" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="ownedBy" inverseEntity="Event" syncable="YES"/>
     </entity>
@@ -15,7 +16,7 @@
         <relationship name="ownedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="eventsOwned" inverseEntity="Account" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Account" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="Account" positionX="-54" positionY="-9" width="128" height="105"/>
         <element name="Event" positionX="-317" positionY="-69" width="128" height="150"/>
     </elements>
 </model>

@@ -13,8 +13,9 @@
 
 @interface Account : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * deviceid;
+@property (nonatomic, retain) NSString * deviceid;
 @property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSString * userkey;
 @property (nonatomic, retain) NSSet *eventsOwned;
 @end
 
