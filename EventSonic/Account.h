@@ -11,24 +11,42 @@
 
 @class Event;
 
-@interface Account : NSManagedObject
 
+/*!
+ @class Account
+ Class which receives notifcations when the UIApplication object reaches certain states.
+ */@interface Account : NSManagedObject
+
+
+/*!
+ * @brief This is used to store the currentUser deviceID
+ */
 @property (nonatomic, retain) NSString * deviceid;
+
+/*!
+ * @brief This is used to store the currentUser username
+ */
 @property (nonatomic, retain) NSString * username;
+
+/*!
+ * @brief This is used to store the currentUser userkey
+ */
 @property (nonatomic, retain) NSString * userkey;
+
+/*!
+ * @brief This is used to store the currentUser events
+ */
 @property (nonatomic, retain) NSSet *eventsOwned;
 @end
 
 @interface Account (CoreDataGeneratedAccessors)
 
-/*!
- * @discussion Used to add EventObjects to core data
- * @param firstNumber An NSInteger to be used in the summation of two numbers
- * @return void
- */
 - (void)addEventsOwnedObject:(Event *)value;
+
 - (void)removeEventsOwnedObject:(Event *)value;
+
 - (void)addEventsOwned:(NSSet *)values;
+
 - (void)removeEventsOwned:(NSSet *)values;
 
 @end
