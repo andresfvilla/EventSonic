@@ -14,16 +14,43 @@
 #import "AppDelegate.h"
 #import "EventsController.h"
 
+/*!
+ @class AppDelegate
+ Controller class for the MapView
+ */
 @interface MapViewController : UIViewController <CLLocationManagerDelegate, GMSMapViewDelegate, UIAlertViewDelegate>
 
-//this is for the location of the user
+/*!
+ *@brief this is for the location of the user
+ */
 @property(nonatomic, strong) CLLocationManager * manager;
-//This is the radius for which markers will appear(distance from the user such that the markers are visible)
+
+/*!
+ *@brief This is the radius for which markers will appear(distance from the user such that the markers are visible) 
+ */
 @property NSNumber * desiredRadius;
-@property int eventCount;//number of events currently being displayed to the user
-@property NSArray * events;//the list of events being shown to the user
-@property GMSMapView *mapView_;//the map view object, shows google maps and its markers
-@property NSMutableArray * markerList;//the list of markers being shown
+
+/*!
+ *@brief number of events currently being displayed to the user
+ */
+@property int eventCount;
+
+/*!
+ *@brief the list of events being shown to the user
+ */
+@property NSArray * events;//
+
+/*!
+ *@brief The map view object, shows google maps and its markers
+ */
+@property GMSMapView *mapView_;
+
+/*!
+ *@brief This is the list of markers being shown
+ */
+@property NSMutableArray * markerList;//
+
+
 @property(strong)EventsController * eventController;
 
 

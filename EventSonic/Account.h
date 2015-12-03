@@ -21,6 +21,11 @@
 
 @interface Account (CoreDataGeneratedAccessors)
 
+/*!
+ * @discussion Used to add EventObjects to core data
+ * @param firstNumber An NSInteger to be used in the summation of two numbers
+ * @return void
+ */
 - (void)addEventsOwnedObject:(Event *)value;
 - (void)removeEventsOwnedObject:(Event *)value;
 - (void)addEventsOwned:(NSSet *)values;
