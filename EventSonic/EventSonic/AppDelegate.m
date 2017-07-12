@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [GMSServices provideAPIKey:@"AIzaSyCptcXEIK3QAxhyvYGPYUWuUoyvdZEb9kw"];
+    [GMSServices provideAPIKey:@<insertAppKey>];
     
     NSError* configureError;
     [[GGLContext sharedInstance] configureWithError: &configureError];
